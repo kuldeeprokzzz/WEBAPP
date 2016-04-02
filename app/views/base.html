@@ -77,7 +77,7 @@
             <aside class="side-left">
                 <ul class="sidebar">
                     <li>
-                        <a href="/dashboard">
+                        <a href="#/dashboard">
                             <i class="sidebar-icon fa fa-home"></i>
                             <span class="sidebar-text">Dashboard</span>
                         </a>
@@ -131,7 +131,225 @@
                     <h2 class = "content-Info"><i class="fa fa-home"></i> Welcome to Inloop</h2>
                 </div><!--/content-header -->
                 
-                
+                <div class="content-body">
+                    
+
+
+        
+                    <!-- DASHBOARD
+                    ================================================== -->
+                    <!-- Dashboard  -->
+                    <div id="error-placement"></div>
+                    <div class="row margin-top">
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div id="system-stats" class="tab-pane fade active in">
+                                <div class="col-md-4">
+                                    <div id="overall-visitor" class="panel panel-animated panel-primary bg-primary">
+                                        <div class="panel-body">
+                                            <div class="panel-actions-fly">
+                                                <button data-refresh="#overall-visitor" data-error-place="#error-placement" title="refresh" class="btn-panel">
+                                                    <i class="glyphicon glyphicon-refresh"></i>
+                                                </button><!--/btn-panel-->
+                                                <a href="#" title="Go to system stats page" class="btn-panel">
+                                                    <i class="glyphicon glyphicon-stats"></i>
+                                                </a><!--/btn-panel-->
+                                            </div><!--/panel-action-fly-->
+
+                                            <p class="lead">Jobs</p><!--/lead as title-->
+
+                                            <ul class="list-percentages row">
+                                                <li class="col-xs-4">
+                                                    <p class="text-ellipsis">Monthly</p>
+                                                    <p class="text-lg"><strong>765,298</strong></p>
+                                                </li>
+                                                <li class="col-xs-4">
+                                                    <p class="text-ellipsis">Weekly</p>
+                                                    <p class="text-lg"><strong>1,765</strong></p>
+                                                </li>
+                                                <li class="col-xs-4">
+                                                    <p class="text-ellipsis">Today</p>
+                                                    <p class="text-lg"><strong>563</strong></p>
+                                                </li>
+                                            </ul><!--/list-percentages-->
+                                            <p class="helper-block">
+                                                <div class="progress progress-xs progress-flat progress-inverse-inverse">
+                                                    <div class="progress-bar progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                                        <span class="sr-only">60% Complete (inverse)</span>
+                                                    </div>
+                                                </div>
+                                                <p class="text-ellipsis"><i class="fa fa-caret-up"></i> 654 &nbsp;&nbsp; +21<sup>%</sup> <small>Looks Good!, up from last month</small></p>
+                                            </p><!--/help-block-->
+                                        </div><!--/panel-body-->
+                                    </div><!--/panel overal-visitor-->
+                                </div><!--/cols-->
+
+                                <div class="col-md-4">
+                                    <div id="overall-users" class="panel panel-animated panel-success bg-success">
+                                        <div class="panel-body">
+                                            <div class="panel-actions-fly">
+                                                <button data-refresh="#overall-users" data-error-place="#error-placement" title="refresh" class="btn-panel">
+                                                    <i class="glyphicon glyphicon-refresh"></i>
+                                                </button><!--/btn-panel-->
+                                                <a href="#" title="Go to system stats page" class="btn-panel">
+                                                    <i class="glyphicon glyphicon-stats"></i>
+                                                </a><!--/btn-panel-->
+                                            </div><!--/panel-action-fly-->
+
+                                            <p class="lead">Billing</p><!--/lead as title-->
+
+                                            <ul class="list-percentages row">
+                                                <li class="col-xs-4">
+                                                    <p class="text-ellipsis">All Users</p>
+                                                    <p class="text-lg"><strong>1437</strong></p>
+                                                </li>
+                                                <li class="col-xs-4">
+                                                    <p class="text-ellipsis">Last Month</p>
+                                                    <p class="text-lg"><strong>287</strong></p>
+                                                </li>
+                                                <li class="col-xs-4">
+                                                    <p class="text-ellipsis">New Users</p>
+                                                    <p class="text-lg"><strong>87</strong></p>
+                                                </li>
+                                            </ul><!--/list-percentages-->
+                                            <p class="helper-block">
+                                                <div class="progress progress-xs progress-flat progress-inverse-inverse">
+                                                    <div class="progress-bar progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                                        <span class="sr-only">60% Complete (inverse)</span>
+                                                    </div>
+                                                </div>
+                                                <p class="text-ellipsis"><i class="fa fa-caret-up"></i> 63 &nbsp;&nbsp; +8<sup>%</sup> <small>Looks Good!, up from last month</small></p>
+                                            </p><!--/help-block-->
+                                        </div><!--/panel-body-->
+                                    </div><!--/panel overal-users-->
+                                </div><!--/cols-->
+
+                                <div class="col-md-4">
+                                    <div id="overall-orders" class="panel panel-animated panel-danger bg-danger">
+                                        <div class="panel-body">
+                                            <div class="panel-actions-fly">
+                                                <button data-refresh="#overall-orders" data-error-place="#error-placement" title="refresh" class="btn-panel">
+                                                    <i class="glyphicon glyphicon-refresh"></i>
+                                                </button><!--/btn-panel-->
+                                                <a href="#" title="Go to system stats page" class="btn-panel">
+                                                    <i class="glyphicon glyphicon-stats"></i>
+                                                </a><!--/btn-panel-->
+                                            </div><!--/panel-action-fly-->
+
+                                            <p class="lead">Provisioning</p><!--/lead as title-->
+
+                                            <ul class="list-percentages row">
+                                                <li class="col-xs-4">
+                                                    <p class="text-ellipsis">Total Revenue</p>
+                                                    <p class="text-lg"><strong>1,954,452</strong></p>
+                                                </li>
+                                                <li class="col-xs-4">
+                                                    <p class="text-ellipsis">Last Month</p>
+                                                    <p class="text-lg"><strong>43,671</strong></p>
+                                                </li>
+                                                <li class="col-xs-4">
+                                                    <p class="text-ellipsis">Today</p>
+                                                    <p class="text-lg"><strong>1,219</strong></p>
+                                                </li>
+                                            </ul><!--/list-percentages-->
+                                            <p class="helper-block">
+                                                <div class="progress progress-xs progress-flat progress-inverse-inverse">
+                                                    <div class="progress-bar progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                                        <span class="sr-only">60% Complete (inverse)</span>
+                                                    </div>
+                                                </div>
+                                                <p class="text-ellipsis"><i class="fa fa-caret-down"></i> 386 &nbsp;&nbsp; -5<sup>%</sup> <small>Looks not good! try increasing your product</small></p>
+                                            </p><!--/help-block-->
+                                        </div><!--/panel-body-->
+                                    </div><!--/panel overal-orders-->
+                                </div><!--/cols-->
+                            </div><!--/#system-stats-->
+
+
+                            <div id="server-stats" class="tab-pane fade">
+                                <div class="col-md-4">
+                                    <div id="overall-bandwidth" class="panel panel-animated panel-primary bg-primary">
+                                        <div class="panel-body">
+                                            <div class="panel-actions-fly">
+                                                <button data-refresh="#overall-bandwidth" data-error-place="#error-placement" title="refresh" class="btn-panel">
+                                                    <i class="glyphicon glyphicon-refresh"></i>
+                                                </button><!--/btn-panel-->
+                                                <a href="#" title="Go to server stats page" class="btn-panel">
+                                                    <i class="glyphicon glyphicon-stats"></i>
+                                                </a><!--/btn-panel-->
+                                            </div><!--/panel-action-fly-->
+
+                                            <p class="lead">Bandwidth</p><!--/lead as title-->
+
+                                            <p>
+                                                <div class="easyPieChart" data-barColor="#232332" data-trackColor="#ecf0f1" data-scaleColor="#ecf0f1" data-percent="16" data-size="120">
+                                                    <span>16%</span>
+                                                </div>
+                                                <p class="text-ellipsis text-center">Bandwidth Usage 120,4 GB / 2 TB</p>
+                                            </p>
+                                        </div><!--/panel-body-->
+                                    </div><!--/panel overal-bandwidth-->
+                                </div><!--/cols-->
+
+                                <div class="col-md-4">
+                                    <div id="overall-diskspace" class="panel panel-animated panel-success bg-success">
+                                        <div class="panel-body">
+                                            <div class="panel-actions-fly">
+                                                <button data-refresh="#overall-diskspace" data-error-place="#error-placement" title="refresh" class="btn-panel">
+                                                    <i class="glyphicon glyphicon-refresh"></i>
+                                                </button><!--/btn-panel-->
+                                                <a href="#" title="Go to server stats page" class="btn-panel">
+                                                    <i class="glyphicon glyphicon-stats"></i>
+                                                </a><!--/btn-panel-->
+                                            </div><!--/panel-action-fly-->
+
+                                            <p class="lead">Disk Space</p><!--/lead as title-->
+
+                                            <p>
+                                                <div class="easyPieChart" data-barColor="#232332" data-trackColor="#ecf0f1" data-scaleColor="#ecf0f1" data-percent="37" data-size="120">
+                                                    <span>64%</span>
+                                                </div>
+                                                <p class="text-ellipsis text-center">File Usage 128,137 / 200,000</p>
+                                            </p>
+                                        </div><!--/panel-body-->
+                                    </div><!--/panel overal-diskspace-->
+                                </div><!--/cols-->
+
+                                <div class="col-md-4">
+                                    <div id="overall-phisicmem" class="panel panel-animated panel-danger bg-danger">
+                                        <div class="panel-body">
+                                            <div class="panel-actions-fly">
+                                                <button data-refresh="#overall-phisicmem" data-error-place="#error-placement" title="refresh" class="btn-panel">
+                                                    <i class="glyphicon glyphicon-refresh"></i>
+                                                </button><!--/btn-panel-->
+                                                <a href="#" title="Go to server stats page" class="btn-panel">
+                                                    <i class="glyphicon glyphicon-stats"></i>
+                                                </a><!--/btn-panel-->
+                                            </div><!--/panel-action-fly-->
+
+                                            <p class="lead">Physical Memory</p><!--/lead as title-->
+
+                                            <p>
+                                                <div class="easyPieChart" data-barColor="#232332" data-trackColor="#ecf0f1" data-scaleColor="#ecf0f1" data-percent="45" data-size="120">
+                                                    <span>45%</span>
+                                                </div>
+                                                <p class="text-ellipsis text-center">Physical Memory Usage 457 MB / 1 GB</p>
+                                            </p>
+                                        </div><!--/panel-body-->
+                                    </div><!--/panel overal-phisicmem-->
+                                </div><!--/cols-->
+                            </div><!--/#system-stats-->
+                        </div><!--/tab-content-->
+                    </div><!--/row-->
+
+
+
+
+
+                   
+                </div> 
+
 
             </div><!--/content -->
 
