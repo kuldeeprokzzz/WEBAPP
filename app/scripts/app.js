@@ -8,24 +8,24 @@
  *
  * Main module of the application.
  */
-angular
+var inloopAppApp= angular
   .module('inloopAppApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'LocalStorageModule'
   ])
+  .config(['localStorageServiceProvider', function(localStorageServiceProvider){
+  localStorageServiceProvider.setPrefix('webApp');
+  }])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/login.html',
         controller: 'MainCtrl'
-      })
-      .when('/base', {
-        templateUrl: 'views/base.html',
-        controller: 'AboutCtrl'
       })
       .when('/dashboard', {
         templateUrl: 'views/dashboard.html',
@@ -34,4 +34,5 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  
