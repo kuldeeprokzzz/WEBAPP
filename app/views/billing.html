@@ -1,0 +1,462 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Stilearn Admin Bootstrap</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="stilearning">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- fav and touch icons -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/favico-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/favico-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/favico-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="ico/favico-57-precomposed.png">
+        <link rel="shortcut icon" href="ico/favico.png">
+        <link rel="shortcut icon" href="ico/favico.ico">
+
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="bower_components/animate.css/animate.css">
+        <link rel="stylesheet" href="bower_components/hover/css/hover.css">
+        <!-- endbower -->
+        <!-- endbuild -->
+        
+        <!-- build:css(.tmp) styles/main.css -->
+        <link id="style-components" href="styles/loaders.css" rel="stylesheet">
+        <link id="style-components" href="styles/bootstrap-theme.css" rel="stylesheet">
+        <link id="style-components" href="styles/dependencies.css" rel="stylesheet">
+        <link id="style-base" href="styles/stilearn.css" rel="stylesheet">
+        <link id="style-responsive" href="styles/stilearn-responsive.css" rel="stylesheet">
+        <link id="style-helper" href="styles/helper.css" rel="stylesheet">
+        <link id="style-sample" href="styles/pages-style.css" rel="stylesheet">
+        <!-- endbuild -->
+        
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body class="animated fadeIn">
+        <!-- section header -->
+        <header class="header">
+            <!-- header brand -->
+            <div class="header-brand">
+               <img src="images/vector-02.png" width = "159px">
+            </div><!-- header brand -->
+            
+            <!-- header-profile -->
+            <div class="header-profile">
+                <div class="profile-nav">
+                    <span class="profile-username">Bent</span>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="fa fa-angle-down"></span>
+                    </a>
+                    <ul class="dropdown-menu animated flipInX pull-right" role="menu">
+                        <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                        <li><a href="#"><i class="fa fa-envelope"></i> Inbox</a></li>
+                        <li><a href="#"><i class="fa fa-tasks"></i> Tasks</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                    </ul>
+                </div>
+                <div class="profile-picture">
+                    <img alt="me" src="images/dummy/profile.jpg">
+                </div>
+            </div><!-- header-profile -->     
+        </header><!--/header-->
+
+        
+        <!-- content section -->
+        <section class="section">
+            <!-- DONT FORGET REPLACE IT FOR PRODUCTION! -->
+            <aside class="side-left">
+                <ul class="sidebar">
+                    <li>
+                        <a href="#/dashboard">
+                            <i class="sidebar-icon fa fa-home"></i>
+                            <span class="sidebar-text">Dashboard</span>
+                        </a>
+                    </li><!--/sidebar-item-->
+                    <li>
+                        <a href="#">
+                            <i class="sidebar-icon fa fa-truck"></i>
+                            <span class="sidebar-text">Jobs</span>
+                        </a>
+                        <ul class="sidebar-child animated flipInY">
+                            <li>
+                                <a href="grid-system.php" data-pjax=".content-body">
+                                    <span class="sidebar-text">Job Details</span>
+                                </a>
+                            </li><!--/child-item-->
+                            
+                        </ul><!--/sidebar-child-->
+                    </li><!--/sidebar-item-->
+                    <li>
+                        <a href="#">
+                            <i class="sidebar-icon fa fa-inr"></i>
+                            <span class="sidebar-text">Billing</span>
+                        </a>
+                        <ul class="sidebar-child animated flipInY">
+                            <li>
+                                <a href="form-basic.php" data-pjax=".content-body">
+                                    <span class="sidebar-text">Billing Details</span>
+                                </a>
+                            </li><!--/child-item-->   
+                        </ul><!--/sidebar-child-->
+                    </li><!--/sidebar-item-->
+                    <li>
+                        <a href="#">
+                            <i class="sidebar-icon fa fa-user"></i>
+                            <span class="sidebar-text">Provisioning</span>
+                        </a>
+                        <ul class="sidebar-child animated flipInY">
+                            <li>
+                                <a href="widget-panel.php" data-pjax=".content-body">
+                                    <span class="sidebar-text">Provisioing Details</span>
+                                </a>
+                            </li><!--/child-item-->
+                        </ul><!--/sidebar-child-->
+                    </li><!--/sidebar-item-->
+                    
+                </ul><!--/sidebar-->
+            </aside><!--/side-left-->
+
+            <div class="content">
+                <div class="content-header">
+                    <h2 class = "content-Info">Billing</h2>
+                </div><!--/content-header -->
+                
+                <div class="content-body">
+
+                
+                  <div id="error-placement"></div>
+             
+                   
+                  <div class="col-md-12 margin-bottom">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#system-stats" data-toggle="tab">All</a></li>
+                                <li><a href="#server-stats" data-toggle="tab">Submitted</a></li>
+                                <li><a href="#server-stats" data-toggle="tab">Approved</a></li>
+                                <li><a href="#server-stats" data-toggle="tab">Paid</a></li>
+                                <button type="button" style ="float:right;width: 110px" class="btn btn-primary">Add</button>
+                            </ul>
+
+                  </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Job ID #</th>
+                                    <th>Location</th>
+                                    <th>InvoiceAmount</th>
+                                    <th>Time Completed</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class ="stylingFonts">2016 02 08-0523</td>
+                                    <td>Bannerghatta Road 56 076</td>
+                                    <td><i class="fa fa-inr"></i> 1688.50</td>
+                                    <td>05:32 2016/02/08</td>
+                                    <td class ="stylingFonts">Submit Invoice</td>
+                                
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                   
+                </div> <!-- content-body -->
+
+
+            </div><!--/content -->
+
+        </section><!--/content section -->
+        
+
+        <!-- side-right -->
+        <aside class="side-right">
+            <div class="module" data-toggle="niceScroll">
+                <div class="chat-contact">
+                    <h3 class="contact-heading">
+                        <div class="btn-group pull-right">
+                            <a href="#" data-toggle="side-right">
+                                <i class="fa fa-times text-sm"></i>
+                            </a>
+                        </div>
+                        <i class="fa fa-group"></i> Hangouts 
+                        <div class="btn-group">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-angle-down text-sm"></i>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="active"><a href="#"><i class="fa fa-circle text-primary"></i> Online</a></li>
+                                <li><a href="#"><i class="fa fa-circle text-danger"></i> Offline</a></li>
+                                <li><a href="#"><i class="fa fa-circle text-warning"></i> Idle</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#"><i class="fa fa-circle text-midnight"></i> Disable</a></li>
+                            </ul>
+                        </div>
+                    </h3><!-- /contact-heading -->
+
+                    <div class="contact-body">
+                        <ul class="contacts-list">
+                            <li class="separate">Top friends</li>
+                            <li class="online"><a href="#"><i class="fa fa-circle-o" title="online" rel="tooltip-bottom"></i> Phillip Morrison</a></li>
+                            <li class="offline"><a href="#"><i class="fa fa-circle-o" title="offline" rel="tooltip-bottom"></i> Samuel Porter</a></li>
+                            <li class="online"><a href="#"><i class="fa fa-circle-o" title="online" rel="tooltip-bottom"></i> Kathy Reynolds</a></li>
+                            <li class="online"><a href="#"><i class="fa fa-circle-o" title="online" rel="tooltip-bottom"></i> Aaron James</a></li>
+                            <li class="idle"><a href="#"><i class="fa fa-circle-o" title="idle" rel="tooltip-bottom"></i> Teresa May</a></li>
+
+                            <li class="separate">Teams</li>
+                            <li class="online"><a href="#"><i class="fa fa-circle-o" title="online" rel="tooltip-bottom"></i> John Doe</a></li>
+                            <li class="online"><a href="#"><i class="fa fa-circle-o" title="online" rel="tooltip-bottom"></i> Iin Triasneni</a></li>
+                            <li class="online"><a href="#"><i class="fa fa-circle-o" title="online" rel="tooltip-bottom"></i> Mahatma</a></li>
+                            <li class="offline"><a href="#"><i class="fa fa-circle-o" title="offline" rel="tooltip-bottom"></i> Lawrence Ramirez</a></li>
+                            <li class="offline"><a href="#"><i class="fa fa-circle-o" title="offline" rel="tooltip-bottom"></i> Samantha Jenkins</a></li>
+                            <li class="disable"><a href="#"><i class="fa fa-circle-o" title="disable" rel="tooltip-bottom"></i> Sarah Payne</a></li>
+                            <li class="offline"><a href="#"><i class="fa fa-circle-o" title="offline" rel="tooltip-bottom"></i> Justin Perry</a></li>
+
+                            <li class="separate">Clients</li>
+                            <li class="idle"><a href="#"><i class="fa fa-circle-o" title="idle" rel="tooltip-bottom"></i> Rebecca Vargas</a></li>
+                            <li class="online"><a href="#"><i class="fa fa-circle-o" title="online" rel="tooltip-bottom"></i> Sean Carpenter</a></li>
+                            <li class="idle"><a href="#"><i class="fa fa-circle-o" title="idle" rel="tooltip-bottom"></i> Arthur Pearson</a></li>
+                            <li class="offline"><a href="#"><i class="fa fa-circle-o" title="offline" rel="tooltip-bottom"></i> Julie Jimenez</a></li>
+                            <li class="idle"><a href="#"><i class="fa fa-circle-o" title="idle" rel="tooltip-bottom"></i> Sandra Ramirez</a></li>
+                            <li class="online"><a href="#"><i class="fa fa-circle-o" title="online" rel="tooltip-bottom"></i> Nicholas Cole</a></li>
+                            <li class="idle"><a href="#"><i class="fa fa-circle-o" title="idle" rel="tooltip-bottom"></i> Madison Hall</a></li>
+                            <li class="offline"><a href="#"><i class="fa fa-circle-o" title="offline" rel="tooltip-bottom"></i> Alan Shaw</a></li>
+                            <li class="online"><a href="#"><i class="fa fa-circle-o" title="online" rel="tooltip-bottom"></i> Randy Mills</a></li>
+
+                            <li class="separate">All</li>
+                            <li class="disable"><a href="#"><i class="fa fa-circle-o" title="disable" rel="tooltip-bottom"></i> Kenneth Soto</a></li>
+                            <li class="disable"><a href="#"><i class="fa fa-circle-o" title="disable" rel="tooltip-bottom"></i> Harold James</a></li>
+                            <li class="online"><a href="#"><i class="fa fa-circle-o" title="online" rel="tooltip-bottom"></i> Paul Greene</a></li>
+                        </ul><!-- /contacts-list -->
+                    </div><!-- /contact-body -->
+                </div><!-- /chat-contact -->
+
+                <div class="chatbox">
+                    <h3 class="chatbox-heading">
+                        <a data-toggle="chatbox-close" href="#" class="pull-right text-sm text-silver"><i class="fa fa-times"></i></a>
+                        <i class="fa fa-circle-o text-primary"></i> 
+                        Phillip Morrison
+                    </h3><!-- /chatbox-heading -->
+
+                    <div class="chatbox-body" data-toggle="niceScroll">
+
+                        <div class="chat-separate"><time class="chat-time" datetime="">Jan 9, 2014</time></div>
+
+                        <div class="chat-in">
+                            <div class="chat-user">Phillip Morrison</div>
+                            <div class="chat-msg">
+                                <p>Praesent cras quisque. Volutpat sit interdum. Magnis leo, duis faucibus eu, in rutrum nulla. Eget sed, dolor nibh. Vero mi habitant</p>
+                                <time class="chat-time" datetime="2013-12-13T20:00">01:14 PM</time>
+                            </div>
+                        </div><!-- /chat-in -->
+
+                        <div class="chat-out">
+                            <div class="chat-user">Me</div>
+                            <div class="chat-msg">
+                                <p>Dictum at aenean, faucibus euismod convallis. Ipsum nec, platea amet nulla.</p>
+                                <time class="chat-time" datetime="2013-12-13T20:00">01:16 PM</time>
+                            </div>
+                        </div><!-- /chat-out -->
+
+                        <div class="chat-in">
+                            <div class="chat-user">Phillip Morrison</div>
+                            <div class="chat-msg">
+                                <p>Eu augue, proin rutrum. Et vehicula, wisi fusce, ut ipsum</p>
+                                <time class="chat-time" datetime="2013-12-13T20:00">01:20 PM</time>
+                            </div>
+                        </div><!-- /chat-in -->
+
+                        <div class="chat-separate"><time class="chat-time" datetime="">Jan 14, 2014</time></div>
+
+                        <div class="chat-out">
+                            <div class="chat-user">Me</div>
+                            <div class="chat-msg">
+                                <p>Est penatibus pellentesque, augue tincidunt, a suspendisse</p>
+                                <time class="chat-time" datetime="2013-12-13T20:00">09:36 AM</time>
+                            </div>
+                        </div><!-- /chat-out -->
+
+                        <div class="chat-in">
+                            <div class="chat-user">Phillip Morrison</div>
+                            <div class="chat-msg">
+                                <p>Nunc nulla. Donec laoreet non, lobortis praesent</p>
+                                <time class="chat-time" datetime="2013-12-13T20:00">09:40 AM</time>
+                            </div>
+                        </div><!-- /chat-in -->
+
+                        <div class="chat-separate"><time class="chat-time" datetime="">Recent</time></div>
+
+                        <div class="chat-in">
+                            <div class="chat-user">Phillip Morrison</div>
+                            <div class="chat-msg">
+                                <p>Dui posuere. Reprehenderit felis libero, potenti vitae</p>
+                                <time class="chat-time" datetime="2013-12-13T20:00">12 min</time>
+                            </div>
+                        </div><!-- /chat-out -->
+
+                    </div><!-- /chatbox-body -->
+
+                    <div class="chatbox-footer">
+                        <form class="chat-form">
+                            <p class="chat-status"><i class="fa fa-spinner fa-spin"></i> Phillip Morrison is type...</p>
+                            <div class="form-group">
+                                <button type="submit" class="btn" title="Send"><i class="fa fa-share"></i></button>
+                                <input type="text" class="chat-input" name="send_chat" placeholder="Type a message" />
+                            </div>
+                        </form>
+                    </div><!-- /chatbox -->
+                </div><!-- /chatbox -->
+            </div><!-- /module -->
+        </aside><!--/side-right -->
+
+
+        <!-- section footer -->
+        <a rel="to-top" href="#top"><i class="fa fa-arrow-up"></i></a>
+        <footer>
+            <p>&copy; 2014 INLOOP</p>
+        </footer>
+
+
+
+        <!-- javascript
+        ================================================== -->
+        <!-- List of dependencies file, please check on readme.txt! (Purchase only) -->
+
+        <!-- build:js scripts/vendor-main.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/src/jquery.js"></script>
+        <script src="bower_components/jqueryui/ui/jquery-ui.js"></script>
+        <script src="bower_components/jqueryui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <!-- endbuild -->
+        
+        <!-- build:js scripts/vendor-usefull.js -->
+        <script src="bower_components/pace/pace.min.js"></script>
+        <script src="bower_components/jquery-pjax/jquery.pjax.js"></script>
+        <script src="bower_components/masonry/masonry.pkgd.min.js"></script>
+        <script src="bower_components/screenfull/dist/screenfull.min.js"></script>
+        <script src="bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+        <script src="bower_components/countUp.js/countUp.min.js"></script>
+        <script src="bower_components/skycons/skycons.js"></script>
+        <script src="bower_components/jquery.lazyload/jquery.lazyload.min.js"></script>
+        <script src="bower_components/wow/dist/wow.min.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/vendor-form.js -->
+        <script src="bower_components/jquery.validation/jquery.validate.js"></script>
+        <script src="bower_components/jquery.validation/additional-methods.js"></script>
+        <script src="bower_components/autogrow-textarea/jquery.autogrowtextarea.min.js"></script>
+        <script src="bower_components/typeahead.js/dist/typeahead.min.js"></script>
+        <script src="bower_components/jQuery-Mask-Plugin/jquery.mask.min.js"></script>
+        <script src="bower_components/jquery.tagsinput/jquery.tagsinput.min.js"></script>
+        <script src="bower_components/multiselect/js/jquery.multi-select.js"></script>
+        <script src="bower_components/select2/select2.js"></script>
+        <script src="bower_components/jquery-selectboxit/src/javascripts/jquery.selectBoxIt.js"></script>
+        <script src="bower_components/momentjs/moment.js"></script>
+        <script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <script src="bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+        <script src="bower_components/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+        <script src="bower_components/jquery-minicolors/jquery.minicolors.min.js"></script>
+        <script src="bower_components/dropzone/downloads/dropzone.min.js"></script>
+        <script src="bower_components/jquery-steps/build/jquery.steps.min.js"></script>
+        <script src="bower_components/fullcalendar/fullcalendar.js"></script>
+        <!-- endbuild -->
+        
+        <!-- build:js scripts/vendor-editor.js -->
+        <script src="bower_components/wysihtml5/dist/wysihtml5-0.3.0.js"></script>
+        <script src="bower_components/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.js"></script>
+        <script src="bower_components/bootstrap-markdown/js/markdown.js"></script>
+        <script src="bower_components/bootstrap-markdown/js/to-markdown.js"></script>
+        <script src="bower_components/bootstrap-markdown/js/bootstrap-markdown.js"></script>
+        <!-- endbuild -->
+        
+        
+        <!-- build:js scripts/excanvas.js -->
+        <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="bower_components/flot/excanvas.min.js"></script><![endif]-->
+        <!-- endbuild -->
+
+        <!-- build:js scripts/vendor-graph.js -->
+        <script src="bower_components/raphael/raphael-min.js"></script>
+        <script src="bower_components/morris.js/morris.min.js"></script>
+        <script src="bower_components/flot/jquery.flot.js"></script>
+        <script src="bower_components/flot/jquery.flot.resize.js"></script>
+        <script src="bower_components/flot/jquery.flot.categories.js"></script>
+        <script src="bower_components/flot/jquery.flot.time.js"></script>
+        <script src="bower_components/flot-axislabels/jquery.flot.axislabels.js"></script>
+        <script src="bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.js"></script>
+        <script src="bower_components/sparkline/dist/jquery.sparkline.min.js"></script>
+        <!-- endbuild -->
+    
+        <!-- build:js scripts/vendor-table.js -->
+        <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+        <script src="bower_components/datatables-tools/js/dataTables.tableTools.js"></script>
+        <script src="bower_components/datatables-bootstrap3/bs3/assets/js/datatables.js"></script>
+        <script src="bower_components/jquery.tablesorter/js/jquery.tablesorter.js"></script>
+        <script src="bower_components/jquery.tablesorter/js/jquery.tablesorter.widgets.js"></script>
+        <script src="bower_components/jquery.tablesorter/addons/pager/jquery.tablesorter.pager.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/vendor-maps.js -->
+        <script src="bower_components/jqvmap/jqvmap/jquery.vmap.min.js"></script>
+        <script src="bower_components/jqvmap/jqvmap/maps/jquery.vmap.world.js"></script>
+        <script src="bower_components/jqvmap/jqvmap/maps/jquery.vmap.algeria.js"></script>
+        <script src="bower_components/jqvmap/jqvmap/maps/jquery.vmap.france.js"></script>
+        <script src="bower_components/jqvmap/jqvmap/maps/jquery.vmap.germany.js"></script>
+        <script src="bower_components/jqvmap/jqvmap/maps/jquery.vmap.russia.js"></script>
+        <script src="bower_components/jqvmap/jqvmap/maps/jquery.vmap.usa.js"></script>
+        <script src="bower_components/jqvmap/jqvmap/maps/continents/jquery.vmap.africa.js"></script>
+        <script src="bower_components/jqvmap/jqvmap/maps/continents/jquery.vmap.asia.js"></script>
+        <script src="bower_components/jqvmap/jqvmap/maps/continents/jquery.vmap.australia.js"></script>
+        <script src="bower_components/jqvmap/jqvmap/maps/continents/jquery.vmap.europe.js"></script>
+        <script src="bower_components/jqvmap/jqvmap/maps/continents/jquery.vmap.north-america.js"></script>
+        <script src="bower_components/jqvmap/jqvmap/maps/continents/jquery.vmap.south-america.js"></script>
+        <script src="bower_components/jqvmap/jqvmap/data/jquery.vmap.sampledata.js"></script>
+        <!-- endbuild -->
+        
+        <!-- build:js scripts/vendor-util.js -->
+        <script src="bower_components/holderjs/holder.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+
+        <!-- required stilearn template js -->
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/bootstrap-jasny/js/fileinput.js"></script>
+        <script src="scripts/js-prototype.js"></script>
+        <script src="scripts/slip.js"></script>
+        <script src="scripts/hogan-2.0.0.js"></script>        
+        <script src="scripts/theme-setup.js"></script>
+        <script src="scripts/chat-setup.js"></script>
+        <script src="scripts/panel-setup.js"></script>
+        <!-- endbuild -->
+
+        <!-- This scripts will be reload after pjax or if popstate event is active (use with class .re-execute) -->
+        <!-- build:js scripts/initializer.js -->
+        <script class="re-execute" src="scripts/google-code-prettify/run_prettify.js"></script>
+        <script class="re-execute" src="scripts/bootstrap-setup.js"></script>
+        <script class="re-execute" src="scripts/jqueryui-setup.js"></script>
+        <script class="re-execute" src="scripts/dependencies-setup.js"></script>
+        <script class="re-execute" src="scripts/demo-setup.js"></script>
+        <!-- endbuild -->
+
+    </body>
+</html>
+
+
+
+
+
+
