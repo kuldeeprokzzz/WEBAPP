@@ -51,7 +51,7 @@ angular.module('inloopAppApp')
 						if(true){
 						model.profile = response.data;
 						completeModel.saveCompleteModel(model);
-						$location.path('/loadManager/job/'+sharedProperties.getJobsTypes().unassigned.value);
+						$location.path('/loadManager/job/'+sharedProperties.getJobsTypes().unassigned.value+'/');
 						}
 
 						// response.data.roleid == sharedProperties.getRoles().shipperLoadingManager.id
