@@ -48,12 +48,16 @@ angular.module('inloopAppApp')
 				loginService.getProfile().then(function(response){
 					if(response.status == 200){
 
-						if(true){
 						model.profile = response.data;
 						completeModel.saveCompleteModel(model);
+
+						if(false){
 						$location.path('/loadManager/job/'+sharedProperties.getJobsTypes().unassigned.value+'/');
 						}
 
+						if(true){
+						$location.path('/accountPayable/invoice/ALL/');
+						}
 						// response.data.roleid == sharedProperties.getRoles().shipperLoadingManager.id
 
 					

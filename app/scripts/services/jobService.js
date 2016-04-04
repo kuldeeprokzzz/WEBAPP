@@ -51,6 +51,17 @@ inloopAppApp.service('jobService', ['sharedProperties','$http', function(sharedP
                   });
      };
 
+     this.getAllJobsByShipperIdAndStatus = function(shipperId,status){
+
+      return $http({
+        method: 'GET',
+        url: sharedProperties.getUrl()+'/jobs?shippered='+shipperId+'&status='+status,
+      }).success(function(response){
+        return response;
+      }).error(function(response){
+        return response;
+      });
+     };
 
 
 }])

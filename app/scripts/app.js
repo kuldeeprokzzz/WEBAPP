@@ -42,23 +42,19 @@ var inloopAppApp= angular
     .state('loadManager', {
       url: "/loadManager",
       templateUrl: "../views/base.html",
-      controller: 'loadManagerController',
+      controller: 'roleManagerController',
     })
     .state('loadManager.job', {
       url: "/job/{jobType}/{message}",
         templateUrl: "../views/jobs.html",
         controller: 'loadManagerController',
       })
-    .state('loadManager.name', {
-      url: "/name",
-        template: "<h2>Sonkar</h2><div ui-view></div>",
-      })
     .state('accountPayable', {
       url: "/accountPayable",
       templateUrl: "../views/base.html",
     })
-    .state('accountPayable.billing', {
-      url: "/billing",
+    .state('accountPayable.invoice', {
+      url: "/invoice/{invoiceType}/{message}",
       templateUrl: "../views/billing.html",
     })
   })

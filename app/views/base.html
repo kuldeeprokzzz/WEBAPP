@@ -74,7 +74,8 @@
         <!-- content section -->
         <section class="section">
             <!-- DONT FORGET REPLACE IT FOR PRODUCTION! -->
-            <aside ng-show="roleId == roles.loadManager" class="side-left" >
+            {{roleId}}
+            <aside ng-show="{{roleId==0}}" class="side-left" >
                 <ul class="sidebar">
                     <li>
                         <a href="#/dashboard">
@@ -107,6 +108,38 @@
                 </ul><!--/sidebar-->
             </aside><!--/side-left-->
 
+            <aside ng-show="{{}}" class="side-left" >
+                <ul class="sidebar">
+                    <li>
+                        <a href="#/dashboard">
+                            <i class="sidebar-icon fa fa-home"></i>
+                            <span class="sidebar-text">Dashboard</span>
+                        </a>
+                    </li><!--/sidebar-item-->
+                    <li>
+                        <a href="#">
+                            <i class="sidebar-icon fa fa-truck"></i>
+                            <span class="sidebar-text">Jobs</span>
+                        </a>
+                          
+                    </li><!--/sidebar-item-->
+                    <li>
+                        <a href="#">
+                            <i class="sidebar-icon fa fa-inr"></i>
+                            <span class="sidebar-text">Billing</span>
+                        </a>
+                        
+                    </li><!--/sidebar-item-->
+                    <li>
+                        <a href="#">
+                            <i class="sidebar-icon fa fa-user"></i>
+                            <span class="sidebar-text">Provisioning</span>
+                        </a>
+                        
+                    </li><!--/sidebar-item-->
+                    
+                </ul><!--/sidebar-->
+            </aside>
 
             <div ui-view></div>
 
