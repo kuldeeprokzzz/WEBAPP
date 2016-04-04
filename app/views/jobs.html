@@ -1,5 +1,6 @@
 
 
+
             <div class="content" ng-init="initialize()">
                 <div class="content-header">
                     <h2 class = "content-Info">Jobs</h2>
@@ -45,7 +46,44 @@
                         </table>
                     </div>
 
+
                     <div id="error-placement">{{errorMessage}}</div>
+
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#centerModal">Show modal</button>
+                    
+                    <div class="modal modal-center fade" data-sound="note" id="centerModal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
+                                <div class="modal-dialog animated flipInX">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="centerModalLabel">Assign a driver to Job ID# 2016 02 08 - 0523</h4>
+                                      </div>
+                                        <div class="modal-body">
+                                            <div class ="outerWrapper">
+                                                
+                                                    <img  class = "img-wrapper" src="images/driver_photo_1.png">
+                                                    <div class = "lineBar"></div>
+                                                    <div class="fontCover">
+                                                    <div class ="text_1">
+                                                      <p class ="fontDesign">Aarav Benerjee</p>
+                                                      <p class ="fontDrama">087917</p>
+                                                    </div>
+                                                    <div class ="text_1">
+                                                       <p class ="fontDrama" style ="float:left">G Trans Logistics Pvt. Ltd</p> 
+                                                       <p class ="fontDrama">5:03AM</p>
+                                                    </div>
+                                                    </div>
+                                                    <div class ="cardFotter">
+                                                        <button type="button" style="    height: 38px;font-size: 18px;    width: 120px" class="btn btn-primary">Assign</button>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                                </div><!-- /.modal-dialog -->
+                            </div><!-- /.modal -->
                    
                 </div> <!-- content-body -->
 
