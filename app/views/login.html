@@ -1,6 +1,6 @@
 
 
-    <div class="animated fadeIn">		
+    <div class="animated fadeIn" ng-init="initialize()">		
 
 		<div class="content content-full">
 			<div class="container">
@@ -19,19 +19,19 @@
 										</a>
 									</div><!--/signin-brand-->
 
-									<form action="index.php" method="POST" data-validate="form" role="form" id="signin-form">
+									<div>
 										<p><small>Inloop Admin account. <a href="#">Learn more?</a></small></p>
 										<div class="form-group">
 											<div class="input-group input-group-in">
 												<span class="input-group-addon text-muted">@</span>
-												<input type="text" class="ng-bind="username" form-control" name="username" required minlength="4" placeholder="johndoe" autocomplete="off">
+												<input ng-model="username" type="text" class=" form-control" name="username" required minlength="4" placeholder="johndoe" autocomplete="off">
 											</div><!--/input-group-->
 										</div><!--/form-group-->
 
 										<div class="form-group">
 											<div class="input-group input-group-in">
 												<span class="input-group-addon text-muted"><i class="fa fa-circle-o"></i></span>
-												<input ng-bind="password" type="password" class="form-control" name="password" required minlength="4" placeholder="Password">
+												<input ng-model="password" type="password" class="form-control" name="password" required minlength="4" placeholder="Password">
 											</div><!--/input-group-->
 										</div><!--/form-group-->
 
@@ -43,8 +43,8 @@
 										</div><!--/form-group-->
 
 										<div class="form-group form-actions">
-											<input type="submit" class="hidden-sm btn btn-primary" value="Sign In">
-											<input type="submit" class="visible-sm btn btn-lg btn-block btn-primary" value="Sign In">
+											<input ng-click="submitLogin()" type="submit" class="hidden-sm btn btn-primary" value="Sign In">
+											<input ng-click="submitLogin()" type="submit" class="visible-sm btn btn-lg btn-block btn-primary" value="Sign In">
 										</div><!--/form-group-->
 
 										<p>
@@ -60,7 +60,7 @@
 										</p>
 
 										<p class="margin-top"><small>Don't have a account? <a data-toggle="tab" href="#signup"><strong>Creata an Account</strong></a></small></p>
-									</form><!--/#signin-form-->
+									</div><!--/#signin-form-->
 								</div><!--/signin-->
 
 

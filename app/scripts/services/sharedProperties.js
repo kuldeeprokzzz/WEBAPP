@@ -7,10 +7,95 @@ inloopAppApp.service('sharedProperties',function($location,$filter){
 
         this._roles = {
 
-                driver : 0,
-                deliveryAssociate : 2,
-                loadManager : 3,
+            shipperAccountPayableManager: {
+                                                "id": 1,
+                                                "name": "Accounts Payable Manager",
+                                                "organizationType": "SHIPPER",
+                                                "redirectURL": "shipper:accounts-payables-profiling"
+                                              },
+                        shipperFleetManager : {
+                                                "id": 2,
+                                                "name": "Fleet Manager",
+                                                "organizationType": "SHIPPER",
+                                                "redirectURL": "shipper:shipper-fleet-manager-profiling"
+                                              },
+                   shipperDeliveryAssociate : {
+                                                "id": 3,
+                                                "name": "Delivery Associate",
+                                                "organizationType": "SHIPPER",
+                                                "redirectURL": "shipper:delivery-associate-profiling"
+                                              },
+                               shipperAdmin : {
+                                                "id": 4,
+                                                "name": "Admin",
+                                                "organizationType": "SHIPPER",
+                                                "redirectURL": "core:shipper-view"
+                                              },
 
+           providerAccountReceivableManager : {
+                                                "id": 5,
+                                                "name": "Accounts Receivable Manager",
+                                                "organizationType": "PROVIDER",
+                                                "redirectURL": "provider:accounts-receivables-profile"
+                                               },
+                        providerFleetManager : {
+                                                "id": 6,
+                                                "name": "Fleet Manager",
+                                                "organizationType": "PROVIDER",
+                                                "redirectURL": "provider:fleet-manager-profile"
+                                                },
+                                providerDriver : {
+                                                    "id": 7,
+                                                    "name": "Driver",
+                                                    "organizationType": "PROVIDER",
+                                                    "redirectURL": "provider:driver-profile"
+                                                  },
+                                providerAdmin : {
+                                                    "id": 8,
+                                                    "name": "Admin",
+                                                    "organizationType": "PROVIDER",
+                                                    "redirectURL": "core:provider-view"
+                                                  },
+
+                orchestratorOperationManager : {
+                                                    "id": 9,
+                                                    "name": "Operations Manager",
+                                                    "organizationType": "ORCHESTRATOR",
+                                                    "redirectURL": "orchestrator:operations-manager-profiling"
+                                                  },
+                orchestratorProvisioningManager : {
+                                                    "id": 10,
+                                                    "name": "Provisioning Manager",
+                                                    "organizationType": "ORCHESTRATOR",
+                                                    "redirectURL": "core:orchestrator-view"
+                                                  },
+                orchestratorTransactionManager : {
+                                                    "id": 11,
+                                                    "name": "Transactions Manager",
+                                                    "organizationType": "ORCHESTRATOR",
+                                                    "redirectURL": "orchestrator:transactions-manager-profiling"
+                                                  },
+
+                shipperLoadingManager : {
+                                            "id": 12,
+                                            "name": "Loading Manager",
+                                            "organizationType": "SHIPPER",
+                                            "redirectURL": "shipper:loading-manager-profiling"
+                                          },
+
+                providerNotVerifiedAdmin : {
+                                            "id": 13,
+                                            "name": "Not Verified Admin",
+                                            "organizationType": "PROVIDER",
+                                            "redirectURL": "provider:not-verified-provider-profiling"
+                                          },
+
+                shipperNotVerifiedAdmin : {
+                                            "id": 14,
+                                            "name": "Not Verified Admin",
+                                            "organizationType": "SHIPPER",
+                                            "redirectURL": "shipper:not-verified-shipper-profiling"
+                                          }
             };       
 
 /*        this._contractStatusType = {
@@ -30,9 +115,19 @@ inloopAppApp.service('sharedProperties',function($location,$filter){
         };
 
         this._jobTypes = {
-            unassigned : { id : 0, type : "UNASSIGNED"},
-            assigned : {id : 1, type : "ASSIGNED"},
-            completed : {id : 2, type : "COMPLETED"},
+
+            unassigned : {
+                            "key": "UNASSIGNED",
+                            "value": "UNASSIGNED"
+                         },
+            assigned :   {
+                            "key": "ASSIGNED",
+                            "value": "ASSIGNED"
+                         },
+            completed :  {
+                            "key": "COMPLETED",
+                            "value": "COMPLETED"
+                         }
         }
 
         this._cardType = {

@@ -14,6 +14,7 @@ var inloopAppApp= angular
     'ngCookies',
     'ngResource',
     'ngRoute',
+    'ui.router',
     'ngSanitize',
     'ngTouch',
     'LocalStorageModule'
@@ -21,18 +22,37 @@ var inloopAppApp= angular
   .config(['localStorageServiceProvider', function(localStorageServiceProvider){
   localStorageServiceProvider.setPrefix('webApp');
   }])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/login.html',
-        controller: 'MainCtrl'
+  .config(function ($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise("/");
+  //
+  // Now set up the states
+  $stateProvider
+    .state('login', {
+      url: "/",
+      templateUrl: "../views/login.html",
+      controller : 'MainCtrl'
+    })
+    /*.state('state1.list', {
+      url: "/list",
+      templateUrl: "partials/state1.list.html",
+      controller: function($scope) {
+        $scope.items = ["A", "List", "Of", "Items"];
+      }
+    })*/
+    .state('loadManager', {
+      url: "/loadManager",
+      templateUrl: "../views/base.html",
+      controller: 'loadManagerController',
+    })
+    .state('loadManager.job', {
+      url: "/job/{jobType}",
+        templateUrl: "../views/jobs.html",
+        controller: 'loadManagerController',
       })
-      .when('/dashboard', {
-        templateUrl: 'views/dashboard.html',
-        controller: 'AboutCtrl'
+    .state('loadManager.name', {
+      url: "/name",
+        template: "<h2>Sonkar</h2><div ui-view></div>",
+        controller: 'loadManagerController',
       })
-      .otherwise({
-        redirectTo: '/'
-      });
   })
   

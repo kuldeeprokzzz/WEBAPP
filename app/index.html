@@ -36,7 +36,7 @@
 
   
     
-    <div ng-view=""></div>
+    <div ui-view></div>
     
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -59,6 +59,7 @@
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-ui-router/angular-ui-router.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
@@ -73,7 +74,11 @@
 
         <script src="scripts/services/sharedProperties.js"></script>
         <script src="scripts/services/completeModel.js"></script>
+        <script src="scripts/services/loginService.js"></script>
+        <script src="scripts/services/jobService.js"></script>
         <script src="scripts/controllers/main.js"></script>
+ <!--        <script src="scripts/controllers/roleManagerController.js"></script> -->
+        <script src="scripts/controllers/loadManagerController.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <!-- endbuild -->
 </body>

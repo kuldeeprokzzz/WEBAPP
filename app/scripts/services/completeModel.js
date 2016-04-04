@@ -1,4 +1,4 @@
-inloopAppApp.service('completeModel',function(localStorageService){
+inloopAppApp.service('completeModel',function(localStorageService,$location){
  
   
         this._completeModel = undefined;
@@ -16,7 +16,8 @@ inloopAppApp.service('completeModel',function(localStorageService){
                     this._completeModel = localModel;
                     return this._completeModel;
                 }else{
-                    // to the logout/login page
+                    localStorageService.set('completeModel','');
+                    $location.path('/');
                 }
             }
         }
