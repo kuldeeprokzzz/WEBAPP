@@ -45,29 +45,14 @@ var inloopAppApp= angular
       controller: 'loadManagerController',
     })
     .state('loadManager.job', {
-      url: "/job/{jobType}",
+      url: "/job/{jobType}/{message}",
         templateUrl: "../views/jobs.html",
         controller: 'loadManagerController',
       })
-      .when('/base', {
-        templateUrl: 'views/base.html',
-        controller: 'AboutCtrl'
-      })
-      .when('/billing', {
-        templateUrl: 'views/billing.html',
-        controller: 'AboutCtrl'
-      })
-      .when('/jobs', {
-        templateUrl: 'views/jobs.html',
-        controller: 'AboutCtrl'
-      })
-      .when('/provisioning', {
-        templateUrl: 'views/provisioning.html',
-        controller: 'AboutCtrl'
-      })
-      .when('/modals', {
-        templateUrl: 'views/modals.html',
-        controller: 'AboutCtrl'
+    .state('loadManager.name', {
+      url: "/name",
+        template: "<h2>Sonkar</h2><div ui-view></div>",
+        controller: 'loadManagerController',
       })
   })
   

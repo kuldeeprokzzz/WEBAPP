@@ -107,11 +107,30 @@ inloopAppApp.service('sharedProperties',function($location,$filter){
         };*/
 
         this._contractTaskType = {
-            dispatched : { id : 0, type : 'DISPATCHED', text : 'IN TRANSIT'},
-            arrived : { id : 1, type : 'ARRIVED', text : 'ARRIVED'},
-            checkedIn :{ id : 2, type : 'CHECKED_IN', text : 'CHECKED IN'}, 
-            assignedJob : { id : 3, type : 'ASSIGNED_JOB', text : 'ASSIGNED'},
-            returning : { id : 4, type : 'RETURNING', text : 'IN TRANSIT'},
+            created : {
+                        "key": "CREATED",
+                        "value": "CREATED"
+                      },
+            dispatched : {
+                            "key": "DISPATCHED",
+                            "value": "DISPATCHED"
+                         },
+            arrived : {
+                        "key": "ARRIVED",
+                        "value": "ARRIVED"
+                      },
+            checkedIn : {
+                            "key": "CHECKED_IN",
+                            "value": "CHECKED_IN"
+                        },
+            assignedJob : {
+                            "key": "ASSIGNED_JOB",
+                            "value": "ASSIGNED_JOB"
+                          },
+            returning : {
+                            "key": "RETURNING",
+                            "value": "RETURNING"
+                        },
         };
 
         this._jobTypes = {
@@ -173,9 +192,22 @@ inloopAppApp.service('sharedProperties',function($location,$filter){
         }
 
         this._tripType = {
-            loadingStart : 'LOADING_START',
-            tripStart  : 'TRIP_START',
-            tripEnd : 'TRIP_END',
+            created : {
+                        "key": "CREATED",
+                        "value": "CREATED"
+                      },
+            loadingStart : {
+                                "key": "LOADING_START",
+                                "value": "LOADING_START"
+                            },
+            tripStart  : {
+                            "key": "TRIP_START",
+                            "value": "TRIP_START"
+                         },
+            tripEnd : {
+                        "key": "TRIP_END",
+                        "value": "TRIP_END"
+                      },
         };
 
         this._packageType = {

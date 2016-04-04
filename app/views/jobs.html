@@ -8,7 +8,7 @@
                 
                 <div class="content-body">
 
-                
+                <div class="text-center"><span style="color:white">hi</span>{{message}}</div>
                   
              
                    
@@ -17,7 +17,7 @@
                                 <li ng-class="{ 'active': jobType == jobsTypes.unassigned.value }"><a ui-sref="loadManager.job({ jobType: jobsTypes.unassigned.value})" data-toggle="tab">Unassigned</a></li>
                                 <li ng-class="{ 'active': jobType == jobsTypes.assigned.value }"             ><a ui-sref="loadManager.job({ jobType: jobsTypes.assigned.value})" data-toggle="tab">Assigned</a></li>
                                 <li ng-class="{ 'active': jobType == jobsTypes.completed.value }"><a ui-sref="loadManager.job({ jobType: jobsTypes.completed.value})" data-toggle="tab">Completed</a></li>
-                                <<!-- button type="button" style ="float:right;width: 110px" class="btn btn-primary">Add</button> -->
+                                <!-- button type="button" style ="float:right;width: 110px" class="btn btn-primary">Add</button> -->
                             </ul>
 
                   </div>
@@ -39,7 +39,7 @@
                                     <td>{{job.area}}</td>
                                     <td>{{job.number_of_packages}} packages</td>
                                     <td>{{job.job_date}}</td>
-                                    <td ng-show="{{job.status == jobsTypes.unassigned.value}}"class ="stylingFonts" ng-click="assignJob(job)">Assign a Driver</td>
+                                    <td ng-show="{{job.status == jobsTypes.unassigned.value}}"class ="stylingFonts" ng-click="submitAssignDriver(job)">Assign a Driver</td>
                                 
                                 </tr>
                             </tbody>
@@ -47,19 +47,23 @@
                     </div>
 
 
-                    <div id="error-placement">{{errorMessage}}</div>
+                    <!-- <div id="error-placement">{{errorMessage}}</div -->
 
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#centerModal">Show modal</button>
+                    <button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#centerModal">Show modal</button>
                     
                     <div class="modal modal-center fade" data-sound="note" id="centerModal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
                                 <div class="modal-dialog animated flipInX">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title" id="centerModalLabel">Assign a driver to Job ID# 2016 02 08 - 0523</h4>
+                                            <h4 class="modal-title" id="centerModalLabel">Assign a driver to Job ID#{{jobToBeAssigned.name}}</h4>
                                       </div>
-                                        <div class="modal-body">
-                                            <div class ="outerWrapper">
+                                        <div class="modal-body col-md-12">
+                                            
+
+                                            <div class="clearfix row">
+
+                                            <div class ="col-md-4 outerWrapper pull-left">
                                                 
                                                     <img  class = "img-wrapper" src="images/driver_photo_1.png">
                                                     <div class = "lineBar"></div>
@@ -77,6 +81,47 @@
                                                         <button type="button" style="    height: 38px;font-size: 18px;    width: 120px" class="btn btn-primary">Assign</button>
                                                     </div>
                                             </div>
+                                            <div class ="col-md-4 outerWrapper pull-left">
+                                                
+                                                    <img  class = "img-wrapper" src="images/driver_photo_1.png">
+                                                    <div class = "lineBar"></div>
+                                                    <div class="fontCover">
+                                                    <div class ="text_1">
+                                                      <p class ="fontDesign">Aarav Benerjee</p>
+                                                      <p class ="fontDrama">087917</p>
+                                                    </div>
+                                                    <div class ="text_1">
+                                                       <p class ="fontDrama" style ="float:left">G Trans Logistics Pvt. Ltd</p> 
+                                                       <p class ="fontDrama">5:03AM</p>
+                                                    </div>
+                                                    </div>
+                                                    <div class ="cardFotter">
+                                                        <button type="button" style="    height: 38px;font-size: 18px;    width: 120px" class="btn btn-primary">Assign</button>
+                                                    </div>
+                                            </div>
+                                            <div class ="col-md-4 outerWrapper pull-left">
+                                                
+                                                    <img  class = "img-wrapper" src="images/driver_photo_1.png">
+                                                    <div class = "lineBar"></div>
+                                                    <div class="fontCover">
+                                                    <div class ="text_1">
+                                                      <p class ="fontDesign">Aarav Benerjee</p>
+                                                      <p class ="fontDrama">087917</p>
+                                                    </div>
+                                                    <div class ="text_1">
+                                                       <p class ="fontDrama" style ="float:left">G Trans Logistics Pvt. Ltd</p> 
+                                                       <p class ="fontDrama">5:03AM</p>
+                                                    </div>
+                                                    </div>
+                                                    <div class ="cardFotter">
+                                                        <button type="button" style="    height: 38px;font-size: 18px;    width: 120px" class="btn btn-primary">Assign</button>
+                                                    </div>
+                                            </div>
+
+
+                                            </div>
+
+
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

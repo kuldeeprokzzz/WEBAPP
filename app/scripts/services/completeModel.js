@@ -8,7 +8,7 @@ inloopAppApp.service('completeModel',function(localStorageService,$location){
         // it tries to retrieve it from local storage, if it fails there also
         // it just redirects to login page
         this.getCompleteModel = function(){  
-            if(this._completeModel != null){
+            if(this._completeModel != undefined){
                 return this._completeModel;
             }else{
                 var localModel = localStorageService.get('completeModel');

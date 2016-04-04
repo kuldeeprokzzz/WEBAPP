@@ -18,6 +18,41 @@ inloopAppApp.service('jobService', ['sharedProperties','$http', function(sharedP
      	});
      };
 
+     this.updateJobStateWithJobIdPerformedByAndType = function(jobId,performedBy,type){
+          
+          var currentTime = sharedProperties.getTodatUTCDateTime();
+
+          var requestBody = {
+                              "type": type,
+                              "time": currentTime,
+                              "performed_by": performedBy,
+                            };
+
+          return $http.post(sharedProperties.getUrl()+'/jobs/'+jobId+'/states',requestBody,{})
+                  .then(function(response){
+                      return response;
+                  }, function(response){
+                      return response;
+                  });
+     };
+
+     this.updateJobWithJobIdContractTaskIdAndTripId = function(jobId,contractTaskId,tripId){
+          
+          var requestBody = {
+                              "contract_taskid": contractTaskId,
+                              "tripid": tripId,
+                            };
+
+          return $http.put(sharedProperties.getUrl()+'/jobs/'+jobId+'/',requestBody,{})
+                  .then(function(response){
+                      return response;
+                  }, function(response){
+                      return response;
+                  });
+     };
+
+
+
 }])
 
 
