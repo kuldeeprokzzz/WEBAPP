@@ -120,7 +120,7 @@ body {
 .fontDesign{
   display: inline-block;
   vertical-align: center;
-  font-size: 17px;
+  font-size: 13px;
   color: black;
   font-weight: bold;
 }
@@ -132,7 +132,7 @@ body {
 }
 .fontCover{
   overflow: hidden;
-  border-bottom: 1px solid lightgrey
+  border-bottom: 1px solid lightgrey;
 }
 .cardFotter{
   text-align: center;
@@ -141,4 +141,12 @@ body {
 .innerWrapper{
   border: 1px solid lightgrey;
   border-radius: 4px;
+}
+.TopBar{
+      height: 135px;
+      border-bottom: 1px solid lightgrey;
+      text-align: center;
+      font-size: 25px;
+      color: black;
+      font-weight: bold
 }
