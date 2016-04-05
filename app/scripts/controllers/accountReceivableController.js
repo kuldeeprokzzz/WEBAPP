@@ -84,7 +84,7 @@ angular.module('inloopAppApp')
         }
       });
 
-      alert($scope.submitAllInvoiceList.length);
+
     }
 
     
