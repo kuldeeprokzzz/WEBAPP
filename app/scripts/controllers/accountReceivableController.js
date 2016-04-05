@@ -1,5 +1,5 @@
 angular.module('inloopAppApp')
-  .controller('accountReceivableController', function ($scope, $stateParams,sharedProperties,completeModel,contractTaskService,jobService,tripService,invoiceService) {
+  .controller('accountReceivableController', function ($scope, $stateParams,$location,sharedProperties,completeModel,contractTaskService,jobService,tripService,invoiceService) {
 
   	$scope.initialize = function(){
   		if(completeModel.getCompleteModel() != undefined){
@@ -12,6 +12,9 @@ angular.module('inloopAppApp')
         }
       }*/
     $scope.invoiceTypes = sharedProperties.getInvoiceType();
+      $scope.createdCount = 0;
+      $scope.createdTotalAmount = 0;
+      $scope.submitAllInvoiceList = [];
 
     if($stateParams.invoiceType != undefined){
       if($stateParams.invoiceType == 'ALL'){
@@ -24,6 +27,10 @@ angular.module('inloopAppApp')
         $scope.invoiceType = $stateParams.invoiceType;
       }
   	}
+
+    if($stateParams.message != undefined){
+      $scope.errorMessage = $stateParams.message;
+    }
 
     console.log($scope.invoiceType);
     $scope.payerId = $scope.model.profile.organizationid;
@@ -57,7 +64,13 @@ angular.module('inloopAppApp')
                       tripService.getTripDataByTripId(tripId).then(function(response){
                         if(response.status == 200){
                           var tripData = response.data;
-                          $scope.jobInvoiceTripList.push({job:job,trip:tripDetails,tripData:tripData,contractTask: contractTask,invoice:invoice});
+                          var item = {job:job,trip:tripDetails,tripData:tripData,contractTask: contractTask,invoice:invoice};
+                          $scope.jobInvoiceTripList.push(item);
+                          if(item.invoice.status != $scope.invoiceTypes.created.value){
+                            $scope.submitAllInvoiceList.push(item);
+                            $scope.createdCount = $scope.createdCount + 1;
+                            $scope.createdTotalAmount = $scope.createdTotalAmount + item.invoice.total_amount;
+                          }
                          console.log(JSON.stringify($scope.jobInvoiceTripList));
                         }
                       });
@@ -76,13 +89,6 @@ angular.module('inloopAppApp')
       }
     });
 
-      $scope.submitAllInvoiceList = [];
-
-      angular.forEach($scope.jobInvoiceTripList, function(item, key) {
-        if(item.invoice.status == $scope.invoiceTypes.created.value){
-          $scope.submitAllInvoiceList.push(item);
-        }
-      });
 
 
     }
@@ -100,7 +106,7 @@ angular.module('inloopAppApp')
         .then(function(response){
           if(response.status == 201){
             $("#centerModal").modal("toggle");
-            location.path('/accountReceivable/invoice/'+'ALL'+'/Invoice Submitted Successfully !');
+            $location.path('/accountReceivable/invoice/'+'ALL'+'/Invoice Submitted Successfully !');
           }else{
             $scope.errorMessage = "Unable to Submit Invoice. Try Again !";
           }
@@ -114,23 +120,23 @@ angular.module('inloopAppApp')
 
     $scope.submitAllInvoiceModal = function(){
 
-      var submittedCount = 0;
+      var submitCount = 0;
 
       angular.forEach($scope.submitAllInvoiceList, function(item, key) {
         invoiceService.updateInvoiceState(item.invoice.id,$scope.invoiceTypes.submitted.value,
           $scope.model.profile.username,$scope.model.profile.organizationId)
           .then(function(response){
             if(response.status == 201){
-              submittedCount = submittedCount + 1;
+              submitCount = submitCount + 1;
               //$("#centerModal").modal("toggle");
               //location.path('/accountReceivable/invoice/'+'ALL'+'/Invoice Submitted Successfully !');
             }
-            if(key == $scope.jobInvoiceTripList.length){
+            if(key + 1 == $scope.jobInvoiceTripList.length){
               $("#submitAllModal").modal("toggle");
-              if(submittedCount == $scope.jobInvoiceTripList.length){
-                location.path('/accountReceivable/invoice/'+'ALL'+'/All Invoices Submitted Successfully !');
+              if(submitCount == $scope.jobInvoiceTripList.length){
+                $location.path('/accountReceivable/invoice/'+'ALL'+'/All Invoices Submitted Successfully !');
               }else{
-                location.path('/accountReceivable/invoice/'+'ALL'+'/One or More Invoice Submission Falied. Please Submit again !');
+                $location.path('/accountReceivable/invoice/'+'ALL'+'/One or More Invoice Submission Falied. Please Submit again !');
               }
             }
         });        

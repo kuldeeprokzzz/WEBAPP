@@ -69,5 +69,9 @@ var inloopAppApp= angular
       templateUrl: "../views/billing.html",
       controller: 'accountPayableController',
     })
+    .state('provisioning', {
+      url: "/provisioning",
+      templateUrl: "../views/provisioning.html",
+    })
   })
   
