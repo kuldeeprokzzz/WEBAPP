@@ -106,6 +106,29 @@ inloopAppApp.service('sharedProperties',function($location,$filter){
             
         };*/
 
+        this._invoiceType = {
+            created :   {
+                            "key": "CREATED",
+                            "value": "GENERATED"
+                          },
+            submitted : {
+                            "key": "SUBMITTED",
+                            "value": "SUBMITTED"
+                          },
+            approved :   {
+                            "key": "APPROVED",
+                            "value": "APPROVED"
+                          },
+            paid :   {
+                        "key": "PAID",
+                        "value": "PAID"
+                      },
+            archieved : {
+                            "key": "ARCHIEVED",
+                            "value": "ARCHIEVED"
+                          }
+        };
+
         this._contractTaskType = {
             created : {
                         "key": "CREATED",
@@ -278,5 +301,8 @@ inloopAppApp.service('sharedProperties',function($location,$filter){
         }
         this.getPackageType = function(){
             return this._packageType;
+        }
+        this.getInvoiceType = function(){
+            return this._invoiceType;
         }
 }); 

@@ -1,155 +1,159 @@
 
-            <div class="content">
-                <div class="content-header">
-                    <h2 class = "content-Info">Billing</h2>
-                </div><!--/content-header -->
-                
-                <div class="content-body">
+<div class="content" ng-controller="accountPayableController" ng-init="initialize()">
+<div class="content-header">
+    <h2 class = "content-Info">Billing</h2>
+</div><!--/content-header -->
 
-                
-                  <div id="error-placement"></div>
-             
-                   
-                  <div class="col-md-12 margin-bottom">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#system-stats" data-toggle="tab">All</a></li>
-                                <li><a href="#server-stats" data-toggle="tab">Submitted</a></li>
-                                <li><a href="#server-stats" data-toggle="tab">Approved</a></li>
-                                <li><a href="#server-stats" data-toggle="tab">Paid</a></li>
-                                <button type="button" style ="float:right;width: 110px" class="btn btn-primary">Add</button>
-                            </ul>
-
-                  </div>
-
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Job ID #</th>
-                                    <th>Location</th>
-                                    <th>InvoiceAmount</th>
-                                    <th>Time Completed</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class ="stylingFonts">2016 02 08-0523</td>
-                                    <td>Bannerghatta Road 56 076</td>
-                                    <td><i class="fa fa-inr"></i> 1688.50</td>
-                                    <td>05:32 2016/02/08</td>
-                                    <td class ="stylingFonts">Submit Invoice</td>
-                                
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#centerModal">Show modal</button>
-                    
-                    <div class="modal modal-center fade" data-sound="note" id="centerModal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
-                                <div class="modal-dialog animated flipInX">
-                                    <div class="modal-content" style = "width: 768px;width: 768px;margin-left: -69px;margin-top: -70px;">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title" id="centerModalLabel">Invoice For Job ID# 2016 02 08 -0523</h4>
-                                      </div>
-                                        <div class="modal-body" style = "height: 283px;">
-                                            
-
-                                            <div class="clearfix row">
-
-                                            <div class ="col-md-4 outerWrapper pull-left">
-                                                <div class = "innerWrapper">
-                                                    <img  class = "img-wrapper" src="images/driver_photo_1.png" style ="height: 135px;">
-                                                    <div class="fontCover">
-                                                    <div class ="text_1" style ="line-height: 11px;">
-                                                      <p class ="fontDesign">Aarav Benerjee</p>
-                                                     
-                                                    </div>
-                                                    <div class ="text_1" style ="line-height: 11px;">
-                                                       <p class ="fontDrama" style ="float:left">G Trans Logistics Pvt. Ltd</p> 
-                                                       
-                                                    </div>
-                                                    </div>
-                                                    <div class="fontCover">
-                                                    <div class ="text_1" style ="line-height: 11px;">
-                                                      <p class ="fontDesign">KA 19P 8488</p>
-                                                     
-                                                    </div>
-                                                    <div class ="text_1" style ="line-height: 11px;">
-                                                       <p class ="fontDrama" style ="float:left">White Tata Ace</p> 
-                                                       
-                                                    </div>
-                                                    </div>
-                                                    
-                                                </div>    
-                                            </div>
-                                            <div class ="col-md-4 outerWrapper pull-left">
-                                                <div class = "innerWrapper">
-                                                    <img  class = "img-wrapper" src="images/kd.png" style ="height: 135px;">
-                                                    <div class="fontCover">
-                                                    <div class ="text_1" style ="line-height: 11px;">
-                                                      <p class ="fontDesign">2016 02 08 - 123</p>
-                                                     
-                                                    </div>
-                                                    <div class ="text_1" style ="line-height: 11px;">
-                                                       <p class ="fontDrama" style ="float:left">Bannerghatta Road 560076</p> 
-                                                       
-                                                    </div>
-                                                    </div>
-                                                    <div class="fontCover">
-                                                    <div class ="text_1" style ="line-height: 11px;height: 56px;">
-                                                      <p class ="fontDesign">55 Packages</p>
-                                                     
-                                                    </div>
-                                                    </div>
-                                                    
-                                                </div>    
-                                            </div>
-                                            <div class ="col-md-4 outerWrapper pull-left">
-                                                <div class = "innerWrapper">
-                                                    <div class ="TopBar">
-                                                        <p style ="position: relative;top: 51px;"><i class="fa fa-inr"></i> 1545.80</p>
-                                                    </div>
-                                                    <div class="fontCover">
-                                                    <div class ="text_1" style ="line-height: 11px;">
-                                                      <p class ="fontDesign">Aarav Benerjee</p>
-                                                     
-                                                    </div>
-                                                    <div class ="text_1" style ="line-height: 11px;">
-                                                       <p class ="fontDrama" style ="float:left">G Trans Logistics Pvt. Ltd</p> 
-                                                       
-                                                    </div>
-                                                    </div>
-                                                    <div class="fontCover">
-                                                    <div class ="text_1" style ="line-height: 11px;">
-                                                      <p class ="fontDesign">KA 19P 8488</p>
-                                                     
-                                                    </div>
-                                                    <div class ="text_1" style ="line-height: 11px;">
-                                                       <p class ="fontDrama" style ="float:left">White Tata Ace</p> 
-                                                       
-                                                    </div>
-                                                    </div>
-                                                    
-                                                </div>    
-                                            </div>
+<div class="content-body">
 
 
-                                            </div>
+  <div id="error-placement"><span style="color:white">hi</span></div>
+
+   
+  <div class="col-md-12 margin-bottom">
+            <ul class="nav nav-tabs">
+                <li ng-class="{ 'active': invoiceType == 'ALL' }"><a ui-sref="accountPayable.invoice({invoiceType:'ALL'})" data-toggle="tab">All</a></li>
+                <li ng-class="{ 'active': invoiceType == invoiceTypes.submitted.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.submitted.value})" data-toggle="tab">Submitted</a></li>
+                <li ng-class="{ 'active': invoiceType == invoiceTypes.approved.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.approved.value})">Approved</a></li>
+                <li ng-class="{ 'active': invoiceType == invoiceTypes.paid.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.paid.value})">Paid</a></li>
+                <button type="button" style ="float:right;width: 110px" class="btn btn-primary">Add</button>
+            </ul>
+
+  </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Job ID #</th>
+                    <th>Location</th>
+                    <th>InvoiceAmount</th>
+                    <th>Time Completed</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="item in jobInvoiceTripList">
+                <tr>
+                    <td class ="stylingFonts">{{item.job.name}}</td>
+                    <td>{{item.job.area}}</td>
+                    <td><i class="fa fa-inr"></i>{{item.invoice.amount}}</td>
+                    <td>{{item.job.latest_state.time | date: 'MM/dd/yyyy h:mma'}}</td>
+                    <td ng-click="submitInvoice(item)" ng-show="{{item.invoice.status == invoiceTypes.created.value}}" class ="stylingFonts">Submit Invoice</td>
+                    <td ng-show="{{item.invoice.status == invoiceTypes.submitted.value}}" class ="">Submitted</td>
+                    <td ng-show="{{item.invoice.status == invoiceTypes.approved.value}}" class ="">Approved</td>
+                    <td ng-show="{{item.invoice.status == invoiceTypes.paid.value}}" class ="">Paid</td>
+                    <td ng-show="{{item.invoice.status == invoiceTypes.archieved.value}}" class ="">Archieved</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#centerModal">Show modal</button>
+    
+    <div class="modal modal-center fade" data-sound="note" id="centerModal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
+                <div class="modal-dialog animated flipInX">
+                    <div class="modal-content" style = "width: 768px;width: 768px;margin-left: -69px;margin-top: -70px;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="centerModalLabel">Invoice For Job ID# {{invoiceTobeSubmitted.job.name}}</h4>
+                      </div>
+                        <div class="modal-body" style = "height: 283px;">
+                            
+
+                            <div class="clearfix row">
+
+                            <div class ="col-md-4 outerWrapper pull-left">
+                                <div class = "innerWrapper">
+                                    <img  class = "img-wrapper" src="images/driver_photo_1.png" style ="height: 135px;">
+                                    <div class="fontCover">
+                                    <div class ="text_1" style ="line-height: 11px;">
+                                      <p class ="fontDesign">{{invoiceTobeSubmitted.contractTask.driver_name}}</p>
+                                     
+                                    </div>
+                                    <div class ="text_1" style ="line-height: 11px;">
+                                       <p class ="fontDrama" style ="float:left">{{invoiceTobeSubmitted.contractTask.provider_name}}</p> 
+                                       
+                                    </div>
+                                    </div>
+                                    <div class="fontCover">
+                                    <div class ="text_1" style ="line-height: 11px;">
+                                      <p class ="fontDesign">{{invoiceTobeSubmitted.contractTask.vehicle_regNumber}}</p>
+                                     
+                                    </div>
+                                    <div class ="text_1" style ="line-height: 11px;">
+                                       <p class ="fontDrama" style ="float:left">{{invoiceTobeSubmitted.contractTask.vehicle_make}}</p> 
+                                       
+                                    </div>
+                                    </div>
+                                    
+                                </div>    
+                            </div>
+                            <div class ="col-md-4 outerWrapper pull-left">
+                                <div class = "innerWrapper">
+                                    <img  class = "img-wrapper" src="images/kd.png" style ="height: 135px;">
+                                    <div class="fontCover">
+                                    <div class ="text_1" style ="line-height: 11px;">
+                                      <p class ="fontDesign">{{invoiceTobeSubmitted.job.name}}</p>
+                                     
+                                    </div>
+                                    <div class ="text_1" style ="line-height: 11px;">
+                                       <p class ="fontDrama" style ="float:left">{{invoiceTobeSubmitted.job.area}}</p> 
+                                       
+                                    </div>
+                                    </div>
+                                    <div class="fontCover">
+                                    <div class ="text_1" style ="line-height: 11px;height: 56px;">
+                                      <p class ="fontDesign">{{invoiceTobeSubmitted.job.number_of_packages}} Packages</p>
+                                     
+                                    </div>
+                                    </div>
+                                    
+                                </div>    
+                            </div>
+                            <div class ="col-md-4 outerWrapper pull-left">
+                                <div class = "innerWrapper">
+                                    <div class ="TopBar">
+                                        <p style ="position: relative;top: 51px;"><i class="fa fa-inr"></i> {{invoiceTobeSubmitted.invoice.amount}}</p>
+                                    </div>
+                                    <div class="fontCover">
+                                    <div class ="text_1" style ="line-height: 11px;">
+                                      <p class ="fontDesign">Aarav Benerjee</p>
+                                     
+                                    </div>
+                                    <div class ="text_1" style ="line-height: 11px;">
+                                       <p class ="fontDrama" style ="float:left">G Trans Logistics Pvt. Ltd</p> 
+                                       
+                                    </div>
+                                    </div>
+                                    <div class="fontCover">
+                                    <div class ="text_1" style ="line-height: 11px;">
+                                      <p class ="fontDesign">KA 19P 8488</p>
+                                     
+                                    </div>
+                                    <div class ="text_1" style ="line-height: 11px;">
+                                       <p class ="fontDrama" style ="float:left">White Tata Ace</p> 
+                                       
+                                    </div>
+                                    </div>
+                                    
+                                </div>    
+                            </div>
 
 
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div><!-- /.modal-content -->
-                                </div><!-- /.modal-dialog -->
-                            </div><!-- /.modal -->
+                            </div>
 
-                   
-                </div> <!-- content-body -->
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button ng-click="submitModalInvoice()" type="button" style ="float:right;width: 110px" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+   
+</div> <!-- content-body -->
 
 
             

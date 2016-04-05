@@ -63,6 +63,18 @@ inloopAppApp.service('jobService', ['sharedProperties','$http', function(sharedP
       });
      };
 
+    this.getJobDetailByJobId = function(jobId){
+
+      return $http({
+        method: 'GET',
+        url: sharedProperties.getUrl()+'/jobs/'+jobId,
+      }).success(function(response){
+        return response;
+      }).error(function(response){
+        return response;
+      });
+     };
+
 
 }])
 

@@ -44,6 +44,19 @@ inloopAppApp.service('contractTaskService', ['sharedProperties','$http', functio
         });
      };
 
+
+     this.getContractTaskById = function(contractTaskId){
+      
+      return $http({
+        method: 'GET',
+        url: sharedProperties.getUrl()+'/contract_tasks/'+contractTaskId,
+      }).success(function(response){
+        return response;
+      }).error(function(response){
+        return response;
+      });
+     };
+
 }])
 
 

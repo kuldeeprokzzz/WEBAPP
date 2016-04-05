@@ -26,6 +26,30 @@ inloopAppApp.service('tripService', ['sharedProperties','$http', function(shared
                   });
      };
 
+     this.getTripDetailsbyId = function(tripId){
+          
+      return $http({
+        method: 'GET',
+        url: sharedProperties.getUrl()+'/trips/'+tripId,
+      }).success(function(response){
+        return response;
+      }).error(function(response){
+        return response;
+      });
+     };
+
+     this.getTripDataByTripId = function(tripId){
+
+      return $http({
+        method: 'GET',
+        url: sharedProperties.getUrl()+'/trips/'+tripId+'/tripdata',
+      }).success(function(response){
+        return response;
+      }).error(function(response){
+        return response;
+      });
+     };
+
 }])
 
 

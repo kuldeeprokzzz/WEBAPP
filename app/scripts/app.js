@@ -52,10 +52,12 @@ var inloopAppApp= angular
     .state('accountPayable', {
       url: "/accountPayable",
       templateUrl: "../views/base.html",
+      controller: 'roleManagerController',
     })
     .state('accountPayable.invoice', {
       url: "/invoice/{invoiceType}/{message}",
       templateUrl: "../views/billing.html",
+      controller: 'accountPayableController',
     })
   })
   
