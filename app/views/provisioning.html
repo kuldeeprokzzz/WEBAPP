@@ -153,7 +153,35 @@
                             </tbody>
                         </table>
                     </div>
-               
+                 
+                   <button  type="button" class="btn btn-default" data-toggle="modal" data-target="#centerModal">Show modal</button>
+    
+    <div class="modal modal-center fade" data-sound="note" id="centerModal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
+    <div class="modal-dialog animated flipInX">
+    <div class="modal-content" style = "width: 768px;width: 768px;margin-left: -69px;margin-top: -70px;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="centerModalLabel">Invite a New Entry For Provisioning</h4>
+      </div>
+        <div class="modal-body" style = "height: 283px;">
+            <select data-input="selectboxit" placeholder="Select city" style="display: none;">
+                <option value="AK">Alaska</option>
+                <option value="HI">Hawaii</option>
+                <option value="CA">California</option>
+                <option value="NV">Nevada</option>
+                <option value="OR">Oregon</option>
+                <option value="WA">Washington</option>
+            </select>
+            <span id="" class="selectboxit-container selectboxit-container" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" aria-owns=""><span id="" class="selectboxit  selectboxit-enabled selectboxit-btn" name="" tabindex="0" unselectable="on" data-input="selectboxit" style="width: 145px;"><span class="selectboxit-option-icon-container"><i id="" class="selectboxit-default-icon selectboxit-option-icon selectboxit-container" unselectable="on"></i></span><span id="" class="selectboxit-text" unselectable="on" data-val="AK" aria-live="polite" style="max-width: 37px;">Select city</span><span id="" class="selectboxit-arrow-container" unselectable="on"><i id="" class="selectboxit-arrow selectboxit-default-arrow" unselectable="on"></i></span></span><ul class="selectboxit-options selectboxit-list" tabindex="-1" role="listbox" aria-hidden="true" style="min-width: 67px;"><li data-id="0" data-val="AK" data-disabled="false" class="selectboxit-option  selectboxit-option-first selectboxit-selected" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Alaska</a></li><li data-id="1" data-val="HI" data-disabled="false" class="selectboxit-option" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Hawaii</a></li><li data-id="2" data-val="CA" data-disabled="false" class="selectboxit-option" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>California</a></li><li data-id="3" data-val="NV" data-disabled="false" class="selectboxit-option" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Nevada</a></li><li data-id="4" data-val="OR" data-disabled="false" class="selectboxit-option" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Oregon</a></li><li data-id="5" data-val="WA" data-disabled="false" class="selectboxit-option  selectboxit-option-last" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Washington</a></li></ul></span>
+        </div>    
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button ng-click="submitModalInvoice()" type="button" style ="float:right;width: 110px" class="btn btn-primary">Invite</button>
+        </div>
+    </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+                 
                 
                    
                 </div> <!-- content-body --> 
