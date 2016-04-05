@@ -11,13 +11,15 @@ angular.module('inloopAppApp')
 
         }
       }*/
-
-    $scope.roleId = $scope.model.profile.roleid;
-    $scope.roleTypes = sharedProperties.getRoles();
+    $scope.invoiceTypes = sharedProperties.getInvoiceType();
 
     if($stateParams.invoiceType != undefined){
       if($stateParams.invoiceType == 'ALL'){
-        $scope.invoiceType = '';
+        $scope.invoiceType = $scope.invoiceTypes.created.value+','+
+                             $scope.invoiceTypes.submitted.value+','+
+                             $scope.invoiceTypes.approved.value+','+
+                             $scope.invoiceTypes.paid.value+','+
+                             $scope.invoiceTypes.archieved.value;
       }else{
         $scope.invoiceType = $stateParams.invoiceType;
       }
@@ -26,7 +28,7 @@ angular.module('inloopAppApp')
     console.log($scope.invoiceType);
     $scope.payerId = $scope.model.profile.organizationid;
 
-    $scope.invoiceTypes = sharedProperties.getInvoiceType();
+    
 
     invoiceService.getAllInvoicesByPayerIdAndStatus
     ($scope.payerId,$scope.invoiceType)
@@ -56,7 +58,7 @@ angular.module('inloopAppApp')
                         if(response.status == 200){
                           var tripData = response.data;
                           $scope.jobInvoiceTripList.push({job:job,trip:tripDetails,tripData:tripData,contractTask: contractTask,invoice:invoice});
-                         // console.log(JSON.stringify($scope.jobInvoiceTripList));
+                         console.log(JSON.stringify($scope.jobInvoiceTripList));
                         }
                       });
                     }
@@ -74,7 +76,15 @@ angular.module('inloopAppApp')
       }
     });
 
+      $scope.submitAllInvoiceList = [];
 
+      angular.forEach($scope.jobInvoiceTripList, function(item, key) {
+        if(item.invoice.status == $scope.invoiceTypes.created.value){
+          $scope.submitAllInvoiceList.push(item);
+        }
+      });
+
+      alert($scope.submitAllInvoiceList.length);
     }
 
     
@@ -90,12 +100,41 @@ angular.module('inloopAppApp')
         .then(function(response){
           if(response.status == 201){
             $("#centerModal").modal("toggle");
-            location.path('/loadManager/job/'+'ALL'+'/Invoice Submitted Successfully !');
+            location.path('/accountReceivable/invoice/'+'ALL'+'/Invoice Submitted Successfully !');
           }else{
             $scope.errorMessage = "Unable to Submit Invoice. Try Again !";
           }
       });
       
+    }
+
+    $scope.submitAllInvoice = function(){
+      $("#submitAllModal").modal("toggle");
+    }
+
+    $scope.submitAllInvoiceModal = function(){
+
+      var submittedCount = 0;
+
+      angular.forEach($scope.submitAllInvoiceList, function(item, key) {
+        invoiceService.updateInvoiceState(item.invoice.id,$scope.invoiceTypes.submitted.value,
+          $scope.model.profile.username,$scope.model.profile.organizationId)
+          .then(function(response){
+            if(response.status == 201){
+              submittedCount = submittedCount + 1;
+              //$("#centerModal").modal("toggle");
+              //location.path('/accountReceivable/invoice/'+'ALL'+'/Invoice Submitted Successfully !');
+            }
+            if(key == $scope.jobInvoiceTripList.length){
+              $("#submitAllModal").modal("toggle");
+              if(submittedCount == $scope.jobInvoiceTripList.length){
+                location.path('/accountReceivable/invoice/'+'ALL'+'/All Invoices Submitted Successfully !');
+              }else{
+                location.path('/accountReceivable/invoice/'+'ALL'+'/One or More Invoice Submission Falied. Please Submit again !');
+              }
+            }
+        });        
+      });
     }
 
       

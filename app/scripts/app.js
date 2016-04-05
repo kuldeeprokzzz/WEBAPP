@@ -49,6 +49,16 @@ var inloopAppApp= angular
         templateUrl: "../views/jobs.html",
         controller: 'loadManagerController',
       })
+    .state('accountReceivable', {
+      url: "/accountReceivable",
+      templateUrl: "../views/base.html",
+      controller: 'roleManagerController',
+    })
+    .state('accountReceivable.invoice', {
+      url: "/invoice/{invoiceType}/{message}",
+      templateUrl: "../views/billing.html",
+      controller: 'accountReceivableController',
+    })
     .state('accountPayable', {
       url: "/accountPayable",
       templateUrl: "../views/base.html",
@@ -58,16 +68,6 @@ var inloopAppApp= angular
       url: "/invoice/{invoiceType}/{message}",
       templateUrl: "../views/billing.html",
       controller: 'accountPayableController',
-    })
-    .state('accountReceivable', {
-      url: "/accountReceivable",
-      templateUrl: "../views/base.html",
-      controller: 'roleManagerController',
-    })
-    .state('accountReceivable.invoice', {
-      url: "/invoice/{invoiceType}/{message}",
-      templateUrl: "../views/accountPayableInvoice.html",
-      controller: 'accountReceivableController',
     })
   })
   

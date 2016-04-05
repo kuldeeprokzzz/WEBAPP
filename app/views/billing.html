@@ -1,4 +1,4 @@
-<div class="content" ng-controller="accountPayableController" ng-init="initialize()">
+<div class="content" ng-controller="accountReceivableController" ng-init="initialize()">
 <div class="content-header">
     <h2 class = "content-Info">Billing</h2>
 </div><!--/content-header -->
@@ -11,11 +11,15 @@
    
   <div class="col-md-12 margin-bottom">
             <ul class="nav nav-tabs">
-                <li ng-class="{ 'active': invoiceType == 'ALL' }"><a ui-sref="accountPayable.invoice({invoiceType:'ALL'})" data-toggle="tab">All</a></li>
-                <li ng-class="{ 'active': invoiceType == invoiceTypes.submitted.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.submitted.value})" data-toggle="tab">Submitted</a></li>
-                <li ng-class="{ 'active': invoiceType == invoiceTypes.approved.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.approved.value})">Approved</a></li>
-                <li ng-class="{ 'active': invoiceType == invoiceTypes.paid.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.paid.value})">Paid</a></li>
-                <button type="button" style ="float:right;width: 110px" class="btn btn-primary">Submit All</button>
+                <li ng-class="{ 'active': invoiceType == invoiceTypes.created.value+','+
+                invoiceTypes.submitted.value+','+
+                invoiceTypes.approved.value+','+
+                invoiceTypes.paid.value+','+
+                invoiceTypes.archieved.value }"><a ui-sref="accountReceivable.invoice({invoiceType:'ALL'})" data-toggle="tab">All</a></li>
+                <li ng-class="{ 'active': invoiceType == invoiceTypes.submitted.value }"><a ui-sref="accountReceivable.invoice({invoiceType : invoiceTypes.submitted.value})" data-toggle="tab">Submitted</a></li>
+                <li ng-class="{ 'active': invoiceType == invoiceTypes.approved.value }"><a ui-sref="accountReceivable.invoice({invoiceType : invoiceTypes.approved.value})">Approved</a></li>
+                <li ng-class="{ 'active': invoiceType == invoiceTypes.paid.value }"><a ui-sref="accountReceivable.invoice({invoiceType : invoiceTypes.paid.value})">Paid</a></li>
+                <button ng-show="{{submitAllInvoiceList.length != 0}}" ng-click="submitAllInvoice()" type="button" style ="float:right;width: 110px" class="btn btn-primary">Submit All</button>
             </ul>
 
   </div>
@@ -156,14 +160,15 @@
 
 
 
-<button type="button" class="btn btn-default" data-toggle="modal" data-target="#centerModal">Show modal</button>
+
+<button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#submitAllModal">Show modal</button>
         
-<div class="modal modal-center fade" data-sound="note" id="centerModal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
+<div class="modal modal-center fade" data-sound="note" id="submitAllModal" tabindex="-1" role="dialog" aria-labelledby="submitAllModalLabel" aria-hidden="true">
             <div class="modal-dialog animated flipInX">
                 <div class="modal-content" style = "width: 768px;width: 768px;margin-left: -69px;margin-top: -70px;">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="centerModalLabel">Submit All InVoices</h4>
+                        <button ng-click="submitAllInvoiceModal" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="submitAllModalLabel">Submit All InVoices</h4>
                   </div>
                     <div class="modal-body" style = "height: 283px;">
                         

@@ -12,6 +12,8 @@ angular.module('inloopAppApp')
         }
       }*/
 
+    $scope.invoiceTypes = sharedProperties.getInvoiceType();
+
     $scope.roleId = $scope.model.profile.roleid;
     $scope.roleTypes = sharedProperties.getRoles();
 
@@ -25,8 +27,6 @@ angular.module('inloopAppApp')
 
     console.log($scope.invoiceType);
     $scope.payerId = $scope.model.profile.organizationid;
-
-    $scope.invoiceTypes = sharedProperties.getInvoiceType();
 
     invoiceService.getAllInvoicesByPayerIdAndStatus
     ($scope.payerId,$scope.invoiceType)
