@@ -122,7 +122,9 @@ body {
   vertical-align: center;
   font-size: 13px;
   color: black;
-  font-weight: bold;
+  font-weight: bold;  
+  position: relative;
+  top: 10px;
 }
 .fontDrama{
   display: inline-block;
@@ -148,5 +150,5 @@ body {
       text-align: center;
       font-size: 25px;
       color: black;
-      font-weight: bold
+      font-weight: bold;
 }
