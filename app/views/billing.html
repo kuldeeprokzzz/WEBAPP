@@ -15,11 +15,11 @@
                 invoiceTypes.submitted.value+','+
                 invoiceTypes.approved.value+','+
                 invoiceTypes.paid.value+','+
-                invoiceTypes.archieved.value }"><a ui-sref="accountReceivable.invoice({invoiceType:'ALL'})" data-toggle="tab">All</a></li>
-                <li ng-class="{ 'active': invoiceType == invoiceTypes.submitted.value }"><a ui-sref="accountReceivable.invoice({invoiceType : invoiceTypes.submitted.value})" data-toggle="tab">Submitted</a></li>
-                <li ng-class="{ 'active': invoiceType == invoiceTypes.approved.value }"><a ui-sref="accountReceivable.invoice({invoiceType : invoiceTypes.approved.value})">Approved</a></li>
-                <li ng-class="{ 'active': invoiceType == invoiceTypes.paid.value }"><a ui-sref="accountReceivable.invoice({invoiceType : invoiceTypes.paid.value})">Paid</a></li>
-                <button ng-show="{{submitAllInvoiceList.length == 0}}" ng-click="submitAllInvoice()" type="button" style ="float:right;width: 110px" class="btn btn-primary">Submit All</button>
+                invoiceTypes.archieved.value }"><a ui-sref="accountReceivable.invoice({invoiceType:'ALL',message : ''})" data-toggle="tab">All</a></li>
+                <li ng-class="{ 'active': invoiceType == invoiceTypes.submitted.value }"><a ui-sref="accountReceivable.invoice({invoiceType : invoiceTypes.submitted.value,message : ''})" data-toggle="tab">Submitted</a></li>
+                <li ng-class="{ 'active': invoiceType == invoiceTypes.approved.value }"><a ui-sref="accountReceivable.invoice({invoiceType : invoiceTypes.approved.value,message : ''})">Approved</a></li>
+                <li ng-class="{ 'active': invoiceType == invoiceTypes.paid.value }"><a ui-sref="accountReceivable.invoice({invoiceType : invoiceTypes.paid.value,message : ''})">Paid</a></li>
+                <button ng-show="{{submitAllInvoiceList.length != 0}}" ng-click="submitAllInvoice()" type="button" style ="float:right;width: 110px" class="btn btn-primary">Submit All</button>
             </ul>
 
   </div>
@@ -161,7 +161,7 @@
 
 
 
-<button ng-show="true" type="button" class="btn btn-default" data-toggle="modal" data-target="#submitAllModal">Show modal</button>
+<button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#submitAllModal">Show modal</button>
         
 <div class="modal modal-center fade" data-sound="note" id="submitAllModal" tabindex="-1" role="dialog" aria-labelledby="submitAllModalLabel" aria-hidden="true">
             <div class="modal-dialog animated flipInX">
@@ -200,7 +200,7 @@
                                 </div>
                                 <div class="fontCover" style = "line-height: 11px;">
                                 <div class ="text_1">
-                                  <p class ="fontDesign">5 total jobs</p>
+                                  <p class ="fontDesign">{{createdCount}} total jobs</p>
                                   
                                 </div>
                                 <div class ="text_1">
@@ -210,7 +210,7 @@
                                 </div>
                                 <div class="fontCover" style = "line-height: 11px;">
                                 <div class ="text_1">
-                                  <p class ="fontDesign">327 Total Packages Delivered</p>
+                                  <p class ="fontDesign">{{createdTotalPackages}} Total Packages Delivered</p>
                                   
                                 </div>
                                 <div class ="text_1">

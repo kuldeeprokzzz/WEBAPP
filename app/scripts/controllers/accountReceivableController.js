@@ -1,5 +1,5 @@
 angular.module('inloopAppApp')
-  .controller('accountReceivableController', function ($scope, $stateParams,$location,sharedProperties,completeModel,contractTaskService,jobService,tripService,invoiceService) {
+  .controller('accountReceivableController', function ($scope,$timeout,$stateParams,$location,sharedProperties,completeModel,contractTaskService,jobService,tripService,invoiceService) {
 
   	$scope.initialize = function(){
   		if(completeModel.getCompleteModel() != undefined){
@@ -14,6 +14,7 @@ angular.module('inloopAppApp')
     $scope.invoiceTypes = sharedProperties.getInvoiceType();
       $scope.createdCount = 0;
       $scope.createdTotalAmount = 0;
+      $scope.createdTotalPackages = 0;
       $scope.submitAllInvoiceList = [];
 
     if($stateParams.invoiceType != undefined){
@@ -70,6 +71,7 @@ angular.module('inloopAppApp')
                             $scope.submitAllInvoiceList.push(item);
                             $scope.createdCount = $scope.createdCount + 1;
                             $scope.createdTotalAmount = $scope.createdTotalAmount + item.invoice.total_amount;
+                            $scope.createdTotalPackages = $scope.createdTotalPackages + item.job.number_of_packages;
                           }
                          console.log(JSON.stringify($scope.jobInvoiceTripList));
                         }
@@ -82,7 +84,7 @@ angular.module('inloopAppApp')
           });
           });
         }else{
-          $scope.errorMessage = "Some thing went wrong. Try Again !";
+          $scope.errorMessage = "No Jobs Found.!";
         }
       }else{
         $scope.errorMessage = "Some thing went wrong. Try Again !";
@@ -133,11 +135,13 @@ angular.module('inloopAppApp')
             }
             if(key + 1 == $scope.jobInvoiceTripList.length){
               $("#submitAllModal").modal("toggle");
+              $timeout(function(){
               if(submitCount == $scope.jobInvoiceTripList.length){
                 $location.path('/accountReceivable/invoice/'+'ALL'+'/All Invoices Submitted Successfully !');
               }else{
                 $location.path('/accountReceivable/invoice/'+'ALL'+'/One or More Invoice Submission Falied. Please Submit again !');
               }
+              }, 1000);
             }
         });        
       });
