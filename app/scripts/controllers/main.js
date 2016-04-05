@@ -55,11 +55,13 @@ angular.module('inloopAppApp')
 						$location.path('/loadManager/job/'+sharedProperties.getJobsTypes().unassigned.value+'/');
 						}
 
-						if(true){
+						if(false){
 						$location.path('/accountPayable/invoice/ALL/');
 						}
 						// response.data.roleid == sharedProperties.getRoles().shipperLoadingManager.id
-
+						if(true){
+						$location.path('/accountReceivable/invoice/ALL/');
+						}
 					
 					}
 				});

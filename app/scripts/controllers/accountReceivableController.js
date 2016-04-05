@@ -1,5 +1,5 @@
 angular.module('inloopAppApp')
-  .controller('accountPayableController', function ($scope, $stateParams,sharedProperties,completeModel,contractTaskService,jobService,tripService,invoiceService) {
+  .controller('accountReceivableController', function ($scope, $stateParams,sharedProperties,completeModel,contractTaskService,jobService,tripService,invoiceService) {
 
   	$scope.initialize = function(){
   		if(completeModel.getCompleteModel() != undefined){
