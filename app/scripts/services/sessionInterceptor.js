@@ -1,8 +1,8 @@
 // Intercepting HTTP calls with AngularJS.
-inloopAppApp.config(function ($provide, $httpProvider,completeModel) {
+inloopAppApp.config(function ($provide, $httpProvider,) {
   
   // Intercept http calls.
-  $provide.factory('sessionInterceptor', function () {
+  $provide.factory('sessionInterceptor', function (completeModel) {
     return {
       
       request: function (config) {

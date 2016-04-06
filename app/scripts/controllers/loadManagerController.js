@@ -45,7 +45,7 @@ angular.module('inloopAppApp')
           if(response.data.length != 0){
             $scope.message = "";
             $scope.jobToBeAssigned = job;
-            $scope.checkedInContractTaks = response.data;
+            $scope.contractTasks = response.data;
             $("#centerModal").modal("toggle");
           }else{
             $scope.message = "No driver found to assign job, Try after Some Time !";
@@ -53,12 +53,13 @@ angular.module('inloopAppApp')
         }else{
           $scope.message = "Something went wront. Try Again !";
         }
-      });
+      });    
+    };
 
       $scope.assignJobToDriver = function(contractTask){
 
         jobService.updateJobStateWithJobIdPerformedByAndType
-        ($scope.jobToBeAssigned.id,$model.profile.username,$scope.jobsTypes.assigned.value)
+        ($scope.jobToBeAssigned.id,$scope.model.profile.username,$scope.jobsTypes.assigned.value)
         .then(function(response){
           if(response.status == 200){
             tripService.createNewTripForJob(
@@ -91,6 +92,21 @@ angular.module('inloopAppApp')
 
         });
       };
+
+
+    $scope.showDetails = function(job){
+     
+      // getting list of all checked-in drivers
+      contractTaskService.getContractTaskById(job.contract_taskid)
+      .then(function(response){
+        if(response.status == 200){
+          $scope.contractTask = response.data;
+          $scope.contractTask.jobName = job.name;
+          $("#detailsModal").modal("toggle");
+        }else{
+          $scope.message = "Unable to show details, Please try again !";
+        }
+      });
     };
 
 

@@ -74,4 +74,34 @@ var inloopAppApp= angular
       templateUrl: "../views/provisioning.html",
     })
   })
+  .config(function ($provide, $httpProvider,localStorageServiceProvider) {
+  
+  // Intercept http calls to add session token in the header.
+  // this also checks for session expiry and log's out if session has expired
+  $provide.factory('sessionInterceptor', function (localStorageService,$location) {
+    return {
+      
+      request: function (config) {
+        var model = localStorageService.get('completeModel');
+        if(new Date() - new Date(model.loginTime) > model.tokenTime){
+          localStorageService.clearAll();
+          console.log('user session time out');
+          $location.path('/');
+        }
+        if(config.url.indexOf('api') != -1){
+          if(config.url.indexOf('login') != -1){
+            config.headers['Authorization'] = 'Token 3562QEQQ%$&898921@';
+            //completeModel.getCompleteModel().accessToken
+          }
+        }
+        return config;
+      },
+    };
+  });
+
+  // Add the interceptor to the $httpProvider.
+  $httpProvider.interceptors.push('sessionInterceptor');
+
+});
+
   

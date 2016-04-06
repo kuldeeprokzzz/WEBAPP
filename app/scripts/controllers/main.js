@@ -43,23 +43,30 @@ angular.module('inloopAppApp')
 			if(response.status == 200){
 				var model = {};
 				model.accessToken = response.data.token;
-				model.tokenTime = response.data.expiry;
+				model.tokenTime = response.data.expires;
+				model.loginTime = new Date();
 
 				loginService.getProfile().then(function(response){
 					if(response.status == 200){
 
 						model.profile = response.data;
-						completeModel.saveCompleteModel(model);
+						
 
-						if(false){
+						if($scope.username == 'LOADMANAGER'){
+						model.profile.roleIdtemp = sharedProperties.getRoles().shipperLoadingManager.id;
+						completeModel.saveCompleteModel(model);
 						$location.path('/loadManager/job/'+sharedProperties.getJobsTypes().unassigned.value+'/');
 						}
 
 						if(false){
+						model.profile.roleIdtemp = sharedProperties.getRoles().shipperAccountPayableManager.id;
+						completeModel.saveCompleteModel(model);
 						$location.path('/accountPayable/invoice/ALL/');
 						}
 						// response.data.roleid == sharedProperties.getRoles().shipperLoadingManager.id
-						if(true){
+						if(false){
+						model.profile.roleIdtemp = sharedProperties.getRoles().providerAccountReceivableManager.id;
+						completeModel.saveCompleteModel(model);
 						$location.path('/accountReceivable/invoice/ALL/');
 						}
 					
@@ -70,4 +77,4 @@ angular.module('inloopAppApp')
 	}    
 
 
-  });
+});
