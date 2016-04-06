@@ -16,6 +16,20 @@ inloopAppApp.service('invoiceService', ['sharedProperties','$http', function(sha
      	});
      };
 
+     this.getAllInvoicesByPayeeIdAndStatus = function(payeeId,status){
+
+
+      return $http({
+        method: 'GET',
+        //url: sharedProperties.getUrl()+'/invoices/?payeeid='+payeeId+'&status='+status,
+               url: sharedProperties.getUrl()+'/invoices/',  // Delete later
+      }).success(function(response){
+        return response;
+      }).error(function(response){
+        return response;
+      });
+     };
+
      this.updateInvoiceState = function(invoiceId,state,performedBy,organizationId){
 
           var currentTime = sharedProperties.getTodatUTCDateTime();

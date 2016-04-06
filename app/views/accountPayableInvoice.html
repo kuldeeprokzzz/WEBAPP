@@ -6,16 +6,19 @@
 <div class="content-body">
 
 
-  <div id="error-placement"><span style="color:white">hi</span></div>
+  <div id="error-placement" class="text-center"><span style="color:white">hi</span>{{errorMessage}}</div>
 
    
   <div class="col-md-12 margin-bottom">
             <ul class="nav nav-tabs">
-                <li ng-class="{ 'active': invoiceType == 'ALL' }"><a ui-sref="accountPayable.invoice({invoiceType:'ALL'})" data-toggle="tab">All</a></li>
-                <li ng-class="{ 'active': invoiceType == invoiceTypes.submitted.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.submitted.value})" data-toggle="tab">Submitted</a></li>
-                <li ng-class="{ 'active': invoiceType == invoiceTypes.approved.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.approved.value})">Approved</a></li>
-                <li ng-class="{ 'active': invoiceType == invoiceTypes.paid.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.paid.value})">Paid</a></li>
-                <button type="button" style ="float:right;width: 110px" class="btn btn-primary">Submit All</button>
+                <li ng-class="{ 'active': invoiceType == invoiceTypes.submitted.value+','+
+                invoiceTypes.approved.value+','+
+                invoiceTypes.paid.value+','+
+                invoiceTypes.archieved.value }"><a ui-sref="accountPayable.invoice({invoiceType:'ALL',message : ''})" data-toggle="tab">All</a></li>
+                <li ng-class="{ 'active': invoiceType == invoiceTypes.submitted.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.submitted.value,message : ''})" data-toggle="tab">Submitted</a></li>
+                <li ng-class="{ 'active': invoiceType == invoiceTypes.approved.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.approved.value,message : ''})">Approved</a></li>
+                <li ng-class="{ 'active': invoiceType == invoiceTypes.paid.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.paid.value,message : ''})">Paid</a></li>
+                <button ng-show="{{approveAllInvoiceList.length != 0}}" ng-click="approveAllInvoice()" type="button" style ="float:right;width: 110px" class="btn btn-primary">Submit All</button>
             </ul>
 
   </div>
@@ -35,10 +38,9 @@
                 <tr>
                     <td class ="stylingFonts">{{item.job.name}}</td>
                     <td>{{item.job.area}}</td>
-                    <td><i class="fa fa-inr"></i>{{item.invoice.amount}}</td>
+                    <td><i class="fa fa-inr"></i>{{item.invoice.total_amount}}</td>
                     <td>{{item.job.latest_state.time | date: 'MM/dd/yyyy h:mma'}}</td>
-                    <td ng-click="submitInvoice(item)" ng-show="{{item.invoice.status == invoiceTypes.created.value}}" class ="stylingFonts">Submit Invoice</td>
-                    <td ng-show="{{item.invoice.status == invoiceTypes.submitted.value}}" class ="">Submitted</td>
+                    <td ng-click="approveInvoice(item)" ng-show="{{item.invoice.status == invoiceTypes.submitted.value}}" class ="stylingFonts">Approve Invoice</td>
                     <td ng-show="{{item.invoice.status == invoiceTypes.approved.value}}" class ="">Approved</td>
                     <td ng-show="{{item.invoice.status == invoiceTypes.paid.value}}" class ="">Paid</td>
                     <td ng-show="{{item.invoice.status == invoiceTypes.archieved.value}}" class ="">Archieved</td>
@@ -46,6 +48,7 @@
             </tbody>
         </table>
     </div>
+
     <button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#centerModal">Show modal</button>
     
     <div class="modal modal-center fade" data-sound="note" id="centerModal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
@@ -53,7 +56,7 @@
     <div class="modal-content" style = "width: 768px;width: 768px;margin-left: -69px;margin-top: -70px;">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="centerModalLabel">Invoice For Job ID# {{invoiceTobeSubmitted.job.name}}</h4>
+            <h4 class="modal-title" id="centerModalLabel">Invoice For Job ID# {{invoiceTobeApproved.job.name}}</h4>
       </div>
         <div class="modal-body" style = "height: 283px;">
             
@@ -65,21 +68,21 @@
                     <img  class = "img-wrapper" src="images/driver_photo_1.png" style ="height: 135px;">
                     <div class="fontCover">
                     <div class ="text_1" style ="line-height: 11px;">
-                      <p class ="fontDesign">{{invoiceTobeSubmitted.contractTask.driver_name}}</p>
+                      <p class ="fontDesign">{{invoiceTobeApproved.contractTask.driver_name}}</p>
                      
                     </div>
                     <div class ="text_1" style ="line-height: 11px;">
-                       <p class ="fontDrama" style ="float:left">{{invoiceTobeSubmitted.contractTask.provider_name}}</p> 
+                       <p class ="fontDrama" style ="float:left">{{invoiceTobeApproved.contractTask.provider_name}}</p> 
                        
                     </div>
                     </div>
                     <div class="fontCover">
                     <div class ="text_1" style ="line-height: 11px;">
-                      <p class ="fontDesign">{{invoiceTobeSubmitted.contractTask.vehicle_regNumber}}</p>
+                      <p class ="fontDesign">{{invoiceTobeApproved.contractTask.vehicle_regNumber}}</p>
                      
                     </div>
                     <div class ="text_1" style ="line-height: 11px;">
-                       <p class ="fontDrama" style ="float:left">{{invoiceTobeSubmitted.contractTask.vehicle_make}}</p> 
+                       <p class ="fontDrama" style ="float:left">{{invoiceTobeApproved.contractTask.vehicle_make}}</p> 
                        
                     </div>
                     </div>
@@ -91,17 +94,17 @@
                     <img  class = "img-wrapper" src="images/kd.png" style ="height: 135px;">
                     <div class="fontCover">
                     <div class ="text_1" style ="line-height: 11px;">
-                      <p class ="fontDesign">{{invoiceTobeSubmitted.job.name}}</p>
+                      <p class ="fontDesign">{{invoiceTobeApproved.job.name}}</p>
                      
                     </div>
                     <div class ="text_1" style ="line-height: 11px;">
-                       <p class ="fontDrama" style ="float:left">{{invoiceTobeSubmitted.job.area}}</p> 
+                       <p class ="fontDrama" style ="float:left">{{invoiceTobeApproved.job.area}}</p> 
                        
                     </div>
                     </div>
                     <div class="fontCover">
                     <div class ="text_1" style ="line-height: 11px;height: 56px;">
-                      <p class ="fontDesign">{{invoiceTobeSubmitted.job.number_of_packages}} Packages</p>
+                      <p class ="fontDesign">{{invoiceTobeApproved.job.number_of_packages}} Packages</p>
                      
                     </div>
                     </div>
@@ -111,7 +114,7 @@
             <div class ="col-md-4 outerWrapper pull-left">
                 <div class = "innerWrapper">
                     <div class ="TopBar">
-                        <p style ="position: relative;top: 51px;"><i class="fa fa-inr"></i> {{invoiceTobeSubmitted.invoice.amount}}</p>
+                        <p style ="position: relative;top: 51px;"><i class="fa fa-inr"></i> {{invoiceTobeApproved.invoice.total_amount}}</p>
                     </div>
                     <div class="fontCover">
                     <div class ="text_1" style ="line-height: 11px;">
@@ -119,7 +122,7 @@
                      
                     </div>
                     <div class ="text_1" style ="line-height: 11px;">
-                       <p class ="fontDrama" style ="float:left">G Trans Logistics Pvt. Ltd</p> 
+                       <p class ="fontDrama" style ="float:left;" >G Trans Logistics Pvt. Ltd</p> 
                        
                     </div>
                     </div>
@@ -144,7 +147,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button ng-click="submitModalInvoice()" type="button" style ="float:right;width: 110px" class="btn btn-primary">Submit</button>
+            <button ng-click="approveModalInvoice()" type="button" style ="float:right;width: 110px" class="btn btn-primary">Submit</button>
         </div>
     </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -155,31 +158,32 @@
 
 
 
-<button type="button" class="btn btn-default" data-toggle="modal" data-target="#centerModal">Show modal</button>
+
+<button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#approveAllModal">Show modal</button>
         
-<div class="modal modal-center fade" data-sound="note" id="centerModal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
+<div class="modal modal-center fade" data-sound="note" id="approveAllModal" tabindex="-1" role="dialog" aria-labelledby="approveAllModalLabel" aria-hidden="true">
             <div class="modal-dialog animated flipInX">
                 <div class="modal-content" style = "width: 768px;width: 768px;margin-left: -69px;margin-top: -70px;">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="centerModalLabel">Submit All InVoices</h4>
+                        <button ng-click="approveAllInvoiceModal()" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="approveAllModalLabel">Approve All Invoices</h4>
                   </div>
                     <div class="modal-body" style = "height: 283px;">
                         
 
                         <div class="clearfix row">
 
-                        <div class ="col-md-8 outerWrapper pull-left">
+                        <div ng-repeat="item in approveAllInvoiceList" class ="col-md-8 outerWrapper pull-left">
                             <div class = "innerWrapper">
                                 
                                 <div class="fontCover">
                                 <div class ="text_1" style ="line-height: 11px;">
-                                  <p class ="fontDesign">Aarav Benerjee</p>
-                                  <p class ="fontDrama"style = "    position: relative;margin-top: 10px;">087917</p>
+                                  <p class ="fontDesign">{{item.job.name}}</p>
+                                  <p class ="fontDrama"style = "    position: relative;margin-top: 10px;">{{item.invoice.total_amount}}</p>
                                 </div>
                                 <div class ="text_1" style ="line-height: 11px;">
-                                   <p class ="fontDrama" style ="float:left">G Trans Logistics Pvt. Ltd</p> 
-                                   <p class ="fontDrama" style = "    position: relative;margin-top: 0px;">087917</p>
+                                   <p class ="fontDrama" style ="float:left">{{item.job.area}}</p> 
+                                   <p class ="fontDrama" style = "    position: relative;margin-top: 0px;">{{item.job.number_of_packages}} packages</p>
                                 </div>
                                 </div>
                                 
@@ -190,26 +194,26 @@
                         <div class ="col-md-4 outerWrapper pull-left">
                             <div class = "innerWrapper">
                                 <div class ="TopBar">
-                                    <p style ="position: relative;top: 51px;"><i class="fa fa-inr"></i> 1545.80</p>
+                                    <p style ="position: relative;top: 51px;"><i class="fa fa-inr"></i> {{createdTotalAmount}}</p>
                                 </div>
                                 <div class="fontCover" style = "line-height: 11px;">
                                 <div class ="text_1">
-                                  <p class ="fontDesign">Trip Start</p>
-                                  <p class ="fontDrama">087917</p>
+                                  <p class ="fontDesign">{{createdCount}} total jobs</p>
+                                  
                                 </div>
                                 <div class ="text_1">
                                    <p class ="fontDrama" style ="float:left"></p> 
-                                   <p class ="fontDrama">5:03AM</p>
+                                   
                                 </div>
                                 </div>
                                 <div class="fontCover" style = "line-height: 11px;">
                                 <div class ="text_1">
-                                  <p class ="fontDesign">Trip Start</p>
-                                  <p class ="fontDrama">087917</p>
+                                  <p class ="fontDesign">{{createdTotalPackages}} Total Packages Delivered</p>
+                                  
                                 </div>
                                 <div class ="text_1">
                                    <p class ="fontDrama" style ="float:left"></p> 
-                                   <p class ="fontDrama">5:03AM</p>
+                                  
                                 </div>
                                 </div>
                                  
@@ -224,7 +228,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Submit</button>
+                        <button ng-click="approveAllInvoiceModal()" type="button" class="btn btn-primary">Submit</button>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->

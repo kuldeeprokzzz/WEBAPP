@@ -66,7 +66,7 @@ var inloopAppApp= angular
     })
     .state('accountPayable.invoice', {
       url: "/invoice/{invoiceType}/{message}",
-      templateUrl: "../views/billing.html",
+      templateUrl: "../views/accountPayableInvoice.html",
       controller: 'accountPayableController',
     })
     .state('provisioning', {
