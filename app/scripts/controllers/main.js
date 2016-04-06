@@ -52,7 +52,7 @@ angular.module('inloopAppApp')
 						model.profile = response.data;
 						
 
-						if($scope.username == 'lm'){
+						if($scope.username == 'loadM'){
 						model.profile.roleIdtemp = sharedProperties.getRoles().shipperLoadingManager.id;
 						completeModel.saveCompleteModel(model);
 						$location.path('/loadManager/job/'+sharedProperties.getJobsTypes().unassigned.value+'/');

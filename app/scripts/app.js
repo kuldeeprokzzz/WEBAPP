@@ -83,10 +83,10 @@ var inloopAppApp= angular
       
       request: function (config) {
         var model = localStorageService.get('completeModel');
-        if(model != null){
+        if(model != undefined){
           if(model != ''){
         if(new Date() - new Date(model.loginTime) > model.tokenTime){
-          localStorageService.clearAll();
+          localStorageService.set('completeModel',undefined);
           console.log('user session time out');
           $location.path('/');
         }

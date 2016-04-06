@@ -1,5 +1,5 @@
 angular.module('inloopAppApp')
-  .controller('headerController', function ($scope, $stateParams,sharedProperties,completeModel,jobService) {
+  .controller('headerController', function ($scope,$location, $stateParams,sharedProperties,completeModel,jobService) {
 
   	$scope.initialize = function(){
   		if(completeModel.getCompleteModel() != undefined){
@@ -21,7 +21,8 @@ angular.module('inloopAppApp')
   	};
 
     $scope.logOut = function(){
-      
+      completeModel.saveCompleteModel(undefined);
+      $location.path('/');
     }
 
 
