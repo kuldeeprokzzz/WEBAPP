@@ -13,8 +13,12 @@ inloopAppApp.service('completeModel',function(localStorageService,$location){
             }else{
                 var localModel = localStorageService.get('completeModel');
                 if(localModel != undefined){
+                    if(localModel != ''){
                     this._completeModel = localModel;
                     return this._completeModel;
+                    }else{
+                        $location.path('/');
+                    }
                 }else{
                     localStorageService.set('completeModel','');
                     $location.path('/');

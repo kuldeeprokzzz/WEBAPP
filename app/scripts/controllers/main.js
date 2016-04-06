@@ -52,23 +52,25 @@ angular.module('inloopAppApp')
 						model.profile = response.data;
 						
 
-						if($scope.username == 'LOADMANAGER'){
+						if($scope.username == 'lm'){
 						model.profile.roleIdtemp = sharedProperties.getRoles().shipperLoadingManager.id;
 						completeModel.saveCompleteModel(model);
 						$location.path('/loadManager/job/'+sharedProperties.getJobsTypes().unassigned.value+'/');
 						}
 
-						if(false){
+						if($scope.username == 'accountR'){
+						model.profile.roleIdtemp = sharedProperties.getRoles().providerAccountReceivableManager.id;
+						completeModel.saveCompleteModel(model);
+						$location.path('/accountReceivable/invoice/ALL/');
+						}
+
+						if($scope.username == 'accountP'){
 						model.profile.roleIdtemp = sharedProperties.getRoles().shipperAccountPayableManager.id;
 						completeModel.saveCompleteModel(model);
 						$location.path('/accountPayable/invoice/ALL/');
 						}
 						// response.data.roleid == sharedProperties.getRoles().shipperLoadingManager.id
-						if(false){
-						model.profile.roleIdtemp = sharedProperties.getRoles().providerAccountReceivableManager.id;
-						completeModel.saveCompleteModel(model);
-						$location.path('/accountReceivable/invoice/ALL/');
-						}
+						
 					
 					}
 				});
