@@ -12,7 +12,7 @@ inloopAppApp.service('tripService', ['sharedProperties','$http', function(shared
                               "vehicleid": vehicleId,
                               "driverid": driverId,
                               "contract_taskid": contractTaskId,
-                              "jobid": jobId, 
+                              "jobid": jobId,
                               "odometer_deviceid":odometerDeviceId, 
                               "status": sharedProperties.getTripTypes.created.value, 
                               "trip_date": currentTime,
@@ -43,6 +43,18 @@ inloopAppApp.service('tripService', ['sharedProperties','$http', function(shared
       return $http({
         method: 'GET',
         url: sharedProperties.getUrl()+'/trips/'+tripId+'/tripdata',
+      }).success(function(response){
+        return response;
+      }).error(function(response){
+        return response;
+      });
+     };
+
+     this.getTripStatesByTripId = function(tripId){
+
+      return $http({
+        method: 'GET',
+        url: sharedProperties.getUrl()+'/trips/'+tripId+'/states',
       }).success(function(response){
         return response;
       }).error(function(response){

@@ -61,7 +61,7 @@
     border-top: 1px solid #E0E4E8;
     font-size: 13px;
 }
-@media (max-width: 991px) {
+@media (max-width: 3000px) {
     .signin-wrapper{
         padding-top: 20px;
     }

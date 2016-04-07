@@ -9,7 +9,7 @@
   <div id="error-placement" class="text-center"><span style="color:white">hi</span>{{errorMessage}}</div>
 
    
-  <div class="col-md-12 margin-bottom">
+  <div class="col-md-14margin-bottom">
             <ul class="nav nav-tabs">
                 <li ng-class="{ 'active': invoiceType == invoiceTypes.submitted.value+','+
                 invoiceTypes.approved.value+','+
@@ -18,7 +18,7 @@
                 <li ng-class="{ 'active': invoiceType == invoiceTypes.submitted.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.submitted.value,message : ''})" data-toggle="tab">Submitted</a></li>
                 <li ng-class="{ 'active': invoiceType == invoiceTypes.approved.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.approved.value,message : ''})">Approved</a></li>
                 <li ng-class="{ 'active': invoiceType == invoiceTypes.paid.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.paid.value,message : ''})">Paid</a></li>
-                <button ng-show="{{approveAllInvoiceList.length != 0}}" ng-click="approveAllInvoice()" type="button" style ="float:right;width: 110px" class="btn btn-primary">Submit All</button>
+                <button ng-show="{{approveAllInvoiceList.length != 0}}" ng-click="approveAllInvoice()" type="button" style ="float:right;width: 110px" class="btn btn-primary">Approve All</button>
             </ul>
 
   </div>
@@ -118,21 +118,23 @@
                     </div>
                     <div class="fontCover">
                     <div class ="text_1" style ="line-height: 11px;">
-                      <p class ="fontDesign">Aarav Benerjee</p>
+                      <p class ="fontDesign pull-left">Trip Start</p>
                      
                     </div>
                     <div class ="text_1" style ="line-height: 11px;">
-                       <p class ="fontDrama" style ="float:left;" >G Trans Logistics Pvt. Ltd</p> 
+                       <p class ="fontDrama" style ="float:right;" >{{invoiceTobeApproved.invoice.start_time | date: 'h:mma'}}</p>
+                       <p class ="fontDrama" style ="float:right">{{invoiceTobeApproved.tripState[0].odometer}}</p> 
                        
                     </div>
                     </div>
                     <div class="fontCover">
                     <div class ="text_1" style ="line-height: 11px;">
-                      <p class ="fontDesign">KA 19P 8488</p>
+                      <p class ="fontDesign pull-left">End Trip</p>
                      
                     </div>
                     <div class ="text_1" style ="line-height: 11px;">
-                       <p class ="fontDrama" style ="float:left">White Tata Ace</p> 
+                       <p class ="fontDrama" style ="float:right">{{invoiceTobeApproved.invoice.end_time | date: 'h:mma'}}</p>
+                       <p class ="fontDrama" style ="float:right">{{invoiceTobeApproved.tripState[1].odometer}}</p>
                        
                     </div>
                     </div>
@@ -147,7 +149,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button ng-click="approveModalInvoice()" type="button" style ="float:right;width: 110px" class="btn btn-primary">Submit</button>
+            <button ng-click="approveModalInvoice()" type="button" style ="float:right;width: 110px" class="btn btn-primary">Approve</button>
         </div>
     </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

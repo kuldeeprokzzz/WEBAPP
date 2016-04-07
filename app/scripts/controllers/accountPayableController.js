@@ -64,15 +64,20 @@ angular.module('inloopAppApp')
                       tripService.getTripDataByTripId(tripId).then(function(response){
                         if(response.status == 200){
                           var tripData = response.data;
-                          var item = {job:job,trip:tripDetails,tripData:tripData,contractTask: contractTask,invoice:invoice};
-                          $scope.jobInvoiceTripList.push(item);
-                          if(item.invoice.status == $scope.invoiceTypes.submitted.value){
-                            $scope.approveAllInvoiceList.push(item);
-                            $scope.createdCount = $scope.createdCount + 1;
-                            $scope.createdTotalAmount = $scope.createdTotalAmount + item.invoice.total_amount;
-                            $scope.createdTotalPackages = $scope.createdTotalPackages + item.job.number_of_packages;
-                          }
-                         console.log(JSON.stringify($scope.jobInvoiceTripList));
+                          tripService.getTripStatesByTripId(tripId).then(function(response){
+                            if(response.status == 200){
+                              var item = {job:job,trip:tripDetails,tripData:tripData,contractTask: contractTask,invoice:invoice,tripStates : response.data};
+                              $scope.jobInvoiceTripList.push(item);
+                              if(item.invoice.status == $scope.invoiceTypes.submitted.value){
+                                $scope.approveAllInvoiceList.push(item);
+                                $scope.createdCount = $scope.createdCount + 1;
+                                $scope.createdTotalAmount = $scope.createdTotalAmount + item.invoice.total_amount;
+                                $scope.createdTotalPackages = $scope.createdTotalPackages + item.job.number_of_packages;
+                              }
+                             //console.log(JSON.stringify($scope.jobInvoiceTripList));
+
+                            }
+                          });
                         }
                       });
                     }
@@ -90,7 +95,7 @@ angular.module('inloopAppApp')
       }
     });
 
-//alert($scope.approveAllInvoiceList.length);
+console.log(JSON.stringify($scope.jobInvoiceTripList));
 
     }
 

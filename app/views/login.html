@@ -7,59 +7,62 @@
 				<div class="signin-wrapper">
 					<div class="tab-content">
 						<div class="row tab-pane fade in active" id="signin">
-							<div class="col-md-offset-1 col-md-6 hidden-sm hidden-xs">
-								<img class ="ImagePos"src="images/vector-02.png" height >
-							</div><!--/cols-->
 
-							<div class="col-md-offset-1 col-md-4 col-sm-offset-2 col-sm-8">							
-								<div class="signin">
+							<div class = "covering">
+
+							<img style ="height: 51px; class = "img-responsive" " src="images/logo.svg">
+							
+                            <p class ="downshift">Sign in to continue to Inloop</p>
+                            </div>
+
+							<div class="col-md-offset-4 col-md-4 col-sm-offset-2 col-sm-8 loginScreen">							
+								<div class="signin" style = "		margin-top: 105px;">
 									<div class="signin-brand">
-										<a href="page-signin.php">
-											<img src="images/logo-gray.gif">
-										</a>
+										
+											
+									
 									</div><!--/signin-brand-->
 
-									<div>
-										<p><small>Inloop Admin account. <a href="#">Learn more?</a></small></p>
+									<div class = "signinWrapper">
+										
 										<div class="form-group">
-											<div class="input-group input-group-in">
-												<span class="input-group-addon text-muted">@</span>
-												<input ng-model="username" type="text" class=" form-control" name="username" required minlength="4" placeholder="johndoe" autocomplete="off">
+											<div class="input-group input-group-in" style= "width:100%"> 
+												
+												<input style ="padding:5px;" ng-model="username" type="text" class=" form-control" name="username" required minlength="4" placeholder="Mobile Number, Email or Username" autocomplete="off">
 											</div><!--/input-group-->
 										</div><!--/form-group-->
 
 										<div class="form-group">
-											<div class="input-group input-group-in">
-												<span class="input-group-addon text-muted"><i class="fa fa-circle-o"></i></span>
-												<input ng-model="password" type="password" class="form-control" name="password" required minlength="4" placeholder="Password">
+											<div class="input-group input-group-in" style= "width:100%">
+												<input style ="padding:5px" ng-model="password" type="password" class="form-control" name="password" required minlength="4" placeholder="Password">
 											</div><!--/input-group-->
 										</div><!--/form-group-->
-
-										<div class="form-group">
-											<div class="nice-checkbox">
-												<input class="checkbox-o" type="checkbox" name="keep-signin" id="keep-signin"/>
-												<label for="keep-signin">Keep me sign in</label>
-											</div>
-										</div><!--/form-group-->
+                                  	    
+                                  	    
 
 										<div class="form-group form-actions">
-											<input ng-click="submitLogin()" type="submit" class="hidden-sm btn btn-primary" value="Sign In">
-											<input ng-click="submitLogin()" type="submit" class="visible-sm btn btn-lg btn-block btn-primary" value="Sign In">
+											<input style ="width:100%;margin-bottom: -11px;" ng-click="submitLogin()" type="submit" class="hidden-sm btn btn-primary" value="Sign In">
+											<input style ="width:100%;margin-bottom: -11px;"ng-click="submitLogin()" type="submit" class="visible-sm btn btn-lg btn-block btn-primary" value="Sign In">
 										</div><!--/form-group-->
+                                        
+                                        <div class = "foooter">
+											<div class="form-group downSide">
+												<div >
+													<input class="checkbox-o" type="checkbox" name="keep-signin" id="keep-signin">
+													<label style = "font-weight:normal;"for="keep-signin">Stay signed In</label>
+												</div>
+											</div>
 
-										<p>
-											<small>
-												<a href="#modalRecover" data-toggle="modal">Can't Access your Account?</a><br>
-												<a href="#" class="hidden-sm">Sign in with another account?</a>
-											</small>
-										</p>
-										<p class="hidden-sm">
-											<a href="#" rel="tooltip" title="Signin with Twitter account" class="btn btn-sm btn-info"><span class="fa fa-twitter"></span></a>
-											<a href="#" rel="tooltip" title="Signin with Google account" class="btn btn-sm btn-danger"><span class="fa fa-google-plus"></span></a>
-											<a href="#" rel="tooltip" title="Signin with Github account" class="btn btn-sm btn-cloud"><span class="fa fa-github"></span></a>
-										</p>
+											<div class ="Dropside">
+												<small>
+													<a href="#modalRecover" data-toggle="modal">Forget Password ?</a><br>
+											    </small>
+	                                        </div>
+	                                    </div>    
+										 
+										
 
-										<p class="margin-top"><small>Don't have a account? <a data-toggle="tab" href="#signup"><strong>Creata an Account</strong></a></small></p>
+										
 									</div><!--/#signin-form-->
 								</div><!--/signin-->
 
@@ -80,7 +83,7 @@
 															<input type="email" class="form-control" name="recover" required autocomplete="off">
 														</div><!--/input-group-->
 													</div><!--/form-group-->
-													<p class="text-muted"><small>Enter your username or email address and we will send you a link to reset your password.</small></p>
+													<p class="text-muted"><small>Enter your email address and we will send you a link to reset your password.</small></p>
 												</form>
 	                                        </div>
 
@@ -150,16 +153,7 @@
 
 					</div><!--/tab-content-->
 
-					<div class="signin-footer">
-						<ul class="list-inline pull-right">
-							<li><a href="#">Knowledge base</a></li>
-						</ul>
-						<ul class="list-inline">
-							<li>&copy; 2014 INLOOP</li>
-							<li><a href="#">Terms of Use</a></li>
-							<li><a href="#">Privacy Policy</a></li>
-						</ul>
-					</div>
+					
 
 				</div><!--/signin-wapper-->
 

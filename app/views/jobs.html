@@ -6,11 +6,11 @@
 
         <div class="content-body">
 
-        <div class="text-center"><span style="color:white">hi</span>{{message}}</div>
+        <div class="text-center"><span style="color:white">hi<span>{{message}}</div>
 
 
 
-        <div class="col-md-12 margin-bottom">
+        <div class="col-md-14 margin-bottom">
         <ul class="nav nav-tabs">
         <li ng-class="{ 'active': jobType == jobsTypes.unassigned.value }"><a ui-sref="loadManager.job({ jobType: jobsTypes.unassigned.value})" data-toggle="tab">Unassigned</a></li>
         <li ng-class="{ 'active': jobType == jobsTypes.assigned.value }"             ><a ui-sref="loadManager.job({ jobType: jobsTypes.assigned.value})" data-toggle="tab">Assigned</a></li>
@@ -31,7 +31,7 @@
         <th>Action</th>
         </tr>
         </thead>
-        <tbody ng-repeat="job in jobs">
+        <tbody style ="    border-top: 1px solid #E0E4E8;" ng-repeat="job in jobs">
         <tr>
         <td class ="stylingFonts">{{job.name}}</td>
         <td>{{job.area}}</td>

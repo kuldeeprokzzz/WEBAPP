@@ -152,3 +152,41 @@ body {
       color: black;
       font-weight: bold;
 }
+
+/*media query*/
+
+@media screen and (max-width: 699px) and (min-width: 520px) {
+   
+}
+
+/*.col-md-offset-4.col-md-4.col-sm-offset-2.col-sm-8.loginScreen{
+      padding: 15px;
+    background-color: #ecf0f1;
+    border: 1px solid #E0E4E8;
+    border-bottom-width: 2px;
+    border-radius: 4px;
+}*/
+
+.covering{
+      text-align: center;
+    position: relative;
+    top: 32px;
+}
+.downshift{
+  position: relative;
+  top: 65px;
+  font-size: 19px;
+}
+.signinWrapper{
+  width: 85%;
+  margin: 0 auto;
+}
+.downSide{
+  display: inline-block;
+  vertical-align: center;
+}
+.Dropside{
+  display: inline-block;
+  vertical-align: center;
+  float: right;
+}
