@@ -90,7 +90,7 @@ angular.module('inloopAppApp')
       }
     });
 
-alert($scope.approveAllInvoiceList.length);
+//alert($scope.approveAllInvoiceList.length);
 
     }
 
