@@ -124,8 +124,8 @@
                      
                     </div>
                     <div class ="text_1" style ="line-height: 11px;">
-                       <p class ="fontDrama" style ="float:right;" >{{invoiceTobeApproved.invoice.start_trip}}</p>
-                       <p class ="fontDrama" style ="float:right;" >{{invoiceTobeApproved.tripState[0].odometer}}</p>
+                       <div class ="fontDrama" style ="float:right;" >{{invoiceTobeApproved.tripStates[0].odometer != undefined ? invoiceTobeApproved.tripStates[0].odometer : '--'}}</div>
+                       <div class ="fontDrama" style ="float:right;" >{{ invoiceTobeApproved.tripStates[0].time != undefined ? (invoiceTobeApproved.tripStates[0].time  | date: 'h:mma') : '--'}}</div>
                        
                     </div>
                     </div>
@@ -135,8 +135,8 @@
                      
                     </div>
                     <div class ="text_1" style ="line-height: 11px;">
-                       <p class ="fontDrama" style ="float:right">{{invoiceTobeApproved.invoice.end_trip}}</p> 
-                       <p class ="fontDrama" style ="float:right">{{invoiceTobeApproved.tripState[1].odometer}}</p>
+                       <div class ="fontDrama" style ="float:right">{{invoiceTobeApproved.tripStates[1].odometer != undefined ? invoiceTobeApproved.tripStates[1].odometer : '--'}}</div> 
+                       <div class ="fontDrama" style ="float:right">{{invoiceTobeApproved.tripState[1].time != undefined ? (invoiceTobeApproved.tripState[1].time  | date: 'h:mma') : '--' }}</div>
                     </div>
                     </div>
                     
