@@ -37,9 +37,9 @@
         <td>{{job.area}}</td>
         <td>{{job.number_of_packages}} packages</td>
         <td>{{job.job_date}}</td>
-        <td ng-show="{{job.status == jobsTypes.unassigned.value}}"class ="stylingFonts" ng-click="submitAssignDriver(job)">Assign a Driver</td>
+        <td class ="stylingFonts" ng-click="submitAssignDriver(job)" ng-show="{{job.status == jobsTypes.unassigned.value}}">Assign a Driver</td>
         <td class ="stylingFonts"  ng-click="showDetails(job)" ng-show="{{job.status == jobsTypes.assigned.value}}">ASSIGNED</td>
-        <td class ="stylingFonts" ng-click="showDetails(job)" ng-show="{{job.status == jobsTypes.completed.value}}" ng-click="submitAssignDriver(job)">COMPLETED</td>
+        <td class ="stylingFonts" ng-click="showDetails(job)" ng-show="{{job.status == jobsTypes.completed.value}}">COMPLETED</td>
 
         </tr>
         </tbody>
