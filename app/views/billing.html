@@ -53,21 +53,21 @@
 
     <button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#centerModal">Show modal</button>
     
-    <div class="modal modal-center fade" data-sound="note" id="centerModal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
-    <div class="modal-dialog animated flipInX">
-    <div class="modal-content" style = "width: 768px;width: 768px;margin-left: -69px;margin-top: -70px;">
+    <div class="modal fade" data-sound="note" id="centerModal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
+    <div class="modal-dialog animated flipInX" style ="width:61%; margin: 4% auto">
+    <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title" id="centerModalLabel">Invoice For Job ID# {{invoiceTobeSubmitted.job.name}}</h4>
       </div>
-        <div class="modal-body" style = "height: 283px;">
+        <div class="modal-body">
             
 
             <div class="clearfix row">
 
-            <div class ="col-md-4 outerWrapper pull-left">
+            <div class ="col-md-4">
                 <div class = "innerWrapper">
-                    <img  class = "img-wrapper" src="images/driver_photo_1.png" style ="height: 135px;">
+                    <div class = "driver_image"></div>
                     <div class="fontCover">
                     <div class ="text_1" style ="line-height: 11px;">
                       <p class ="fontDesign">{{invoiceTobeSubmitted.contractTask.driver_name}}</p>
@@ -91,9 +91,9 @@
                     
                 </div>    
             </div>
-            <div class ="col-md-4 outerWrapper pull-left">
+            <div class ="col-md-4">
                 <div class = "innerWrapper">
-                    <img  class = "img-wrapper" src="images/kd.png" style ="height: 135px;">
+                    <div class = "driver_image"></div>
                     <div class="fontCover">
                     <div class ="text_1" style ="line-height: 11px;">
                       <p class ="fontDesign">{{invoiceTobeSubmitted.job.name}}</p>
@@ -113,12 +113,12 @@
                     
                 </div>    
             </div>
-            <div class ="col-md-4 outerWrapper pull-left">
+            <div class ="col-md-4">
                 <div class = "innerWrapper">
-                    <div class ="TopBar">
-                        <p style ="position: relative;top: 51px;"><i class="fa fa-inr"></i> {{invoiceTobeSubmitted.invoice.total_amount}}</p>
+                    <div class ="TopBar" style ="height:200px">
+                        <p style ="position: relative;top: 83px;"><i class="fa fa-inr"></i> {{invoiceTobeSubmitted.invoice.total_amount}}</p>
                     </div>
-                    <div class="fontCover">
+                    <div class="fontCover" style ="height:58px">
                     <div class ="text_1" style ="line-height: 11px;">
                       <p class ="fontDesign pull-left">Trip Start</p>
                      
@@ -129,7 +129,7 @@
                        
                     </div>
                     </div>
-                    <div class="fontCover">
+                    <div class="fontCover" style ="height:58px">
                     <div class ="text_1" style ="line-height: 11px;">
                       <p class ="fontDesign pull-left">Trip End</p>
                      
@@ -157,87 +157,6 @@
     </div><!-- /.modal -->
 
    
-</div> <!-- content-body -->
-
-
-
-
-<button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#submitAllModal">Show modal</button>
-        
-<div class="modal modal-center fade" data-sound="note" id="submitAllModal" tabindex="-1" role="dialog" aria-labelledby="submitAllModalLabel" aria-hidden="true">
-            <div class="modal-dialog animated flipInX">
-                <div class="modal-content" style = "width: 768px;width: 768px;margin-left: -69px;margin-top: -70px;">
-                    <div class="modal-header">
-                        <button ng-click="submitAllInvoiceModal" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="submitAllModalLabel">Submit All InVoices</h4>
-                  </div>
-                    <div class="modal-body" style = "height: 283px;">
-                        
-
-                        <div class="clearfix row">
-
-                        <div ng-repeat="item in submitAllInvoiceList" class ="col-md-8 outerWrapper pull-left">
-                            <div class = "innerWrapper">
-                                
-                                <div class="fontCover">
-                                <div class ="text_1" style ="line-height: 11px;">
-                                  <p class ="fontDesign">{{item.job.name}}</p>
-                                  <p class ="fontDrama"style = "    position: relative;margin-top: 10px;">{{item.invoice.total_amount}}</p>
-                                </div>
-                                <div class ="text_1" style ="line-height: 11px;">
-                                   <p class ="fontDrama" style ="float:left">{{item.job.area}}</p> 
-                                   <p class ="fontDrama" style = "    position: relative;margin-top: 0px;">{{item.job.number_of_packages}} packages</p>
-                                </div>
-                                </div>
-                                
-                                
-                            </div>    
-                        </div>
-                        
-                        <div class ="col-md-4 outerWrapper pull-left">
-                            <div class = "innerWrapper">
-                                <div class ="TopBar">
-                                    <p style ="position: relative;top: 51px;"><i class="fa fa-inr"></i> {{createdTotalAmount}}</p>
-                                </div>
-                                <div class="fontCover" style = "line-height: 11px;">
-                                <div class ="text_1">
-                                  <p class ="fontDesign">{{createdCount}} total jobs</p>
-                                  
-                                </div>
-                                <div class ="text_1">
-                                   <p class ="fontDrama" style ="float:left"></p> 
-                                   
-                                </div>
-                                </div>
-                                <div class="fontCover" style = "line-height: 11px;">
-                                <div class ="text_1">
-                                  <p class ="fontDesign">{{createdTotalPackages}} Total Packages Delivered</p>
-                                  
-                                </div>
-                                <div class ="text_1">
-                                   <p class ="fontDrama" style ="float:left"></p> 
-                                  
-                                </div>
-                                </div>
-                                 
-                                
-                            </div>    
-                        </div>
-
-
-                        </div>
-
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button ng-click="submitAllInvoiceModal()" type="button" class="btn btn-primary">Submit</button>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-
-
 </div> <!-- content-body -->
 
 
