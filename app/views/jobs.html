@@ -51,30 +51,30 @@
 
         <button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#centerModal">Show modal</button>
 
-        <div class="modal modal-center fade" data-sound="note" id="centerModal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
-        <div class="modal-dialog animated flipInX">
-        <div class="modal-content" style = "width: 768px;width: 768px;margin-left: -69px;margin-top: -70px;">
+        <div class="modal fade" data-sound="note" id="centerModal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
+        <div class="modal-dialog animated flipInX" style = "width:61%; margin : 4% auto">
+        <div class="modal-content">
         <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="centerModalLabel">Assign a driver to Job ID# {{jobToBeAssigned.name}}</h4>
         </div>
-        <div class="modal-body" style = "height: 283px;">
+        <div class="modal-body">
 
-
+        
         <div class="clearfix row">
         <div ng-repeat="contractTask in contractTasks">
-        <div class ="col-md-4 outerWrapper pull-left">
+        <div class ="col-md-4">
         <div class = "innerWrapper">
-        <img  class = "img-wrapper" src="images/driver_photo_1.png">
+        <div class = "driver_image"></div>
         <div class = "lineBar"></div>
         <div class="fontCover">
         <div class ="text_1">
           <p class ="fontDesign">{{contractTask.driver_name}}</p>
-          <p class ="fontDrama">{{contractTask.latest_state.odometer}}</p>
+          <p class ="fontDrama" style ="position: relative;top: 13px;">{{contractTask.latest_state.odometer}}</p>
         </div>
         <div class ="text_1">
            <p class ="fontDrama" style ="float:left">{{contractTask.provider_name}}</p> 
-           <p class ="fontDrama">{{contractTask.latest_state.time | date: 'h:mma'}}</p>
+           <p class ="fontDrama">{{contractTask.latest_state.time | date: 'h:mma'}} </p>
         </div>
         </div>
         <div class ="cardFotter">
@@ -109,35 +109,36 @@
 
 <button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#detailsModal">Show modal</button>
 
-        <div class="modal modal-center fade" data-sound="note" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
-        <div class="modal-dialog animated flipInX">
-        <div class="modal-content" style = "width: 285px;margin-left: 174px;margin-top: -70px;">
+        <div class="modal fade" data-sound="note" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog animated flipInX" style ="width:287px; margin:4% auto">
+        <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="detailsModalLabel">Job ID# {{contractTask.jobName}}</h4>
           </div>
-            <div class="modal-body" style = "height: 283px;">
+            <div class="modal-body">
                 
 
                 <div class="clearfix row">                                         
-                <div class ="col-md-4 outerWrapper pull-left">
-                    <div class = "innerWrapper" style = " width: 243px;">
-                        <img  class = "img-wrapper" src="images/driver_photo_1.png">
+                <div class ="col-md-12">
+                    <div class = "innerWrapper">
+                        <!-- <img  class = "img-wrapper img-resposive" src="images/driver_photo_1.png"> -->
+                        <div class = "driver_image"></div>
                         <div class = "lineBar"></div>
                         <div class="fontCover">
                         <div class ="text_1">
                           <p class ="fontDesign">{{contractTask.driver_name}}</p>
-                          <p class ="fontDrama">{{contractTask.latest_state.odometer}}</p>
+                          <p class ="fontDrama" style ="position: relative;top: 13px;">{{contractTask.latest_state.odometer}}</p>
                         </div>
                         <div class ="text_1">
-                           <p class ="fontDrama" style ="float:left">{{contractTask.provider_name}}</p> 
+                           <p class ="fontDrama" style ="float:left;">{{contractTask.provider_name}}</p> 
                            <p class ="fontDrama">{{contractTask.latest_state.time | date: 'h:mma'}}</p>
                         </div>
                         </div>
-                        <div class ="cardFotter">
-                            <!-- <div type="button" style="    height: 32px;font-size: 14px;
-                            width: 118px;" class="btn btn-primary">Assigned</div> -->
-                        </div>
+                        <!-- <div class ="cardFotter">
+                            <div type="button" style="    height: 32px;font-size: 14px;
+                            width: 118px;" class="btn btn-primary">Assigned</div>
+                        </div> -->
                     </div>    
                 </div>
 
