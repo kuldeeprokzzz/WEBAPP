@@ -1,0 +1,106 @@
+<div style ="background-color:white; height:675px">
+<header style = "border-bottom-width: 0px;margin-bottom: 0px;" class="header">
+    <!-- header brand -->
+    <div class="header-brand">
+       <img src="images/vector-02.png" width = "159px">
+    </div><!-- header brand -->  
+</header><!--/header-->
+
+
+<div id="panel-fvalidate" class="panel panel-default sortable-widget-item" style = "width: 65%;margin: 4% auto;">
+    <div class="panel-heading">
+        <div class="panel-actions">
+            <button data-refresh="#panel-fvalidate" title="refresh" class="btn-panel">
+                <i class="fa fa-refresh"></i>
+            </button>
+            <button data-expand="#panel-fvalidate" title="expand" class="btn-panel">
+                <i class="fa fa-expand"></i>
+            </button>
+            <button data-collapse="#panel-fvalidate" title="collapse" class="btn-panel">
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <button data-close="#panel-fvalidate" title="close" class="btn-panel">
+                <i class="fa fa-times"></i>
+            </button>
+        </div><!-- /panel-actions -->
+        <h3 class="panel-title">Welcome User</h3>
+    </div><!-- /panel-heading -->
+
+    <div class="panel-body">
+        <form role="form" data-validate="form" class="form-horizontal form-bordered">
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="cname">Name</label>
+                <div class="col-sm-3">
+                    <input type="text" id="cname" name="cname" class="form-control" minlength="2" placeholder ="First" required />
+                </div><!--/cols-->
+                <div class="col-sm-3">
+                    <input type="text" id="cname" name="cname" class="form-control" minlength="2" placeholder ="Middle" required />
+                </div><!--/cols-->
+                <div class="col-sm-3">
+                    <input type="text" id="cname" name="cname" class="form-control" minlength="2" placeholder ="Last" required />
+                </div><!--/cols-->
+            </div><!--/form-group-->
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="cemail">E-Mail</label>
+                <div class="col-sm-3">
+                    <input type="email" id="cemail" name="cemail" class="form-control" required />
+                </div><!--/cols-->
+            </div><!--/form-group-->
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="curl">Mobile Number</label>
+                <div class="col-md-3">
+                                            <div class="input-group">
+                                                <span class="input-group-addon" style = "padding: 4px;">
+                                             
+                                                        <label style = "position: relative;top: 3px;" for="addonradio1">+91</label>
+                                                    
+                                                </span>
+                                                <input type="text" class="form-control" placeholder ="Phone Number" required>
+                                            </div>
+                                        </div>
+                <div class ="col-sm-7">
+                <button type="button" class="btn btn-default" rel="popover-left" data-trigger="hover" title="Verify Mobile Number " data-content="An OTP will be sent to this Mobile Number for Verification">
+                Verify
+                </button>
+                </div>
+            </div><!--/form-group-->
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="cemail">Username</label>
+                <div class="col-sm-3">
+                    <input type="email" id="cemail" name="cemail" class="form-control" required />
+                </div><!--/cols-->
+            </div><!--/form-group-->
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="cemail">Password</label>
+                <div class="col-sm-3">
+                    <input type="password" id="cemail" name="cemail" class="form-control" required />
+                </div><!--/cols-->
+           
+
+             
+                <label class="col-sm-2 control-label" for="cemail">Re-enter</label>
+                <div class="col-sm-3">
+                    <input type="password" id="cemail" name="cemail" class="form-control" required />
+                </div><!--/cols-->
+            </div><!--/form-group-->
+
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-5">
+                    <input class="btn btn-primary" type="submit" value="Submit Please"/>
+                </div><!--/cols-->
+            </div><!--/form-group-->
+
+        </form><!--/form-->
+    </div><!-- /panel-body -->
+</div><!-- /panel-fvalidate -->
+</div>
+
+<script>
+$(document).ready(function(){
+    $('[data-trigger="hover"]').popover();   
+});
+</script>

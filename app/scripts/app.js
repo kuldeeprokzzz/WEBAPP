@@ -73,6 +73,18 @@ var inloopAppApp= angular
       url: "/provisioning",
       templateUrl: "../views/provisioning.html",
     })
+    .state('invitation', {
+      url: "/invitation",
+      templateUrl: "../views/invitation.html",
+    })
+    .state('validator', {
+      url: "/validator",
+      templateUrl: "../views/form-validator.html",
+    })
+    .state('tooltips', {
+      url: "/tooltips",
+      templateUrl: "../views/tooltips-popovers.html",
+    })
   })
   .config(function ($provide, $httpProvider,localStorageServiceProvider) {
   
