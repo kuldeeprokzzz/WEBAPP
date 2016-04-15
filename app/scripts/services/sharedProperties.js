@@ -243,6 +243,17 @@ inloopAppApp.service('sharedProperties',function($location,$filter){
             rescheduled : 'RESCHEDULED',
         };
 
+        this._orchestratorProvisioningTabType = {
+            shippers : 'shippers',
+            providers : '3plProviders',
+            operationsManagers : 'operationsManagers', 
+            transactionsManagers : 'transactionsManager',
+        };
+
+        this.getOrchestratorProvisioningTabType = function(){
+            return this._orchestratorProvisioningTabType;
+        }
+
         this.getTodayDate = function(){
             return $filter('date')(new Date(),'yyyy-MM-dd');
         }

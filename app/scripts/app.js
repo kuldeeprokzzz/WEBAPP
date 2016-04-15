@@ -39,6 +39,16 @@ var inloopAppApp= angular
         $scope.items = ["A", "List", "Of", "Items"];
       }
     })*/
+    .state('orchestrator', {
+      url: "/orchestrator",
+      templateUrl: "../views/base.html",
+      controller: 'roleManagerController',
+    })
+    .state('orchestrator.provisioning', {
+      url: "/provisioning/{viewType}/",
+        templateUrl: "../views/orchestratorProvisioning.html",
+        controller: 'orchestratorProvisioning',
+      })
     .state('loadManager', {
       url: "/loadManager",
       templateUrl: "../views/base.html",

@@ -1,0 +1,138 @@
+<div class="content" ng-init="initialize()">
+<div class="content-header">
+    <h2 class = "content-Info">Provisioning</h2>
+</div><!--/content-header -->
+
+<div class="content-body">
+
+
+  <div id="error-placement"></div>
+
+   
+  <div class="col-md-15 margin-bottom">
+    <ul class="nav nav-tabs">
+        <li ng-class="{ 'active': viewType == orchestratorProvisioningTabType.shippers }"><a ui-sref="orchestrator.provisioning({viewType: orchestratorProvisioningTabType.shippers})" data-toggle="tab">Shippers</a></li>
+        <li ng-class="{ 'active': viewType == orchestratorProvisioningTabType.providers }"><a ui-sref="orchestrator.provisioning({viewType: orchestratorProvisioningTabType.providers})" data-toggle="tab">3PLProvider</a></li>
+        <li ng-class="{ 'active': viewType == orchestratorProvisioningTabType.operationsManagers }"><a ui-sref="orchestrator.provisioning({viewType: orchestratorProvisioningTabType.operationsManagers})" data-toggle="tab">Operations Managers</a></li>
+        <li ng-class="{ 'active': viewType == orchestratorProvisioningTabType.transactionsManagers }"><a ui-sref="orchestrator.provisioning({viewType: orchestratorProvisioningTabType.transactionsManagers})" data-toggle="tab">Transactions Managers</a></li>
+        <button ng-click="openInvitationModal()" type="button" style ="float:right;width: 110px" class="btn btn-primary">Add</button>
+    </ul>
+
+  </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Contact Number</th>
+                    <th>Bank Details Added</th>
+                    <th>Verified</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="object in provisionedObjects">
+                <tr>
+                    <td class ="stylingFonts">{{object.name}}</td>
+                    <td>+91810996391</td>
+                    <td>{{object.ROC_registered == true ? 'Yes' : 'No'}}</td>
+                    <td>{{object.verified == true ? 'Yes' : 'No'}}</td>
+                    <td style = "color : red">Delete</td>
+                
+                </tr>
+            </tbody>
+        </table>
+    </div>
+ 
+   
+   <button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#modalBasic">Show modal</button>
+
+   <div class="modal fade" id="modalBasic" tabindex="-1" role="dialog" aria-labelledby="modalBasicLabel" aria-hidden="true">
+        <div class="modal-dialog" style = "width:60%; margin:8% auto">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="modalBasicLabel">Invite a New Entity for Provisioning</h4>
+                </div>
+                <div class="modal-body">
+
+                     <div class ="row">
+                        <div class="form-group"> 
+                            <div class="col-sm-4" style ="color: #96A6A7;">
+                                <select data-input="selectboxit" placeholder="Select a Role">
+                                    <option value="AK">Shipper</option>
+                                    <option value="HI">3PLProvider</option>
+                                    <option value="CA">Operations Managers</option>
+                                    <option value="NV">Transactions Managers</option>
+                                </select>
+                            </div><!--/cols-->
+                        </div><!--/form-group-->
+
+                        <div class="col-md-8">
+                            <p style ="font-size: 12px;color: #96A6A7;font-style: italic; margin-top: -4px;">Each Role must have a single point of contact associated with it. All fields are mendatory.</p>
+                        </div>
+                     </div>   
+                     
+                     <br>
+
+                     <div class="row">
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" placeholder="First Name">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" placeholder="Middle Name">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" placeholder="Last Name">
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-4" style = "text-align: right;margin-top: 5px;">
+                            <p>Contact Information:</p>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" placeholder="Email Address">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <span class="input-group-addon" style = "padding: 4px;">
+                             
+                                        <label style = "position: relative;top: 3px;" for="addonradio1">+91</label>
+                                    
+                                </span>
+                                <input type="text" class="form-control" placeholder ="Phone Number">
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-4" style = "text-align: right;margin-top: 5px;">
+                            <p>Business Information:</p>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" placeholder="Tax Accounting Number (TAN)">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" placeholder="Legal Business Name (PAN Card)">
+                        </div>
+                    </div>
+
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Invite</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+ 
+
+   
+</div> <!-- content-body --> 
+</div>

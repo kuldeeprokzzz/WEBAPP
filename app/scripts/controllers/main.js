@@ -70,7 +70,11 @@ angular.module('inloopAppApp')
 						$location.path('/accountPayable/invoice/ALL/');
 						}
 						// response.data.roleid == sharedProperties.getRoles().shipperLoadingManager.id
-						
+						if($scope.username == 'orchestrator'){
+						model.profile.roleIdtemp = sharedProperties.getRoles().shipperAccountPayableManager.id;
+						completeModel.saveCompleteModel(model);
+						$location.path('/orchestrator/provisioning/shippers/');
+						}
 					
 					}
 				});
