@@ -95,6 +95,30 @@ var inloopAppApp= angular
       url: "/tooltips",
       templateUrl: "../views/tooltips-popovers.html",
     })
+    .state('driver', {
+      url: "/driver",
+      templateUrl: "../views/driver.html",
+    })
+    .state('vehiclePairing', {
+      url: "/vehiclePairing",
+      templateUrl: "../views/vehiclePairing.html",
+    })
+    .state('onMyWay', {
+      url: "/onMyWay",
+      templateUrl: "../views/onMyWay.html",
+    })
+    .state('proceedToCenter', {
+      url: "/proceedToCenter",
+      templateUrl: "../views/proceedToCenter.html",
+    })
+    .state('jobAssigned', {
+      url: "/jobAssigned",
+      templateUrl: "../views/jobAssgined.html",
+    })
+    .state('navsNavbar', {
+      url: "/navsNavbar",
+      templateUrl: "../views/navsNavbar.html",
+    })
   })
   .config(function ($provide, $httpProvider,localStorageServiceProvider) {
   

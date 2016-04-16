@@ -75,42 +75,11 @@
         <!-- content section -->
         <section class="section">
             <!-- DONT FORGET REPLACE IT FOR PRODUCTION! -->
-            <aside class="side-left">
-                <ul class="sidebar">
-                    <li>
-                        <a href="#/dashboard">
-                            <i class="sidebar-icon fa fa-home"></i>
-                            <span class="sidebar-text">Dashboard</span>
-                        </a>
-                    </li><!--/sidebar-item-->
-                    <li>
-                        <a href="#">
-                            <i class="sidebar-icon fa fa-truck"></i>
-                            <span class="sidebar-text">Jobs</span>
-                        </a>
-                          
-                    </li><!--/sidebar-item-->
-                    <li>
-                        <a href="#">
-                            <i class="sidebar-icon fa fa-inr"></i>
-                            <span class="sidebar-text">Billing</span>
-                        </a>
-                        
-                    </li><!--/sidebar-item-->
-                    <li>
-                        <a href="#">
-                            <i class="sidebar-icon fa fa-user"></i>
-                            <span class="sidebar-text">Provisioning</span>
-                        </a>
-                        
-                    </li><!--/sidebar-item-->
-                    
-                </ul><!--/sidebar-->
-            </aside><!--/side-left-->
+            
 
-            <div class="content">
+            <div class="content" style ="margin-left:0px;">
                 <div class="content-header">
-                    <h2 class = "content-Info">Provisioning</h2>
+                    <h2 class = "content-Info" style ="margin-left: 15px;">Check In</h2>
                 </div><!--/content-header -->
                 
                 <div class="content-body">
@@ -118,131 +87,33 @@
                 
                   <div id="error-placement"></div>
              
-                   
-                  <div class="col-md-15 margin-bottom">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#system-stats" data-toggle="tab">Shippers</a></li>
-                                <li><a href="#server-stats" data-toggle="tab">3PLProvider</a></li>
-                                <li><a href="#server-stats" data-toggle="tab">Operations Managers</a></li>
-                                <li><a href="#server-stats" data-toggle="tab">Transactions Managers</a></li>
-                                <button type="button" style ="float:right;width: 110px" class="btn btn-primary">Add</button>
-                            </ul>
-
+                  
+                  <div class ="wrapperBx">
+                  <div class ="col-md-12" style ="margin : 0 auto">
+                    <div class = "innerWrapper">
+                        <!-- <img  class = "img-wrapper img-resposive" src="images/driver_photo_1.png"> -->
+                        <img src="images/car.png" class ="img-responsive" style = "height: 324px">
+                        <div class="fontCover"> 
+                            <div class ="text_1" >
+                              <p class ="fontDesign" style = "font-size: 16px;">KA19P8488</p>
+                              <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:0px; float: right;margin-top: 11px;">Blue Tata Ace HT</p>
+                            </div>
+                        </div>
+                        <div class="fontCover"> 
+                            <div class ="text_1" style ="width: 80%" >
+                              
+                                <button type="button" class="btn btn-cloud">Drive Different Vehicle</button>
+                              
+                             
+                                <button style = "float:right; width:157px;" type="button" class="btn btn-primary">Drive This Vehicle</button>
+                             
+                            </div>
+                        </div>
+                       
+                    </div>    
+                  </div>
                   </div>
 
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Contact Number</th>
-                                    <th>Bank Details Added</th>
-                                    <th>Verified</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class ="stylingFonts">Amazon Transport Services</td>
-                                    <td>+91810996391</td>
-                                    <td>Yes</td>
-                                    <td>Yes</td>
-                                    <td style = "color : red">Delete</td>
-                                
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                 
-                   
-                   <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalBasic">Show modal</button>
-
-                   <div class="modal fade" id="modalBasic" tabindex="-1" role="dialog" aria-labelledby="modalBasicLabel" aria-hidden="true">
-                        <div class="modal-dialog" style = "width:60%; margin:8% auto">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title" id="modalBasicLabel">Invite a New Entity for Provisioning</h4>
-                                </div>
-                                <div class="modal-body">
-
-                                     <div class ="row">
-                                        <div class="form-group"> 
-                                            <div class="col-sm-4" style ="color: #96A6A7;">
-                                                <select data-input="selectboxit" placeholder="Select a Role">
-                                                    <option value="AK">Shipper</option>
-                                                    <option value="HI">3PLProvider</option>
-                                                    <option value="CA">Operations Managers</option>
-                                                    <option value="NV">Transactions Managers</option>
-                                                </select>
-                                            </div><!--/cols-->
-                                        </div><!--/form-group-->
-
-                                        <div class="col-md-8">
-                                            <p style ="font-size: 12px;color: #96A6A7;font-style: italic; margin-top: -4px;">Each Role must have a single point of contact associated with it. All fields are mendatory.</p>
-                                        </div>
-                                     </div>   
-                                     
-                                     <br>
-
-                                     <div class="row">
-                                        <div class="col-md-4">
-                                            <input type="text" class="form-control" placeholder="First Name">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <input type="text" class="form-control" placeholder="Middle Name">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <input type="text" class="form-control" placeholder="Last Name">
-                                        </div>
-                                    </div>
-
-                                    <br>
-
-                                    <div class="row">
-                                        <div class="col-md-4" style = "text-align: right;margin-top: 5px;">
-                                            <p>Contact Information:</p>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <input type="text" class="form-control" placeholder="Email Address">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="input-group">
-                                                <span class="input-group-addon" style = "padding: 4px;">
-                                             
-                                                        <label style = "position: relative;top: 3px;" for="addonradio1">+91</label>
-                                                    
-                                                </span>
-                                                <input type="text" class="form-control" placeholder ="Phone Number">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <br>
-
-                                    <div class="row">
-                                        <div class="col-md-4" style = "text-align: right;margin-top: 5px;">
-                                            <p>Business Information:</p>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <input type="text" class="form-control" placeholder="Tax Accounting Number (TAN)">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <input type="text" class="form-control" placeholder="Legal Business Name (PAN Card)">
-                                        </div>
-                                    </div>
-
-                                    
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Invite</button>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
-                 
-                
                    
                 </div> <!-- content-body --> 
 
@@ -524,6 +395,7 @@
 
     </body>
 </html>
+
 
 
 
