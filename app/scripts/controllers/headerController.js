@@ -16,7 +16,7 @@ angular.module('inloopAppApp')
       $scope.rolesTypes = sharedProperties.getRoles();
       $scope.username = model.profile.first_name;
       $scope.image = model.profile.image;
-      
+      $scope.mapStyle = sharedProperties.getMapStyle();      
 
   	};
 

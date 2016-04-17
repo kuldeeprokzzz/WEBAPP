@@ -15,8 +15,30 @@ inloopAppApp.service('contractTaskService', ['sharedProperties','$http', functio
     this.updateDriverToContractTask = function(contractTaskId,driverId){
     return $http({
             method: 'PUT',
-            url: sharedProperties.getUrl()+'/contract_tasks/'+contractId,
+            url: sharedProperties.getUrl()+'/contract_tasks/'+contractTaskId,
             data : {driverid : driverId},
+            }).success(function(response){
+                return response;
+            }).error(function(response){
+                return response;
+            });
+    }
+
+    this.updataContractStateToDispatched = function(contractTaskId,username){
+    
+    var requestBody = {
+                  "type": sharedProperties.getContractTaskType().dispatched.type,
+                  "time": sharedProperties.getTodatUTCDateTime(),
+                  "performed_by": username,
+                };
+
+
+
+    return $http({
+            method: 'POST',
+            url: sharedProperties.getUrl()+'/contract_tasks/'+contractTaskId+'/states/',
+            headers: { token : sharedProperties.getAuthToken()},
+            data: requestBody,
             }).success(function(response){
                 return response;
             }).error(function(response){
