@@ -1,5 +1,28 @@
 inloopAppApp.service('contractTaskService', ['sharedProperties','$http', function(sharedProperties, $http){
 	
+    this.getTodayContractTaskByVehicleLicencePlate = function(vehicleRegNumber){
+    return $http({
+            method: 'GET',
+            url: sharedProperties.getUrl()+'/contract_tasks/?vehicle_regNumber='+vehicleRegNumber+'&task_date='+sharedProperties.getTodayDate()+'&wildcard=true',
+            }).success(function(response){
+                return response;
+            }).error(function(response){
+                return response;
+            });
+
+    }
+
+    this.updateDriverToContractTask = function(contractTaskId,driverId){
+    return $http({
+            method: 'PUT',
+            url: sharedProperties.getUrl()+'/contract_tasks/'+contractId,
+            data : {driverid : driverId},
+            }).success(function(response){
+                return response;
+            }).error(function(response){
+                return response;
+            });
+    }
 
 
      this.getTodaysContractTaskByDeliveryCenterIdAndStatus = function(deliveryCenterId,status){

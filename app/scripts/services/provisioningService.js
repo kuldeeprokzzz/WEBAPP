@@ -47,6 +47,20 @@ inloopAppApp.service('provisioningService', ['sharedProperties','$http', functio
         });
      }
 
+     this.getDeliveryCenterDetails = function(shipperId,deliveryCenterId){
+    return $http({
+            method: 'GET',
+            url: sharedProperties.getUrl()+'/shippers/'+shipperId+'/deliveryCentres/'+deliveryCenterId,
+            headers: { token : sharedProperties.getAuthToken()}
+
+            }).success(function(response){
+                return response;
+            }).error(function(response){
+                return response;
+            });
+
+    }
+
 
 }])
 

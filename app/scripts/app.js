@@ -149,6 +149,7 @@ var inloopAppApp= angular
         }
         if(config.url.indexOf('api') != -1){
           if(config.url.indexOf('login') == -1){
+            console.log('iamhere');
             config.headers['Authorization'] = 'Token '+model.accessToken;
           }
         }

@@ -1,7 +1,7 @@
 inloopAppApp.service('sharedProperties',function($location,$filter){
  
   
-        this._baseURL = 'http://core-dev.inloop.co.in/api/v1';
+        this._baseURL = 'http://54.169.251.56:10010/api/v1';
           // http://54.169.251.56:10010
         this._authToken = '';
 

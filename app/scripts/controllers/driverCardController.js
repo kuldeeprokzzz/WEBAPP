@@ -28,7 +28,7 @@ angular.module('inloopAppApp')
           ($scope.model.profile.organizationid,$scope.licencePlateNumber)
           .then(function(response){
             if(response.status == 200){
-              if(response.data != undefined){
+              if(response.data.length != 0){
                 $scope.model.vehicle = response.data[0];
                 completeModel.saveCompleteModel($scope.model);
                 $location.path('driver/vehiclePairing');
