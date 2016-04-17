@@ -39,6 +39,21 @@ var inloopAppApp= angular
         $scope.items = ["A", "List", "Of", "Items"];
       }
     })*/
+    .state('driver', {
+      url: "/driver",
+      templateUrl: "../views/base.html",
+      controller: 'roleManagerController',
+    })
+    .state('driver.driverCard', {
+      url: "/driverCard",
+        templateUrl: "../views/driver.html",
+        controller: 'driverCardController',
+      })
+    .state('driver.vehiclePairing', {
+      url: "/vehiclePairing",
+      templateUrl: "../views/vehiclePairing.html",
+      controller : 'driverVehiclePairingController',
+    })
     .state('orchestrator', {
       url: "/orchestrator",
       templateUrl: "../views/base.html",
@@ -95,14 +110,10 @@ var inloopAppApp= angular
       url: "/tooltips",
       templateUrl: "../views/tooltips-popovers.html",
     })
-    .state('driver', {
+    /*.state('driver', {
       url: "/driver",
       templateUrl: "../views/driver.html",
-    })
-    .state('vehiclePairing', {
-      url: "/vehiclePairing",
-      templateUrl: "../views/vehiclePairing.html",
-    })
+    })*/
     .state('onMyWay', {
       url: "/onMyWay",
       templateUrl: "../views/onMyWay.html",
@@ -137,9 +148,8 @@ var inloopAppApp= angular
           $location.path('/');
         }
         if(config.url.indexOf('api') != -1){
-          if(config.url.indexOf('login') != -1){
-            config.headers['Authorization'] = 'Token 3562QEQQ%$&898921@';
-            //completeModel.getCompleteModel().accessToken
+          if(config.url.indexOf('login') == -1){
+            config.headers['Authorization'] = 'Token '+model.accessToken;
           }
         }
       }

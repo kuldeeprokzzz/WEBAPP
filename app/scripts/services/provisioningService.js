@@ -36,6 +36,17 @@ inloopAppApp.service('provisioningService', ['sharedProperties','$http', functio
         });
      };
 
+     this.getVehicleByProviderIdAndLicencePlateNumber = function(providerId,licenceNumber){
+
+      return $http.get(sharedProperties.getUrl()+'/providers/'
+        +providerId+'/vehicles?regNumber='+licenceNumber+'&wildcard=true')
+        .then(function(response){
+            return response;
+        }, function(response){
+            return response;
+        });
+     }
+
 
 }])
 

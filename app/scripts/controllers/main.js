@@ -45,6 +45,7 @@ angular.module('inloopAppApp')
 				model.accessToken = response.data.token;
 				model.tokenTime = response.data.expires;
 				model.loginTime = new Date();
+				completeModel.saveCompleteModel(model);
 
 				loginService.getProfile().then(function(response){
 					if(response.status == 200){
@@ -75,6 +76,14 @@ angular.module('inloopAppApp')
 						completeModel.saveCompleteModel(model);
 						$location.path('/orchestrator/provisioning/shippers/');
 						}
+
+						if(sharedProperties.getRoles().providerDriver.id == response.data.roleid){
+						model.profile.roleIdtemp = sharedProperties.getRoles().providerDriver.id;
+						completeModel.saveCompleteModel(model);
+						$location.path('/driver/driverCard');
+						}
+
+
 					
 					}
 				});
