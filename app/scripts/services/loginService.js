@@ -4,7 +4,7 @@ inloopAppApp.service('loginService', ['sharedProperties','$http', function(share
 
 		return $http({
 	            method: 'POST',
-	            url: 'http://core-dev.inloop.co.in/api/v1'+'/login',
+	            url: sharedProperties.getUrl()+'/login',
 	            headers: {
 	                'Content-Type': 'application/json'
 	            },
@@ -19,7 +19,7 @@ inloopAppApp.service('loginService', ['sharedProperties','$http', function(share
      this.getProfile = function(){
      	return $http({
      		method: 'GET',
-     		url: 'http://core-dev.inloop.co.in/api/v1'+'/profiles/me',
+     		url: sharedProperties.getUrl()+'/profiles/me',
      	}).success(function(response){
      		return response;
      	}).error(function(response){

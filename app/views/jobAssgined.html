@@ -79,31 +79,73 @@
 
             <div class="content" style ="margin-left:0px;">
                 <div class="content-header" style = "overflow: visible;">
-                     <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style ="font-size: 1.3em;color: black;margin-top: 4px;background-color: #ECF0F1;">All Packages<b class="caret"></b></a>
-                                <ul style= "position: relative;bottom: 45px;" class="dropdown-menu " role="menu">
-                                    <li><a style = "font-size: 16px;margin: 15px 0 15px 0;" href="#">All Packages</a></li>
-                                    <li><a style = "font-size: 16px;margin: 15px 0 15px 0;"href="#">Undeliverd</a></li>
-                                    <li><a style = "font-size: 16px;margin: 15px 0 15px 0;"href="#">Deliverd</a></li> 
-                                    <li><a style = "font-size: 16px;margin: 15px 0 15px 0;"href="#">Exceptions</a></li>  
-                                </ul>
-                            </li>
-                        </ul><!--/navbar-nav-->
-
-                        
-                        
-                    </div>
+                     <h2 class = "content-Info" style ="margin-left: 15px;">JOB# 2016 02 08 - 0523</h2>
                 </div><!--/content-header -->
                 
                 <div class="content-body">
 
                 
                   <div id="error-placement"></div>
-             
+
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#">Home</a></li>
+                                <li><a href="#">Profile</a></li>
+                            </ul>
+
                 
+                       <div class="table-responsive" style = "margin-top: 17px;">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Package #</th>
+                                    <th>Customer Address</th>
+                                    
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style ="color:#15A99F">ID # 102-4057369-5633008</td>
+                                    <td>242, 13th Cross Rd, Stage 2,Hoysala Nagar</td> 
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                       </div>
+                  
+
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalBasic">Show modal</button>
+
+                <div class="modal fade" id="modalBasic" tabindex="-1" role="dialog" aria-labelledby="modalBasicLabel" aria-hidden="true">
+                    <div class="modal-dialog"style ="width:280px">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="modalBasicLabel">Choose One</h4>
+                            </div>
+                            <div class="modal-body" style ="padding:0px;">
+                                <div class ="contentsModal">
+                                    <ul style ="list-style: none;margin-left: -40px;">
+                                        <li style = "padding:17px;">Delivered</input></li>
+                                        <li style = "padding:17px;">Damaged</input></li>
+                                        <li style = "padding:17px;">Incorrect address</input></li>
+                                        <li style = "padding:17px;">Customer not available</input></li>
+                                        <li style = "padding:17px;">Package return</input></li>
+                                        <li style = "padding:17px;">Rescheduled</input></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                               
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+
+
+                 
+                    
 
                    
                 </div> <!-- content-body --> 
