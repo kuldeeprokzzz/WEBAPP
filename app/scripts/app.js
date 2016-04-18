@@ -59,6 +59,21 @@ var inloopAppApp= angular
       templateUrl: "../views/onMyWay.html",
       controller : 'driverOnMyWayController',
     })
+    .state('driver.onMyWayDone', {
+      url: "/onMyWayDone",
+      templateUrl: "../views/IOTDetectedAndCheckedIn.html",
+      controller : 'driverOnMyWayDoneController',
+    })
+    .state('driver.arrived', {
+      url: "/arrived",
+      templateUrl: "../views/IOTDetectedAndCheckedIn.html",
+      controller : 'driverArrivedController',
+    })
+    .state('driver.checkedIn', {
+      url: "/checkedIn",
+      templateUrl: "../views/IOTDetectedAndCheckedIn.html",
+      controller : 'driverCheckedInController',
+    })
     .state('orchestrator', {
       url: "/orchestrator",
       templateUrl: "../views/base.html",

@@ -1,24 +1,14 @@
 angular.module('inloopAppApp')
-  .controller('driverOnMyWayController', function ($scope,$location, $stateParams,sharedProperties,completeModel,contractTaskService) {
+  .controller('driverCheckedInController', function ($scope,$location,$interval,$stateParams,sharedProperties,completeModel,contractTaskService) {
 
   	$scope.initialize = function(){
   		if(completeModel.getCompleteModel() != undefined){
   			var model = completeModel.getCompleteModel();
   		}
 
-/*      if($stateParams != undefined){
-        if($stateParams.jobType != undefined){
-
-        }
-      }*/
       $scope.model = model;
-      $scope.name  = model.profile.first_name + model.profile.middle_name + model.profile.last_name;
-      $scope.rolesTypes = sharedProperties.getRoles();
-      $scope.vehicleName = model.vehicle.make + " " + model.vehicle.model;
-      $scope.organisationName = model.profile.organization_name;
-      $scope.licencePlateNumber = model.vehicle.regNumber;
       $scope.deliveryCenter = model.deliveryCentre;
-      
+      $scope.contractTaskType = sharedProperties.getContractTaskType();      
 
   var deliveryCentreLatLong = {lat: $scope.deliveryCenter.latitude, lng: $scope.deliveryCenter.longitude};
 
@@ -38,11 +28,11 @@ var centerControlDiv = document.createElement('div');
         controlUI.style.backgroundColor = '#fff';
         controlUI.style.border = '2px solid #fff';
         controlUI.style.borderRadius = '3px';
-        controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
-        controlUI.style.cursor = 'pointer';
+        //controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+       // controlUI.style.cursor = 'pointer';
         controlUI.style.marginBottom = '22px';
         controlUI.style.textAlign = 'center';
-        controlUI.title = 'Click to proceed to the Delivery Center';
+       // controlUI.title = 'Click to proceed to the Delivery Center';
         centerControlDiv.appendChild(controlUI);
 
         // Set CSS for the control interior.
@@ -53,30 +43,18 @@ var centerControlDiv = document.createElement('div');
         controlText.style.lineHeight = '38px';
         controlText.style.paddingLeft = '5px';
         controlText.style.paddingRight = '5px';
-        controlText.innerHTML = 'Proceed to the Center';
+        controlText.innerHTML = 'Checked-In';
         controlUI.appendChild(controlText);
 
         // Setup the click event listeners: simply set the map to Chicago.
-        controlUI.addEventListener('click', function() {
 
-          contractTaskService.updataContractStateToDispatched(model.contractTask,model.profile.username)
-          .then(function(response){
-            if(response.status == 201){
-              $location.path('/driver/onMyWayDone');
-            }else{
-              $scope.errorMessage = "Something Went wrong. Try again !";
-            }
-          });
-          $location.path('/driver/onMyWayDone');
-        });
-
-        centerControlDiv.index = 1;
+        //centerControlDiv.index = 1;
         map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
 
 google.maps.event.trigger(map, "resize");
 
 
- if(!navigator.geolocation){
+ if (!navigator.geolocation){
     alert('not present');
   }else{
   
@@ -118,6 +96,16 @@ google.maps.event.trigger(map, "resize");
 
 
 
+  $interval(function(){
+    contractTaskService.getContractTaskById($scope.model.contractTask.id)
+    .then(function(response){
+      if(response.status == 200){
+        if(response.data.status == $scope.contractTaskType.assignedJob.value){
+          $location.path('/driver/jobAssigned');
+        }
+      }
+    });
+  }, 6000);
 
 
 
@@ -143,6 +131,14 @@ google.maps.event.trigger(map, "resize");
     $scope.showPath = function(){
 
     }
+
+    /*$scope.$on('$locationChangeStart', function(event, next, current){            
+    // Here you can take the control and call your own functions:
+    alert('Sorry ! Back Button is disabled');
+    // Prevent the browser default action (Going back):
+    event.preventDefault();            
+    });*/
+
 
 
   });
