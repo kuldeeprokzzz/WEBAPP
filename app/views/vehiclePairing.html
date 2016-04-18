@@ -15,18 +15,10 @@
       <!-- <img  class = "img-wrapper img-resposive" src="images/driver_photo_1.png"> -->
       <img src="images/car.png" class ="img-responsive" style = "height: 324px">
       <div ng-include="'../views/cards/vehicleCard.html'"></div>
-      <div class="fontCover"> 
-          <span class ="text_1 pull-left" style ="width: 93%" >         
-             <button ng-click="driveDifferentVehicle()" class="btn btn-icon btn-icon-right btn-sm btn-danger">
-              <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-              Drive different vehicle
-              </button>           
-          </span>
-          <span class ="col-sm-4 pull-right" style ="text-align:center">
-            <button ng-click="submitDriveThisVehicle()" type="button" class="btn btn-icon btn-sm btn-primary">
-             <i class="fa fa-long-arrow-right" aria-hidden="true"></i> 
-             Drive this vehicle
-            </button>
+      <div class="fontCover" style ="text-align:center; padding :7px"> 
+          <span class ="text_1" >         
+             <button ng-click="driveDifferentVehicle()" type="button" class="btn btn-danger">Wrong Vehicle</button>
+
           </span>
       </div>
      

@@ -9,23 +9,37 @@
       <div id="error-placement"></div>
  
       
-      <div class ="wrapperBx">
+      <div class ="col-sm-6">
       <div class ="col-md-12" style ="margin : 0 auto">
         <div class = "innerWrapper">
             <div ng-include="'../views/cards/driverCard.html'"></div>
-            <div ng-include="'../views/cards/vehicleCard.html'"></div>
-            <div class="fontCover"> 
+            <div class="fontCover" style ="height:72px"> 
+                <div class ="text_1" >
+                  <div class= "col-sm-6">
+                  <p class ="fontDesign" style = "font-size: 16px;font-weight: 600;margin-top: 11px;margin-left: -14px;">{{licencePlateNumber}}</p><br>
+                  </div>
+                  <div class = "col-sm-6" style  ="text-align:right;margin-top: 21px;">
+                  <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:0px">{{vehicleName}}</p>
+                  </div>
+                </div>
+            </div>
+        </div>    
+      </div>
+      </div>
+
+
+        <div class = "col-sm-6" >
+        <div class ="col-md-12" style ="margin : 0 auto">
+        <div class="fontCover" style = "border:1px solid lightgrey;"> 
                 <div>
                   <div id="map" class = "Map_image">
                    <button type="button" class="btn btn-primary" style ="position: relative; top: 414px; left: 147px;width: 347px;font-size: 20px;">ON MY WAY</button>
                   </div>
                 </div>
-            </div>
-           
-        </div>    
-      </div>
-      </div>
-
+        </div>  
+        </div>
+        </div>
+      
        
     </div> <!-- content-body --> 
 

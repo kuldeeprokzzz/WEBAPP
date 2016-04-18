@@ -1,46 +1,109 @@
-<div class="content" style ="margin-left:0px;" ng-init="initialize()">
-    <div class="content-header" style = "overflow: visible;">
-         <h2 class = "content-Info" style ="margin-left: 15px;">JOB# {{jobName}}</h2>
-    </div><!--/content-header -->
-    
-    <div class="content-body">
 
-    
-      <div id="error-placement"></div>
+            <div class="content" style ="margin-left:0px;">
+                <div class="content-header" style = "overflow: visible;">
+                    <div class ="leftDiv">   
+                     <h2 class = "content-Info" style ="margin-left: 15px;">JOB# 2016 02 08 - 0523</h2>
+                    </div>
+                    <div class ="rightDiv">   
+                      <h2 class = "content-Info">
+                        <div class="dropdown"> 
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
+                             <ul class="dropdown-menu" style ="margin-left: -152px;margin-top: -50px;"> 
+                                 <li><a href="#"style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Return to Centre</a></li> 
+                                 <li><a href="#"style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Out of time</a></li> 
+                                 <li><a href="#"style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Truck breakdown</a></li>
+                                 <li><a href="#"style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">End of day</a></li>  
+                             </ul> 
+                         </div>
+                     </h2>
+                    </div>      
 
-                <ul class="nav nav-tabs">
-                    <li ui-sref="driver.jobs({jobType:'undelivered'})" class="active"><a href="#">Undeliverd</a></li>
-                    <li ui-sref="driver.jobs({jobType:'delivered'})"><a href="#">Delivered</a></li>
-                    <li  ui-sref="driver.jobs({jobType:'returning'})"><a href="#">Returning</a></li>
-                </ul>
+                </div><!--/content-header -->
+                
+                <div class="content-body">
 
-    
-           <div class="table-responsive" style = "margin-top: 17px;">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Package #</th>
-                        <th>Customer Address</th>
-                        
-                        
-                    </tr>
-                </thead>
-                <tbody  ng-repeat="package in packages">
-                    <tr>
-                    <td ng-click="openJobModal(package)" style ="color:#15A99F">ID # {{package.packageNumber}}</td>
-                    <td>{{package.address}}</td>
-                    </tr>                
-                </tbody>
-            </table>
-           </div>
-           <div ng-include="'../views/driverJobModal.html'"></div>   
-    </div> <!-- content-body --> 
+                
+                  <div id="error-placement"></div>
+
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#">To deliver</a></li>
+                                <li><a href="#">Delivered</a></li>
+                                <li><a href="#">Undelivered</a></li>
+                                
+                            </ul>
+
+                
+                       <div style = "margin-top: 17px;">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Package #</th>
+                                    <th>Customer Address</th>
+                                    
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style ="color:#15A99F">
+
+                                          <div class="dropdown">
+                                            <a href="#" style ="text-decoration: none;    font-weight: 600;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ID # 102-4057369-5633008</a>
+                                             <ul style ="margin-top: -15px;" class="dropdown-menu"> 
+                                                <li><a href="#"style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Delivered</a></li>
+                                                <li><a href="#"style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Damaged</a></li> 
+                                                <li><a href="#"style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Incorrect address</a></li> 
+                                                <li><a href="#"style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Customer not available</a></li>  
+                                                <li><a href="#"style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Package return</a></li>
+                                                <li><a href="#"style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Rescheduled</a></li>  
+                                             </ul> 
+                                          </div>
 
 
-</div><!--/content -->
+                                    </td>
+                                    <td>242, 13th Cross Rd, Stage 2,Hoysala Nagar</td> 
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                       </div>
+                  
+                
+                 
+                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalBasic">Show modal</button>
+
+
+                     <div class="modal fade" id="modalBasic" tabindex="-1" role="dialog" aria-labelledby="modalBasicLabel" aria-hidden="true">
+                        <div class="modal-dialog" style = "margin-top:160px;">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <p>All Packages done. <span style ="font-weight:bold">Return to Centre?</span></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button style = "width: 75px;"type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                    <button style = "width: 75px;"type="button" class="btn btn-primary">Yes</button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                            
+                    
+
+                   
+                </div> <!-- content-body --> 
+
+
+            </div><!--/content -->
+
+
+
+
+
 
 <script>
 $(document).ready(function() {
-$(".dropdown-toggle").dropdown();
+    $(".dropdown-toggle").dropdown();
 });
 </script>
+
+
