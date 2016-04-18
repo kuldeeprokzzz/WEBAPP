@@ -117,32 +117,5 @@ google.maps.event.trigger(map, "resize");
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   	};
-
-    $scope.showPath = function(){
-
-    }
-
-
   });

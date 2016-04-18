@@ -100,6 +100,8 @@ google.maps.event.trigger(map, "resize");
     contractTaskService.getContractTaskById($scope.model.contractTask.id)
     .then(function(response){
       if(response.status == 200){
+        $scope.model.contractTask = response.data;
+        completeModel.saveCompleteModel($scope.model);
         if(response.data.status == $scope.contractTaskType.arrived.value){
           $location.path('/driver/arrived');
         }
@@ -112,25 +114,6 @@ google.maps.event.trigger(map, "resize");
       }
     });
   }, 6000);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   	};
 

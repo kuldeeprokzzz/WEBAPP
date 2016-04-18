@@ -1,0 +1,27 @@
+<button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#modalBasic">Show modal</button>
+
+                <div class="modal fade" id="modalBasic" tabindex="-1" role="dialog" aria-labelledby="modalBasicLabel" aria-hidden="true">
+                    <div class="modal-dialog"style ="width:280px">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="modalBasicLabel">Choose One</h4>
+                            </div>
+                            <div class="modal-body" style ="padding:0px;">
+                                <div class ="contentsModal">
+                                    <ul style ="list-style: none;margin-left: -40px;">
+                                        <li ng-click="clickPackageType(packagesType.delivered)" style = "padding:17px;">Delivered</input></li>
+                                        <li ng-click="clickPackageType(packagesType.damaged)" style = "padding:17px;">Damaged</input></li>
+                                        <li ng-click="clickPackageType(packagesType.incorrectAddress)" style = "padding:17px;">Incorrect address</input></li>
+                                        <li ng-click="clickPackageType(packagesType.notAvailable)" style = "padding:17px;">Customer not available</input></li>
+                                        <li ng-click="clickPackageType(packagesType.returned)" style = "padding:17px;">Package return</input></li>
+                                        <li ng-click="clickPackageType(packagesType.rescheduled)" style = "padding:17px;">Rescheduled</input></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>         
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->

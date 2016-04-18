@@ -100,6 +100,8 @@ google.maps.event.trigger(map, "resize");
     contractTaskService.getContractTaskById($scope.model.contractTask.id)
     .then(function(response){
       if(response.status == 200){
+        $scope.model.contractTask = response.data;
+        completeModel.saveCompleteModel($scope.model);
         if(response.data.status == $scope.contractTaskType.assignedJob.value){
           $location.path('/driver/jobAssigned');
         }
