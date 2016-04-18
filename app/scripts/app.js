@@ -79,6 +79,11 @@ var inloopAppApp= angular
       templateUrl: "../views/jobAssgined.html",
       controller : 'driverJobController',
     })
+    .state('driver.returning', {
+      url: "/returning",
+      templateUrl: "../views/IOTDetectedAndCheckedIn.html",
+      controller : 'driverReturningToCenterController',
+    })
     .state('orchestrator', {
       url: "/orchestrator",
       templateUrl: "../views/base.html",

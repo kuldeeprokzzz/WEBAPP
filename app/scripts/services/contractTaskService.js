@@ -102,6 +102,34 @@ inloopAppApp.service('contractTaskService', ['sharedProperties','$http', functio
       });
      };
 
+
+    this.updataContractStateToReturning = function(contractTaskId,username,jobId,tripId){
+        
+        var requestBody = {
+                              'type': sharedProperties.getContractTaskType().returning.type, 
+                              'time': sharedProperties.getTodatUTCDateTime(),
+                              'location': {
+                                  'longitude': undefined,
+                                  'latitude': undefined,
+                              },
+                              'odometer': undefined,
+                              'performed_by': username,
+                              'jobid':jobId,
+                              'tripid':tripId,
+                          };
+
+        return $http({
+                method: 'POST',
+                url: sharedProperties.getUrl()+'/contract_tasks/'+contractTaskId+'/states/',
+                headers: { token : sharedProperties.getAuthToken()},
+                data: requestBody,
+                }).success(function(response){
+                    return response;
+                }).error(function(response){
+                    return response;
+                });
+        }
+
 }])
 
 

@@ -1,5 +1,5 @@
 angular.module('inloopAppApp')
-  .controller('driverJobController', function ($scope,$location,$interval,$stateParams,sharedProperties,completeModel,jobService,tripService,manifestService) {
+  .controller('driverJobController', function ($scope,$timeout,$location,$interval,$stateParams,sharedProperties,completeModel,contractTaskService,jobService,tripService,manifestService) {
 
   	$scope.initialize = function(){
   		if(completeModel.getCompleteModel() != undefined){
@@ -36,7 +36,7 @@ angular.module('inloopAppApp')
       if($stateParams.jobType != undefined){
           $scope.jobType = $stateParams.jobType;
       }else{
-          $scope.jobType = 'undelivered';
+          $scope.jobType = 'unassigned';
       }
 
       jobService.getJobDetailByJobId($scope.jobId)
@@ -55,6 +55,7 @@ angular.module('inloopAppApp')
     'manifestid': 1
   };
               if(response.status == 200){
+                $scope.newCount = 0;
                 $scope.manifestId = response.data.manifestid;
                 manifestService.getManifestPackagesbyManifestId(response.data.manifestid)
                 .then(function(response){
@@ -63,6 +64,7 @@ angular.module('inloopAppApp')
                     angular.forEach(response.data, function(value, key) {
                       if($scope.jobType == 'undelivered' && value.status == $scope.packagesType.new){
                         $scope.packages.push(value);
+                        $scope.newCount = $scope.newCount + 1;
                       }
                       if($scope.jobType == 'delivered' && value.status == $scope.packagesType.delivered){
                         $scope.packages.push(value);
@@ -71,6 +73,9 @@ angular.module('inloopAppApp')
                         $scope.packages.push(value);
                       }
                     });
+                    if($scope.newCount == 0){
+                      $("#modalBasic").modal("toggle");
+                    }
                   }else{
                     $scope.errorMessage = "Something went wrong. Reload again !";
                   }
@@ -87,19 +92,43 @@ angular.module('inloopAppApp')
 
     $scope.openJobModal = function(package){
       $scope.package = package;
-      $("#modalBasic").modal("toggle");
     }
 
     $scope.clickPackageType = function(status){
-      $("#modalBasic").modal("toggle");
-      manifestService.updateManifestPackageState
-      ($scope.manifestId,$scope.package.id,status,99,00)
-      .then(function(response){
-        if(response.status == 201){
-          $route.reload();
-        }else{
-          "Something went wrong. Try again !"
-        }
-      });
+      if(!navigator.geolocation){
+        $scope.errorMessage = "Something went wrong. Try again !";
+      }else{
+        navigator.geolocation.getCurrentPosition(function(position){
+          var latitude  = position.coords.latitude;
+          var longitude = position.coords.longitude;
+
+          manifestService.updateManifestPackageState
+          ($scope.manifestId,$scope.package.id,status,99,00)
+          .then(function(response){
+            if(response.status == 201){
+              $route.reload();
+            }else{
+              $scope.errorMessage = "Something went wrong. Try again !";
+            }
+          });
+        }, function(){});
+      }
     }
+
+    $scope.confirmReturnToCenter = function(){
+      $("#modalBasic").modal("toggle");
+      $timeout(function(){
+        contractTaskService.updataContractStateToReturning
+        ($scope.model.contractTask.id,$scope.model.profile.username,$scope.jobId,$scope.tripId)
+        .then(function(response){
+          if(response.status == 201){
+            $location.path('/driver/returning');
+          }else{
+            $scope.errorMessage = "Something went wrong. Try again !";
+          }
+        });
+      }, 1000);
+    }
+
+
   });
