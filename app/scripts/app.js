@@ -155,6 +155,10 @@ var inloopAppApp= angular
       url: "/navsNavbar",
       templateUrl: "../views/navsNavbar.html",
     })
+    .state('driverCheckIn', {
+      url: "/driverCheckIn",
+      templateUrl: "../views/driverCheckIn.html",
+    })
   })
   .config(function ($provide, $httpProvider,localStorageServiceProvider) {
   
