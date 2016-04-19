@@ -174,6 +174,10 @@ var inloopAppApp= angular
       url: "/driverCheckIn",
       templateUrl: "../views/driverCheckIn.html",
     })
+    .state('odometer', {
+      url: "/odometer",
+      templateUrl: "../views/odometer.html",
+    })
   })
   .config(function ($provide, $httpProvider,localStorageServiceProvider) {
   
