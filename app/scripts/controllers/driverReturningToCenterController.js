@@ -32,6 +32,7 @@ var centerControlDiv = document.createElement('div');
        // controlUI.style.cursor = 'pointer';
         controlUI.style.marginBottom = '22px';
         controlUI.style.textAlign = 'center';
+        controlUI.style.width = '212px';
        // controlUI.title = 'Click to proceed to the Delivery Center';
         centerControlDiv.appendChild(controlUI);
 
@@ -49,7 +50,7 @@ var centerControlDiv = document.createElement('div');
         // Setup the click event listeners: simply set the map to Chicago.
 
         //centerControlDiv.index = 1;
-        map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
+        map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(centerControlDiv);
 
 google.maps.event.trigger(map, "resize");
 
@@ -66,7 +67,11 @@ google.maps.event.trigger(map, "resize");
   var directionsDisplay;
   var directionsService = new google.maps.DirectionsService();
 
-  directionsDisplay = new google.maps.DirectionsRenderer();
+  directionsDisplay = new google.maps.DirectionsRenderer({
+    polylineOptions: {
+      strokeColor: "#394165"
+    }
+  });
   directionsDisplay.setMap(map);
 
   var start = new google.maps.LatLng(37.334818, -121.884886);

@@ -77,14 +77,17 @@ angular.module('inloopAppApp')
 						$location.path('/orchestrator/provisioning/shippers/');
 						}
 
+						if($scope.username == 'deliveryAss'){
+						model.profile.roleIdtemp = sharedProperties.getRoles().shipperAccountPayableManager.id;
+						completeModel.saveCompleteModel(model);
+						$location.path('/deliveryAssociate/drivers/all/');
+						}
+
 						if(sharedProperties.getRoles().providerDriver.id == response.data.roleid){
 						model.profile.roleIdtemp = sharedProperties.getRoles().providerDriver.id;
 						completeModel.saveCompleteModel(model);
-						$location.path('/deliveryAssociate/drivers/all');
+						$location.path('/driver/driverCard');
 						}
-
-
-					
 					}
 				});
 			}

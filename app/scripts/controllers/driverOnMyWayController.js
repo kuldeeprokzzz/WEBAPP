@@ -42,6 +42,7 @@ var centerControlDiv = document.createElement('div');
         controlUI.style.cursor = 'pointer';
         controlUI.style.marginBottom = '22px';
         controlUI.style.textAlign = 'center';
+        controlUI.style.width = '212px';
         controlUI.title = 'Click to proceed to the Delivery Center';
         centerControlDiv.appendChild(controlUI);
 
