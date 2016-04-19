@@ -80,7 +80,7 @@ angular.module('inloopAppApp')
 						if(sharedProperties.getRoles().providerDriver.id == response.data.roleid){
 						model.profile.roleIdtemp = sharedProperties.getRoles().providerDriver.id;
 						completeModel.saveCompleteModel(model);
-						$location.path('/driver/driverCard');
+						$location.path('/deliveryAssociate/drivers/all');
 						}
 
 

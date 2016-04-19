@@ -107,10 +107,35 @@ body {
 .img-wrapper{
   width: 100%;
 }
-.lineBar{
+.whiteBar{
     width: 100%;
     height: 12px;
-    background-color: #339633;
+    background-color: #ffffff;
+}
+.redBar{
+    width: 100%;
+    height: 12px;
+    background-color: #ff0000;
+}
+.yellowBar{
+    width: 100%;
+    height: 12px;
+    background-color: #ffff00;
+}
+.orangeBar{
+    width: 100%;
+    height: 12px;
+    background-color: #ff9900;
+}
+.greenBar{
+    width: 100%;
+    height: 12px;
+    background-color: #66ff66;
+}
+.blueBar{
+    width: 100%;
+    height: 12px;
+    background-color: #66ccff;
 }
 .text_1{
     padding: 5px;

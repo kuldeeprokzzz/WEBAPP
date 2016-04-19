@@ -103,7 +103,7 @@ angular.module('inloopAppApp')
           var longitude = position.coords.longitude;
 
           manifestService.updateManifestPackageState
-          ($scope.manifestId,$scope.package.id,status,99,00)
+          ($scope.manifestId,$scope.package.id,status,latitude,longitude)
           .then(function(response){
             if(response.status == 201){
               $route.reload();

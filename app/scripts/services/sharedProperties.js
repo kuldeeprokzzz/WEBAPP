@@ -156,6 +156,37 @@ inloopAppApp.service('sharedProperties',function($location,$filter){
                         },
         };
 
+        this.contractTaskCardType = {
+            created : {
+                        "key": "CREATED",
+                        "value": "WHITE"
+                      },
+            dispatched : {
+                            "key": "DISPATCHED",
+                            "value": "RED"
+                         },
+            arrivedDispatched :   {
+                                    "key": "ARRIVED_DISPATCHED",
+                                    "value": "YELLOW"
+                                  },
+            arrivedReturning :   {
+                                    "key": "ARRIVED_RETURNING",
+                                    "value": "ORANGE"
+                                  },
+            checkedIn :   {
+                            "key": "CHECKED_IN",
+                            "value": "GREEN"
+                          },
+            assignedJob :   {
+                                "key": "ASSIGNED_JOB",
+                                "value": "BLUE"
+                              },
+            returning :   {
+                            "key": "RETURNING",
+                            "value": "RED"
+                          }
+        };
+
         this._jobTypes = {
 
             unassigned : {
@@ -294,6 +325,10 @@ inloopAppApp.service('sharedProperties',function($location,$filter){
 
         this.getContractTaskType = function(){
             return this._contractTaskType;
+        };
+
+        this.getContractTaskCardType = function(){
+            return this.contractTaskCardType;
         };
 
         this.getJobsTypes = function(){

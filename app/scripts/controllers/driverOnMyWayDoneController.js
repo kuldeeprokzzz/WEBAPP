@@ -13,7 +13,7 @@ angular.module('inloopAppApp')
   var deliveryCentreLatLong = {lat: $scope.deliveryCenter.latitude, lng: $scope.deliveryCenter.longitude};
 
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 2,
+    zoom: 15,
     center: deliveryCentreLatLong,
     disableDefaultUI: true,
   });
@@ -49,7 +49,7 @@ var centerControlDiv = document.createElement('div');
         // Setup the click event listeners: simply set the map to Chicago.
 
         //centerControlDiv.index = 1;
-        map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
+        map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(centerControlDiv);
 
 google.maps.event.trigger(map, "resize");
 
@@ -66,12 +66,16 @@ google.maps.event.trigger(map, "resize");
   var directionsDisplay;
   var directionsService = new google.maps.DirectionsService();
 
-  directionsDisplay = new google.maps.DirectionsRenderer();
+  directionsDisplay = new google.maps.DirectionsRenderer({
+    polylineOptions: {
+      strokeColor: "#394165"
+    }
+  });
   directionsDisplay.setMap(map);
 
-  var start = new google.maps.LatLng(37.334818, -121.884886);
+  var start = new google.maps.LatLng(13.050070, 77.579983);
   //var end = new google.maps.LatLng(38.334818, -181.884886);
-  var end = new google.maps.LatLng(37.441883, -122.143019);
+  var end = new google.maps.LatLng(12.954063, 77.700146);
   var request = {
     origin: start,
     destination: end,

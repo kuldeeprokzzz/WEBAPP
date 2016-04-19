@@ -35,10 +35,10 @@ var centerControlDiv = document.createElement('div');
 
  // Set CSS for the control border.
         var controlUI = document.createElement('div');
-        controlUI.style.backgroundColor = '#fff';
-        controlUI.style.border = '2px solid #fff';
+        controlUI.style.backgroundColor = '#00a89f';
+        controlUI.style.border = '2px solid #00a89f';
         controlUI.style.borderRadius = '3px';
-        controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+        controlUI.style.boxShadow = '0 4px 8px rgba(0,0,0,.3)';
         controlUI.style.cursor = 'pointer';
         controlUI.style.marginBottom = '22px';
         controlUI.style.textAlign = 'center';
@@ -71,7 +71,7 @@ var centerControlDiv = document.createElement('div');
         });
 
         centerControlDiv.index = 1;
-        map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
+        map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(centerControlDiv);
 
 google.maps.event.trigger(map, "resize");
 
@@ -88,7 +88,11 @@ google.maps.event.trigger(map, "resize");
   var directionsDisplay;
   var directionsService = new google.maps.DirectionsService();
 
-  directionsDisplay = new google.maps.DirectionsRenderer();
+  directionsDisplay = new google.maps.DirectionsRenderer({
+    polylineOptions: {
+      strokeColor: "#394165"
+    }
+  });
   directionsDisplay.setMap(map);
 
   var start = new google.maps.LatLng(37.334818, -121.884886);
