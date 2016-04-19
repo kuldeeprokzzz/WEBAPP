@@ -9,7 +9,7 @@ angular.module('inloopAppApp')
       $scope.model = model;
       $scope.cardType = sharedProperties.getContractTaskCardType();
       $scope.contractTaskType = sharedProperties.getContractTaskType();
-
+      $scope.searchString = '';
       if($stateParams.viewType != undefined){
           $scope.viewType = $stateParams.viewType;
       }else{
@@ -274,6 +274,7 @@ angular.module('inloopAppApp')
                 }
             }
               $scope.drivers = response.data;
+              $scope.responseData = response.data;
           }else{
             $scope.errorMessage = "No driver to show yet. Try after some time.";  
           }
@@ -305,6 +306,20 @@ angular.module('inloopAppApp')
       $scope.model.viewType = $scope.viewType;
       completeModel.saveCompleteModel($scope.model);
       $location.path('/deliveryAssociate/checkin');
+    }
+
+    $scope.searchDrivers = function(){
+      if($scope.searchString != undefined){
+        var searchResult = [];
+        angular.forEach($scope.responseData, function(value, key) {
+          if(JSON.stringify(value).search($scope.searchString) != -1){
+            searchResult.push(value);
+          }
+        });
+        $scope.drivers = searchResult;
+      }else{
+        $scope.drivers = $scope.responseData;
+      }
     }
 
   });
