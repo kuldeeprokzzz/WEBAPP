@@ -268,9 +268,11 @@ angular.module('inloopAppApp')
                 arrivedDrivers.push(value);
               }
             });
-            if(arrivedDrivers.length == 0){
-                
-              }
+            if(arrivedDrivers.length != 0){
+                if(arrivedDrivers.length == 1){
+                  $scope.selectDriver = arrivedDrivers[0];
+                }
+            }
               $scope.drivers = response.data;
           }else{
             $scope.errorMessage = "No driver to show yet. Try after some time.";  
@@ -296,6 +298,13 @@ angular.module('inloopAppApp')
             $scope.errorMessage = "Something went wrong. Try again !";
           }
         });
+    }
+
+    $scope.selectDriver = function(driver){
+      $scope.model.driverToBeCheckedIn = driver;
+      $scope.model.viewType = $scope.viewType;
+      completeModel.saveCompleteModel($scope.model);
+      $location.path('/deliveryAssociate/checkin');
     }
 
   });

@@ -130,6 +130,31 @@ inloopAppApp.service('contractTaskService', ['sharedProperties','$http', functio
                 });
         }
 
+        this.updateContractTaskStateToCheckedIn = function(odometer,contractTaskId,performedBy){
+ 
+
+
+          var currentTime = sharedProperties.getTodatUTCDateTime();
+          var requestBody = {
+                              "type": sharedProperties.getContractTaskType().checkedIn.value,
+                              "time": currentTime,
+                              "location": {
+                                             "longitude": null,
+                                             "latitute": null,
+                                          },
+                              "odometer": odometer,
+                              "contract_taskid": contractTaskId,
+                              "performed_by": performedBy,
+                             };
+
+        return $http.post(sharedProperties.getUrl()+'/contract_tasks/'+contractTaskId+'/states',requestBody,{})
+        .then(function(response){
+            return response;
+        }, function(response){
+            return response;
+        });
+     };
+
 }])
 
 

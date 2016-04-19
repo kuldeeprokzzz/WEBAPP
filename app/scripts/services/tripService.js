@@ -62,6 +62,29 @@ inloopAppApp.service('tripService', ['sharedProperties','$http', function(shared
       });
      };
 
+     this.updateTripStateToEndTrip = function(tripId,username,odometer){
+          
+          var currentTime = sharedProperties.getTodatUTCDateTime();
+
+          var requestBody = {
+                                'type': sharedProperties.getTripTypes().tripEnd.value,
+                                'time': currentTime,
+                                'location': {
+                                    'longitude': null,
+                                    'latitude': null,
+                                },
+                                'odometer': odometer,
+                                'performed_by': username,
+                            };
+
+          return $http.post(sharedProperties.getUrl()+'/trips/'+tripId+'/states/',requestBody,{})
+                  .then(function(response){
+                      return response;
+                  }, function(response){
+                      return response;
+                  });
+     };
+
 }])
 
 

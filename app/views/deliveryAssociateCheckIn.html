@@ -1,0 +1,43 @@
+<div class="content" style ="margin-left:0px;" ng-init="initialize()">
+<div class="content-header">
+  <h2 class = "content-Info" style ="margin-left: 15px;">Check In</h2>
+</div><!--/content-header -->
+
+<div class="content-body">
+
+<button ng-click="backButton()">Back</button>
+
+<div id="error-placement"></div>
+<div class ="wrapperBx" style ="margin: 5% auto;">
+<div class ="col-md-12" style ="margin : 0 auto">
+  
+<div ng-include="'../views/cards/deliveryAssociateDriverCard.html'"></div>  
+
+
+ <div ng-show="contractTaskType.dispatched.value == driver.status || contractTaskType.arrived.value == driver.status || contractTaskType.returning.value == driver.status"class = "innerWrapper">
+     <div class="fontCover"> 
+      <div class ="text_1" >
+        <div class ="col-sm-6">
+          <p class ="fontDesign" style = "font-size: 16px;">{{driver.vehicle_regNumber}}</p>
+          <br>
+          <div class="col-sm-5">
+                      <input ng-model="odometer" style = "border:none;margin-left:-27px; font-size: 16px;color: black; width:600%"type="text" class="form-control pull-left" id="input" autofocus="autofocus" placeholder="Enter the Odometer reading">
+                      <button ng-click="addOdometerReading()" type="button" class="btn btn-info pull-right">Button</button>
+            </div>
+        </div>  
+        <div class ="col-sm-6" style ="text-align:right;">
+          <p class ="fontDesign" style = "font-size: 16px;font-weight:normal">{{driver.vehicle_make}}</p>
+          <br>
+         
+        </div>  
+      </div>
+  </div>
+  </div>
+</div>
+</div>
+
+ 
+</div> <!-- content-body --> 
+
+
+</div><!--/content -->

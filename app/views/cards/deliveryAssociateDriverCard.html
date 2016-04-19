@@ -1,20 +1,43 @@
-        <div class = "innerWrapper">
-            <!-- <img  class = "img-wrapper img-resposive" src="images/driver_photo_1.png"> -->
-                    <!-- <img  class = "img-wrapper img-resposive" src="images/driver_photo_1.png"> -->
-        <div class ="driver_image"></div>
-        <div class = "lineBar"></div>
-        <div class="fontCover"> 
-            <div class ="text_1" >
-              <div class ="col-sm-6">
-                <p class ="fontDesign" style = "font-size: 16px;">Aarav Banerjee</p>
-                <br>
-                <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:0px">G Trans Logistics</p>
-              </div>  
-              <div class ="col-sm-6" style ="text-align:right;">
-                <p class ="fontDesign" style = "font-size: 16px;font-weight:normal">Arrived</p>
-                <br>
-                <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:0px">5:05AM</p>
-              </div>  
-            </div>
-        </div>
+<div ng-click="selectDriver(driver)" class = "innerWrapper">
+  <div class ="driver_image"></div>
+  <div ng-class="{ 'whiteBar': cardType.created.key == driver.card_type, 'redBar': cardType.dispatched.key == driver.card_type, 'yellowBar': cardType.arrivedDispatched.key == driver.card_type, 'orangeBar': cardType.arrivedReturning.key == driver.card_type, 'greenBar': cardType.checkedIn.key == driver.card_type, 'blueBar': cardType.assignedJob.key == driver.card_type, 'redBar': cardType.returning.key == driver.card_type, }"></div>
+  <div class="fontCover"> 
+      <div class ="text_1" >
+        <div class ="col-sm-6">
+          <p class ="fontDesign" style = "font-size: 16px;">{{driver.driver_name}}</p>
+          <br>
+          <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:0px">{{driver.provider_name}}</p>
+        </div>  
+        <div ng-show="contractTaskType.created.value == driver.status" class ="col-sm-6" style ="text-align:right;">
+          <p class ="fontDesign" style = "font-size: 16px;font-weight:normal">hello</p>
+          <br>
+          <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:0px">hello</p>
         </div> 
+        <div ng-show="contractTaskType.dispatched.value == driver.status" class ="col-sm-6" style ="text-align:right;">
+          <p class ="fontDesign" style = "font-size: 16px;font-weight:normal">IN TRANSIT</p>
+          <br>
+          <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:0px">{{ driver.latest_state.time | date:'h:mm a'}}</p>
+        </div>
+        <div ng-show="contractTaskType.arrived.value == driver.status" class ="col-sm-6" style ="text-align:right;">
+          <p class ="fontDesign" style = "font-size: 16px;font-weight:normal">ARRIVED</p>
+          <br>
+          <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:0px">{{ driver.latest_state.time | date:'h:mm a'}}</p>
+        </div>
+        <div ng-show="contractTaskType.checkedIn.value == driver.status" class ="col-sm-6" style ="text-align:right;">
+          <p class ="fontDesign" style = "font-size: 16px;font-weight:normal">{{driver.latest_state.odometer}}</p>
+          <br>
+          <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:0px">{{ driver.latest_state.time | date:'h:mm a'}}</p>
+        </div>
+        <div ng-show="contractTaskType.assignedJob.value == driver.status" class ="col-sm-6" style ="text-align:right;">
+          <p class ="fontDesign" style = "font-size: 16px;font-weight:normal">ASSIGNED</p>
+          <br>
+          <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:0px">{{driver.latest_state.jobid}}</p>
+        </div>
+        <div ng-show="contractTaskType.returning.value == driver.status" class ="col-sm-6" style ="text-align:right;">
+          <p class ="fontDesign" style = "font-size: 16px;font-weight:normal">{{driver.latest_state.jobid}}</p>
+          <br>
+          <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:0px">{{ driver.latest_state.time | date:'h:mm a'}}</p>
+        </div>
+      </div>
+  </div>
+</div>

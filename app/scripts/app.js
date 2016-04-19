@@ -81,7 +81,7 @@ var inloopAppApp= angular
     })
     .state('driver.returning', {
       url: "/returning",
-      templateUrl: "../views/IOTDetectedAndCheckedIn.html",
+      templateUrl: "../views/deliveryAssociateCheckIn.html",
       controller : 'driverReturningToCenterController',
     })
     .state('deliveryAssociate', {
@@ -91,8 +91,13 @@ var inloopAppApp= angular
     })
     .state('deliveryAssociate.drivers', {
       url: "/drivers/{viewType}",
-      templateUrl: "../views/driverCheckIn.html",
+      templateUrl: "../views/deliveryAssociateDriver.html",
       controller: 'deliveryAssociateDriverController',
+    })
+    .state('deliveryAssociate.checkin', {
+      url: "/checkin",
+      templateUrl: "../views/deliveryAssociateCheckIn.html",
+      controller: 'deliveryAssociateDriverCheckInController',
     })
     .state('orchestrator', {
       url: "/orchestrator",
@@ -176,7 +181,7 @@ var inloopAppApp= angular
     })
     .state('odometer', {
       url: "/odometer",
-      templateUrl: "../views/odometer.html",
+      templateUrl: "../views/deliveryAssociateCheckIn.html",
     })
   })
   .config(function ($provide, $httpProvider,localStorageServiceProvider) {
