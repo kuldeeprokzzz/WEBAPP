@@ -78,7 +78,7 @@ google.maps.event.trigger(map, "resize");
 
 
  if(!navigator.geolocation){
-    alert('not present');
+    alert('geolocation not present');
   }else{
   
   navigator.geolocation.getCurrentPosition(function(position){
@@ -116,7 +116,7 @@ google.maps.event.trigger(map, "resize");
 
 
     }, function(){
-      alert('error');
+      alert('unable to get youn location, please check setting and reload again !');
     });
     
   }

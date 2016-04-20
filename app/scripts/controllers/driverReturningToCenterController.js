@@ -94,7 +94,7 @@ google.maps.event.trigger(map, "resize");
 
 
     }, function(){
-      alert('error');
+      alert('unable to get youn location, please check GPS and Browser setting and reload again');
     });
     
   }

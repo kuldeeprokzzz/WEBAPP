@@ -34,7 +34,7 @@ angular.module('inloopAppApp')
         $scope.menu = 'Checked In';
       }
       if($scope.viewType == 'inTransit'){
-        $scope.searchType = sharedProperties.getContractTaskType().dispatched.value + ','
+        $scope.searchType = sharedProperties.getContractTaskType().dispatched.value + ',' +
                             sharedProperties.getContractTaskType().returning.value;
         $scope.menu = 'In Transit'
       }
