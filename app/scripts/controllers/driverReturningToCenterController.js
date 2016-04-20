@@ -122,12 +122,8 @@ google.maps.event.trigger(map, "resize");
 
   	};
 
-    $scope.showPath = function(){
-
-    }
-
         $scope.$on('$locationChangeStart', function(event, next, current){            
-          if($location.path() == $scope.model.lastPath || $location.path() == '/driver/arrived' || $location.path() == '/driver/checkedIn' || $location.path() == '/driver/jobs/unassigned'){
+          if($location.path() == $scope.model.lastPath || $location.path() == '/driver/arrived' || $location.path() == '/driver/checkedIn' || $location.path() == '/driver/jobs/unassigned' || $location.path() == '/'){
           }else{
             event.preventDefault();
           }            
