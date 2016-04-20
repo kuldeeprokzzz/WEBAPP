@@ -111,7 +111,7 @@ google.maps.event.trigger(map, "resize");
           $location.path('/driver/checkedIn');
         }
         if(response.data.status == $scope.contractTaskType.assignedJob.value){
-          $location.path('/driver/jobAssigned');
+          $location.path('/driver/jobs/unassigned');
         }
       }
     });
@@ -138,16 +138,12 @@ google.maps.event.trigger(map, "resize");
 
   	};
 
-    $scope.showPath = function(){
-
-    }
-
-    /*$scope.$on('$locationChangeStart', function(event, next, current){            
-    // Here you can take the control and call your own functions:
-    alert('Sorry ! Back Button is disabled');
-    // Prevent the browser default action (Going back):
-    event.preventDefault();            
-    });*/
+        $scope.$on('$locationChangeStart', function(event, next, current){            
+          if($location.path() == $scope.model.lastPath || $location.path() == '/driver/checkedIn' || $location.path() == '/driver/jobs/unassigned'){
+          }else{
+            event.preventDefault();
+          }            
+        });
 
 
 

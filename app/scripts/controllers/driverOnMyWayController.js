@@ -123,4 +123,11 @@ google.maps.event.trigger(map, "resize");
 
 
   	};
+
+        $scope.$on('$locationChangeStart', function(event, next, current){            
+          if($location.path() == $scope.model.lastPath || $location.path() == '/driver/onMyWayDone'){
+          }else{
+            event.preventDefault();
+          }            
+        });
   });

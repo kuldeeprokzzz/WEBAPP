@@ -1,5 +1,5 @@
 angular.module('inloopAppApp')
-  .controller('driverCardController', function ($scope,$location, $stateParams,sharedProperties,completeModel,provisioningService) {
+  .controller('driverCardController', function ($scope,$location, $stateParams,$state,sharedProperties,completeModel,provisioningService) {
 
   	$scope.initialize = function(){
   		if(completeModel.getCompleteModel() != undefined){
@@ -46,6 +46,13 @@ angular.module('inloopAppApp')
 
       }
     }
+
+    $scope.$on('$locationChangeStart', function(event, next, current){            
+      if($location.path() == $scope.model.lastPath || $location.path() == '/driver/vehiclePairing'){
+      }else{
+          event.preventDefault();
+      }            
+    });
 
 
   });

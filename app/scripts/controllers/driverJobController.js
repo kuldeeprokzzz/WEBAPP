@@ -130,5 +130,14 @@ angular.module('inloopAppApp')
       }, 1000);
     }
 
+    $scope.$on('$locationChangeStart', function(event, next, current){            
+      if($location.path() == $scope.model.lastPath || $location.path() == '/driver/jobs/unassigned'
+          || $location.path() == '/driver/jobs/delivered' || $location.path() == '/driver/jobs/returning'
+          || $location.path() == '/driver/returning'){
+      }else{
+        event.preventDefault();
+      }            
+    });
+
 
   });
