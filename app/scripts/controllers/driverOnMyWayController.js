@@ -116,7 +116,7 @@ google.maps.event.trigger(map, "resize");
 
 
     }, function(){
-      alert('unable to get youn location, please check setting and reload again !');
+      alert('unable to get youn location, please check GPS and Browser setting and reload again !');
     });
     
   }
