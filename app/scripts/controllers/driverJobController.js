@@ -106,7 +106,7 @@ angular.module('inloopAppApp')
           ($scope.manifestId,$scope.package.id,status,latitude,longitude)
           .then(function(response){
             if(response.status == 201){
-              $route.reload();
+              $location.path('/driver/jobs/toDeliver');
             }else{
               $scope.errorMessage = "Something went wrong. Try again !";
             }
