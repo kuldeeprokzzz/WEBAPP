@@ -111,7 +111,7 @@ google.maps.event.trigger(map, "resize");
           $location.path('/driver/checkedIn');
         }
         if(response.data.status == $scope.contractTaskType.assignedJob.value){
-          $location.path('/driver/jobs/unassigned');
+          $location.path('/driver/jobs/toDeliver');
         }
       }
     });
@@ -139,7 +139,7 @@ google.maps.event.trigger(map, "resize");
   	};
 
         $scope.$on('$locationChangeStart', function(event, next, current){            
-          if($location.path() == $scope.model.lastPath || $location.path() == '/driver/checkedIn' || $location.path() == '/driver/jobs/unassigned'){
+          if($location.path() == $scope.model.lastPath || $location.path() == '/driver/checkedIn' || $location.path() == '/driver/jobs/toDeliver'){
           }else{
             event.preventDefault();
           }            

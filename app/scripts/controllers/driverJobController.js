@@ -36,7 +36,7 @@ angular.module('inloopAppApp')
       if($stateParams.jobType != undefined){
           $scope.jobType = $stateParams.jobType;
       }else{
-          $scope.jobType = 'unassigned';
+          $scope.jobType = 'toDeliver';
       }
 
       jobService.getJobDetailByJobId($scope.jobId)
@@ -62,7 +62,7 @@ angular.module('inloopAppApp')
                   if(response.status == 200){
                     $scope.packages = [];
                     angular.forEach(response.data, function(value, key) {
-                      if($scope.jobType == 'undelivered' && value.status == $scope.packagesType.new){
+                      if($scope.jobType == 'toDeliver' && value.status == $scope.packagesType.new){
                         $scope.packages.push(value);
                         $scope.newCount = $scope.newCount + 1;
                       }
@@ -73,7 +73,7 @@ angular.module('inloopAppApp')
                         $scope.packages.push(value);
                       }
                     });
-                    if($scope.newCount == 0){
+                    if($scope.newCount == 0 && $scope.jobType == 'toDeliver'){
                       $("#modalBasic").modal("toggle");
                     }
                   }else{
@@ -131,7 +131,7 @@ angular.module('inloopAppApp')
     }
 
     $scope.$on('$locationChangeStart', function(event, next, current){            
-      if($location.path() == $scope.model.lastPath || $location.path() == '/driver/jobs/unassigned'
+      if($location.path() == $scope.model.lastPath || $location.path() == '/driver/jobs/toDeliver'
           || $location.path() == '/driver/jobs/delivered' || $location.path() == '/driver/jobs/returning'
           || $location.path() == '/driver/returning'){
       }else{
