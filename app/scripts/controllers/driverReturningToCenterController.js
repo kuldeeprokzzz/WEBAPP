@@ -59,6 +59,8 @@ google.maps.event.trigger(map, "resize");
     alert('not present');
   }else{
   
+  var markerArray = [];
+
   navigator.geolocation.getCurrentPosition(function(position){
   var latitude  = position.coords.latitude;
   var longitude = position.coords.longitude;
@@ -70,7 +72,8 @@ google.maps.event.trigger(map, "resize");
   directionsDisplay = new google.maps.DirectionsRenderer({
     polylineOptions: {
       strokeColor: "#394165"
-    }
+    },
+    suppressMarkers: true,
   });
   directionsDisplay.setMap(map);
 
@@ -86,6 +89,22 @@ google.maps.event.trigger(map, "resize");
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
       directionsDisplay.setMap(map);
+      var myRoute = response.routes[0].legs[0];
+      var iconBase = 'http://localhost:9000';
+      markerArray[0] = new google.maps.Marker({
+        position: start,
+        map: map,
+        icon: iconBase + '/images/circle.png',
+      });
+      markerArray[1] = new google.maps.Marker({
+        position: end,
+        map: map,
+        icon: iconBase + '/images/star.png'
+      });
+      markerArray[0].setMap(map);
+      markerArray[0].setPosition(start);
+      markerArray[1].setMap(map);
+      markerArray[1].setPosition(end);
     } else {
       alert("Directions Request from " + start.toUrlValue(6) + " to " + end.toUrlValue(6) + " failed: " + status);
     }
