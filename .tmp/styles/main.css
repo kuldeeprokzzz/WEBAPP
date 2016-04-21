@@ -214,7 +214,7 @@ body {
   display: inline-block;
   vertical-align: center;
   float: right;
-  margin-top: 4px;
+  margin-top: px;
 }
 .driver_image{
   background: url("../images/driver_photo_1.png") no-repeat center center;
@@ -269,19 +269,26 @@ li:hover {
   display: inline-block;
   float: right;
 }
+.inputStyling{
+  border: none; 
+  box-shadow:none;
+  background: white;
+  margin-top: 5px;
+}
 
-input::-webkit-input-placeholder {
+
+/*input::-webkit-input-placeholder {
 color: #00a89f !important;
-}
+}*/
  
-input:-moz-placeholder { /* Firefox 18- */
+/*input:-moz-placeholder {  Firefox 18- 
 color: #00a89f !important;  
-}
+}*/
  
-input::-moz-placeholder {  /* Firefox 19+ */
+/*input::-moz-placeholder {   Firefox 19+ 
 color: #00a89f !important;  
-}
+}*/
  
-input:-ms-input-placeholder {  
+/*input:-ms-input-placeholder {  
 color: #00a89f !important;  
-}
+}*/

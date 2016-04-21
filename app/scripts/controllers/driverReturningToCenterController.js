@@ -32,7 +32,7 @@ var centerControlDiv = document.createElement('div');
        // controlUI.style.cursor = 'pointer';
         controlUI.style.marginBottom = '22px';
         controlUI.style.textAlign = 'center';
-        controlUI.style.width = '212px';
+        controlUI.style.width = '400px';
        // controlUI.title = 'Click to proceed to the Delivery Center';
         centerControlDiv.appendChild(controlUI);
 
@@ -40,7 +40,7 @@ var centerControlDiv = document.createElement('div');
         var controlText = document.createElement('div');
         controlText.style.color = 'rgb(25,25,25)';
         controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
-        controlText.style.fontSize = '16px';
+        controlText.style.fontSize = '20px';
         controlText.style.lineHeight = '38px';
         controlText.style.paddingLeft = '5px';
         controlText.style.paddingRight = '5px';

@@ -322,14 +322,14 @@ angular.module('inloopAppApp')
       }
     }
 
-    $scope.$on('$locationChangeStart', function(event, next, current){            
-      if($location.path() == $scope.model.lastPath || $location.path() == '/deliveryAssociate/checkin' 
+    /*$scope.$on('$locationChangeStart', function(event, next, current){            
+      if( $location.path() == '/deliveryAssociate/checkin' 
         || $location.path() == 'deliveryAssociate/drivers/all' || $location.path() == 'deliveryAssociate/drivers/arrived'
         || $location.path() == 'deliveryAssociate/drivers/checkedIn' || $location.path() == 'deliveryAssociate/drivers/inTransit'
         || $location.path() == 'deliveryAssociate/drivers/assigned' || $location.path() == '/'){
       }else{
         event.preventDefault();
       }            
-    });
+    });*/
 
   });

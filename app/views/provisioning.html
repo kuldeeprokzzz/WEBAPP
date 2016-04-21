@@ -100,7 +100,7 @@
                     <li>
                         <a href="#">
                             <i class="sidebar-icon fa fa-user"></i>
-                            <span class="sidebar-text">Provisioning</span>
+                            <span style = "font-weight: bold;"class="sidebar-text">Provisioning</span>
                         </a>
                         
                     </li><!--/sidebar-item-->
@@ -110,7 +110,7 @@
 
             <div class="content">
                 <div class="content-header">
-                    <h2 class = "content-Info">Provisioning</h2>
+                    <h2 class = "content-Info" style = "font-weight: bold;">Provisioning</h2>
                 </div><!--/content-header -->
                 
                 <div class="content-body">
@@ -119,13 +119,13 @@
                   <div id="error-placement"></div>
              
                    
-                  <div class="col-md-15 margin-bottom">
+                  <div class="col-md-15 margin-bottom" style ="font-weight:bold;">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#system-stats" data-toggle="tab">Shippers</a></li>
-                                <li><a href="#server-stats" data-toggle="tab">3PLProvider</a></li>
+                                <li><a href="#server-stats" data-toggle="tab">3PL Providers</a></li>
                                 <li><a href="#server-stats" data-toggle="tab">Operations Managers</a></li>
                                 <li><a href="#server-stats" data-toggle="tab">Transactions Managers</a></li>
-                                <button type="button" style ="float:right;width: 110px" class="btn btn-primary">Add</button>
+                                <button type="button" style ="float: right; width: 110px;padding: 2px; margin-top: 10px;font-weight: bold;" class="btn btn-primary">Add</button>
                             </ul>
 
                   </div>
@@ -143,7 +143,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class ="stylingFonts">Amazon Transport Services</td>
+                                    <td class ="stylingFonts" style ="font-weight:bold; color:#13A89E">Amazon Transport Services</td>
                                     <td>+91810996391</td>
                                     <td>Yes</td>
                                     <td>Yes</td>
@@ -162,24 +162,24 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title" id="modalBasicLabel">Invite a New Entity for Provisioning</h4>
+                                    <h4 style ="    font-weight: bold;"class="modal-title" id="modalBasicLabel">Invite a New Entity for Provisioning</h4>
                                 </div>
                                 <div class="modal-body">
 
                                      <div class ="row">
                                         <div class="form-group"> 
                                             <div class="col-sm-4" style ="color: #96A6A7;">
-                                                <select data-input="selectboxit" placeholder="Select a Role">
+                                                <select style =""data-input="selectboxit" placeholder="Select a Role">
                                                     <option value="AK">Shipper</option>
-                                                    <option value="HI">3PLProvider</option>
-                                                    <option value="CA">Operations Managers</option>
-                                                    <option value="NV">Transactions Managers</option>
+                                                    <option value="HI">3PL Provider</option>
+                                                    <option value="CA">Operations Manager</option>
+                                                    <option value="NV">Transactions Manager</option>
                                                 </select>
                                             </div><!--/cols-->
                                         </div><!--/form-group-->
 
                                         <div class="col-md-8">
-                                            <p style ="font-size: 12px;color: #96A6A7;font-style: italic; margin-top: -4px;">Each Role must have a single point of contact associated with it. All fields are mendatory.</p>
+                                            <p style ="font-size: 12px;color: #96A6A7;font-style: italic; margin-top: -14px; font-weight:600">Each role must have a single point of contact associated with it. All fields are mandatory.</p>
                                         </div>
                                      </div>   
                                      
@@ -187,13 +187,13 @@
 
                                      <div class="row">
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" placeholder="First Name">
+                                            <input type="text" class="form-control" placeholder="First Name" required>
                                         </div>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" placeholder="Middle Name">
+                                            <input type="text" class="form-control" placeholder="Middle Name (optional)">
                                         </div>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" placeholder="Last Name">
+                                            <input type="text" class="form-control" placeholder="Last Name" required>
                                         </div>
                                     </div>
 
@@ -201,10 +201,10 @@
 
                                     <div class="row">
                                         <div class="col-md-4" style = "text-align: right;margin-top: 5px;">
-                                            <p>Contact Information:</p>
+                                            <p  style = "font-weight: bold;" >Contact Information:</p>
                                         </div>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" placeholder="Email Address">
+                                            <input type="text" class="form-control" placeholder="Email Address" required>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="input-group">
@@ -213,7 +213,7 @@
                                                         <label style = "position: relative;top: 3px;" for="addonradio1">+91</label>
                                                     
                                                 </span>
-                                                <input type="text" class="form-control" placeholder ="Phone Number">
+                                                <input type="text" class="form-control" placeholder ="Phone Number" required>
                                             </div>
                                         </div>
                                     </div>
@@ -222,13 +222,13 @@
 
                                     <div class="row">
                                         <div class="col-md-4" style = "text-align: right;margin-top: 5px;">
-                                            <p>Business Information:</p>
+                                            <p style = "font-weight: bold;">Business Information:</p>
                                         </div>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" placeholder="Tax Accounting Number (TAN)">
+                                            <input type="text" class="form-control" placeholder="Tax Accounting Number (TAN)" required>
                                         </div>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" placeholder="Legal Business Name (PAN Card)">
+                                            <input type="text" class="form-control" placeholder="Legal Business Name (PAN)" required>
                                         </div>
                                     </div>
 
@@ -236,7 +236,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Invite</button>
+                                    <button style ="width: 93px;"type="button" class="btn btn-primary">Invite</button>
                                 </div>
                             </div><!-- /.modal-content -->
                         </div><!-- /.modal-dialog -->

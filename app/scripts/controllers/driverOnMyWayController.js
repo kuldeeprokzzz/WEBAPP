@@ -115,12 +115,12 @@ google.maps.event.trigger(map, "resize");
       var myRoute = response.routes[0].legs[0];
       var iconBase = window.location.origin;
       
-      markerArray[0] = new google.maps.Marker({
+      markerArray[1] = new google.maps.Marker({
         position: start,
         map: map,
         icon: iconBase + '/images/circle.png',
       });
-      markerArray[1] = new google.maps.Marker({
+      markerArray[0] = new google.maps.Marker({
         position: end,
         map: map,
         icon: iconBase + '/images/star.png'

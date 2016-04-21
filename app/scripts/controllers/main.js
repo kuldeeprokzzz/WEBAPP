@@ -15,10 +15,6 @@ angular.module('inloopAppApp')
     	$scope.username = '';
     	$scope.password = '';
 
-   	if(completeModel.getCompleteModel() != undefined){
-  			var modelNew = completeModel.getCompleteModel();
-  		}
-
     	/*loginService.getRoleType().then(function(response){
     		if(response.status == 200){
     			var roles = {};
@@ -81,15 +77,15 @@ angular.module('inloopAppApp')
 						}
 
 						if($scope.username == 'deliveryAss'){
-						model.profile.roleIdtemp = sharedProperties.getRoles().shipperAccountPayableManager.id;
+						model.profile.roleIdtemp = sharedProperties.getRoles().providerDriver.id;	
 						completeModel.saveCompleteModel(model);
-						$location.path('/deliveryAssociate/drivers/all/');
+						$location.path('/deliveryAssociate/drivers/all');
 						}
 
-						if(sharedProperties.getRoles().providerDriver.id == response.data.roleid){
+						if(sharedProperties.getRoles().providerDriver.id != response.data.roleid){
 						model.profile.roleIdtemp = sharedProperties.getRoles().providerDriver.id;
 						completeModel.saveCompleteModel(model);
-						$location.path('/driver/driverCard');
+						$location.path('/deliveryAssociate/drivers/all/');
 						}
 					}
 				});

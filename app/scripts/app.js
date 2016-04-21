@@ -180,10 +180,12 @@ var inloopAppApp= angular
     .state('provisioning', {
       url: "/provisioning",
       templateUrl: "../views/provisioning.html",
+
     })
     .state('invitation', {
       url: "/invitation",
       templateUrl: "../views/invitation.html",
+      controller : "invitationController"
     })
     .state('validator', {
       url: "/validator",
