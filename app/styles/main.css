@@ -140,7 +140,7 @@ body {
 .text_1{
     padding: 5px;
     margin: 0 auto;
-    width: 93%;
+    width: 97%;
 }
 .fontDesign{
   display: inline-block;
@@ -149,7 +149,7 @@ body {
   color: black;
   font-weight: bold;  
   position: relative;
-  top: 10px;
+  top: 1px;
 }
 .fontDrama{
   display: inline-block;
@@ -270,3 +270,18 @@ li:hover {
   float: right;
 }
 
+input::-webkit-input-placeholder {
+color: #00a89f !important;
+}
+ 
+input:-moz-placeholder { /* Firefox 18- */
+color: #00a89f !important;  
+}
+ 
+input::-moz-placeholder {  /* Firefox 19+ */
+color: #00a89f !important;  
+}
+ 
+input:-ms-input-placeholder {  
+color: #00a89f !important;  
+}

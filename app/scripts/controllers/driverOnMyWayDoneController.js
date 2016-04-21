@@ -32,7 +32,7 @@ var centerControlDiv = document.createElement('div');
        // controlUI.style.cursor = 'pointer';
         controlUI.style.marginBottom = '22px';
         controlUI.style.textAlign = 'center';
-        controlUI.style.width = '212px';
+        controlUI.style.width = '400px';
        // controlUI.title = 'Click to proceed to the Delivery Center';
         centerControlDiv.appendChild(controlUI);
 
@@ -40,7 +40,7 @@ var centerControlDiv = document.createElement('div');
         var controlText = document.createElement('div');
         controlText.style.color = 'rgb(25,25,25)';
         controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
-        controlText.style.fontSize = '16px';
+        controlText.style.fontSize = '20px';
         controlText.style.lineHeight = '38px';
         controlText.style.paddingLeft = '5px';
         controlText.style.paddingRight = '5px';
@@ -105,23 +105,6 @@ google.maps.event.trigger(map, "resize");
       markerArray[0].setPosition(start);
       markerArray[1].setMap(map);
       markerArray[1].setPosition(end);
-
-      var stepDisplay = new google.maps.InfoWindow;
-
-      google.maps.event.addListener(markerArray[0], 'click', function() {
-        // Open an info window when the marker is clicked on, containing the text
-        // of the step.
-        stepDisplay.setContent("Delivery Center");
-        stepDisplay.open(map, markerArray[0]);
-      });
-
-      google.maps.event.addListener(markerArray[1], 'click', function() {
-        // Open an info window when the marker is clicked on, containing the text
-        // of the step.
-        stepDisplay.setContent("Your Location");
-        stepDisplay.open(map, markerArray[1]);
-      });
-
     } else {
       alert("Directions Request from " + start.toUrlValue(6) + " to " + end.toUrlValue(6) + " failed: " + status);
     }

@@ -1,9 +1,25 @@
 <div class="content" style ="margin-left:0px;" ng-init="initialize()">
-    <div class="content-header">
-        <h2 class = "content-Info" style ="margin-left: 15px;">Check In</h2>
-    </div><!--/content-header -->
+    <div class="content-header" style = "overflow: visible;">
+      <div class ="leftDiv">   
+       <h2 class = "content-Info" style ="margin-left: 15px;">Check In</h2>
+      </div>
+      <div class ="rightDiv">   
+        <h2 class = "content-Info">
+          <div class="dropdown"> 
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><div style ="width: 36px;text-align: center;font-size: 20px;color: #495271;"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div></a>
+               <ul class="dropdown-menu" style ="margin-left: -139px;margin-top: -50px;"> 
+                   <li><a href="#"style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Return to Centre</a></li> 
+                   <li><a href="#"style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Out of time</a></li> 
+                   <li><a href="#"style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Truck breakdown</a></li>
+                   <li><a href="#"style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">End of day</a></li>  
+               </ul> 
+           </div>
+       </h2>
+    </div>
+    </div> 
         
-    <div class="content-body">
+    <div class="content-body" style ="overflow: hidden;
+    margin-top: 26px;" >
 
     
       <div id="error-placement"></div>
@@ -13,13 +29,13 @@
       <div class ="col-md-12" style ="margin : 0 auto">
         <div class = "innerWrapper">
             <div ng-include="'../views/cards/driverCard.html'"></div>
-            <div class="fontCover" style ="height:72px"> 
+            <div class="fontCover" style ="height:58px"> 
                 <div class ="text_1" >
                   <div class= "col-sm-6">
                   <p class ="fontDesign" style = "font-size: 16px;font-weight: 600;margin-top: 11px;margin-left: -14px;">{{licencePlateNumber}}</p><br>
                   </div>
                   <div class = "col-sm-6" style  ="text-align:right;margin-top: 21px;">
-                  <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:0px">{{vehicleName}}</p>
+                  <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:-8px">{{vehicleName}}</p>
                   </div>
                 </div>
             </div>
@@ -30,10 +46,9 @@
 
         <div class = "col-sm-6" >
         <div class ="col-md-12" style ="margin : 0 auto">
-        <div class="fontCover" style = "border:1px solid lightgrey;"> 
+        <div class="fontCover" style = "border:1px solid lightgrey; height: 441px;"> 
                 <div>
                   <div id="map" class = "Map_image">
-                   <button type="button" class="btn btn-primary" style ="position: relative; top: 414px; left: 147px;width: 347px;font-size: 20px;">ON MY WAY</button>
                   </div>
                 </div>
         </div>  

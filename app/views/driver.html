@@ -1,7 +1,23 @@
 <div class="content" style ="margin-left:0px;" ng-init="initialize()">
-    <div class="content-header">
-        <h2 class = "content-Info" style ="margin-left: 15px;">Check In</h2>
-    </div><!--/content-header -->
+    <div class="content-header" style = "overflow: visible;">
+      <div class ="leftDiv">   
+       <h2 class = "content-Info" style ="margin-left: 15px;">Check In</h2>
+      </div>
+      <div class ="rightDiv">   
+        <h2 class = "content-Info">
+          <div class="dropdown"> 
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><div style ="width: 36px;text-align: center;font-size: 20px;color: #495271;"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div></a>
+               <ul class="dropdown-menu" style ="margin-left: -139px;margin-top: -50px;"> 
+                   <li><a href="#"style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Return to Centre</a></li> 
+                   <li><a href="#"style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Out of time</a></li> 
+                   <li><a href="#"style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Truck breakdown</a></li>
+                   <li><a href="#"style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">End of day</a></li>  
+               </ul> 
+           </div>
+       </h2>
+    </div>      
+
+</div><!--/content-header -->
     
     <div class="content-body">
 
@@ -14,11 +30,10 @@
         <div class = "innerWrapper">
             <!-- <img  class = "img-wrapper img-resposive" src="images/driver_photo_1.png"> -->
             <div ng-include="'../views/cards/driverCard.html'"></div>
-            <div class="fontCover"> 
+            <div class="fontCover" style ="height: 58px;"> 
                 <div class ="text_1" >
-                  <p class ="fontDesign" style ="color:#00a89f;font-size: 16px;font-weight:normal">Last 4 digits of License </p><br>
-                  <div class="col-sm-5">
-                            <input style = "border:none;margin-left:-27px; font-size: 16px;color: black;"type="text" class="form-control" id="input" autofocus="autofocus" placeholder="Enter here" ng-model="licencePlateNumber" ng-keypress="onlicencePlateKeyPress()">
+                  <div class="col-sm-8" style ="margin-top: 5px;">
+                            <input style = "border:none;margin-left:-27px;width: 557px; font-size: 16px;color: black;"type="text" class="form-control" id="input" autofocus="autofocus" placeholder="Last 4 Digits of Liscense Plate Number" ng-model="licencePlateNumber" ng-keypress="onlicencePlateKeyPress()">
                   </div>
                 </div>
             </div>

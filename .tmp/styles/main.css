@@ -140,7 +140,7 @@ body {
 .text_1{
     padding: 5px;
     margin: 0 auto;
-    width: 93%;
+    width: 97%;
 }
 .fontDesign{
   display: inline-block;
@@ -149,7 +149,7 @@ body {
   color: black;
   font-weight: bold;  
   position: relative;
-  top: 10px;
+  top: 1px;
 }
 .fontDrama{
   display: inline-block;
@@ -242,7 +242,7 @@ body {
   border-bottom: 1px solid grey;
 }
 .Map_image{
-  background: url("../images/map.svg") no-repeat center center;
+  /*background: url("../images/map.svg") no-repeat center center;*/
   background-size: cover;
   width: 100%;
   height: 469px;  
@@ -268,4 +268,20 @@ li:hover {
   vertical-align: middle;
   display: inline-block;
   float: right;
+}
+
+input::-webkit-input-placeholder {
+color: #00a89f !important;
+}
+ 
+input:-moz-placeholder { /* Firefox 18- */
+color: #00a89f !important;  
+}
+ 
+input::-moz-placeholder {  /* Firefox 19+ */
+color: #00a89f !important;  
+}
+ 
+input:-ms-input-placeholder {  
+color: #00a89f !important;  
 }
