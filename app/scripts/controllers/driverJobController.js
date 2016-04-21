@@ -133,11 +133,45 @@ angular.module('inloopAppApp')
     $scope.$on('$locationChangeStart', function(event, next, current){            
       if($location.path() == $scope.model.lastPath || $location.path() == '/driver/jobs/toDeliver'
           || $location.path() == '/driver/jobs/delivered' || $location.path() == '/driver/jobs/returning'
-          || $location.path() == '/driver/returning'){
+          || $location.path() == '/driver/returning' || $location.path() == '/'){
       }else{
         event.preventDefault();
       }            
     });
+
+    $scope.endOfDay = function(){
+      if(!navigator.geolocation){
+        $scope.errorMessage = "Something went wrong. Try again !";
+      }else{
+        navigator.geolocation.getCurrentPosition(function(position){
+          var latitude  = position.coords.latitude;
+          var longitude = position.coords.longitude;
+
+          tripService.updateTripStateToEndTrip
+          ($scope.tripId,$scope.model.profile.username,undefined,longitude,latitude)
+          .then(function(response){
+            if(response.status == 201){
+              jobService.updateJobStateWithJobIdPerformedByAndType
+              ($scope.jobId,$scope.model.profile.username,sharedProperties.getJobsTypes().completed.value)
+              .then(function(response){
+                if(response.status == 201){
+                  contractTaskService.updateContractTaskStateToCompleted
+                  (latitude,longitude,undefined,$scope.model.contractTask.id,$scope.model.profile.username,$scope.jobId,$scope.tripId)
+                  .then(function(response){
+                    if(response.status == 201){
+                      completeModel.saveCompleteModel(undefined);
+                      $location.path('/');                      
+                    }
+                  });
+                }
+              });
+            }
+          });
+
+
+        });
+      }
+    }
 
 
   });

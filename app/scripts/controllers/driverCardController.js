@@ -46,13 +46,4 @@ angular.module('inloopAppApp')
 
       }
     }
-
-    $scope.$on('$locationChangeStart', function(event, next, current){            
-      if($location.path() == $scope.model.lastPath || $location.path() == '/driver/vehiclePairing'){
-      }else{
-          event.preventDefault();
-      }            
-    });
-
-
   });

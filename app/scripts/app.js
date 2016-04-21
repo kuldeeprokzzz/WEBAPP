@@ -30,7 +30,18 @@ var inloopAppApp= angular
     .state('login', {
       url: "/",
       templateUrl: "../views/login.html",
-      controller : 'MainCtrl'
+      controller : 'MainCtrl',
+      resolve : {
+            stateChecker: ['$state', '$q', function ($state,$q) {
+                
+
+                
+                if($state.current.name == '' || $state.current.name == 'login'){
+                  return $q.resolve();                 
+                }
+                $state.go($state.current.name);
+            }]
+        }
     })
     /*.state('state1.list', {
       url: "/list",
@@ -48,11 +59,38 @@ var inloopAppApp= angular
       url: "/driverCard",
         templateUrl: "../views/driver.html",
         controller: 'driverCardController',
+        resolve : {
+            stateChecker: ['$state', '$q','completeModel', function ($state,$q,completeModel) {
+                if($state.current.name  == '' || $state.current.name == 'login' 
+                    || $state.current.name == 'driver.vehiclePairing'){
+                return $q.resolve();
+                }else{
+                  $q.reject();
+                }
+            }]
+        }
       })
     .state('driver.vehiclePairing', {
       url: "/vehiclePairing",
       templateUrl: "../views/vehiclePairing.html",
       controller : 'driverVehiclePairingController',
+      resolve : {
+            stateChecker: ['$state', '$q','completeModel', function ($state,$q,completeModel) {
+                console.log($state.current);
+                if($state.current.name  == '' || $state.current.name == 'driver.driverCard'){
+                  if(completeModel.getCompleteModel().vehicle != undefined){
+                  return $q.resolve();
+                  }
+                }
+                $state.go($state.current.name);
+                /*if($state.current.name  == '' || $state.current.name == 'login' 
+                    || $state.current.name == 'driver.vehiclePairing'){
+                return $q.resolve();
+                }else{
+                  $q.reject();
+                }*/
+            }]
+        }
     })
     .state('driver.onMyWay', {
       url: "/onMyWay",

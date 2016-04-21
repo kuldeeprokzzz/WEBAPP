@@ -62,7 +62,7 @@ inloopAppApp.service('tripService', ['sharedProperties','$http', function(shared
       });
      };
 
-     this.updateTripStateToEndTrip = function(tripId,username,odometer){
+     this.updateTripStateToEndTrip = function(tripId,username,odometer,long,lati){
           
           var currentTime = sharedProperties.getTodatUTCDateTime();
 
@@ -70,8 +70,8 @@ inloopAppApp.service('tripService', ['sharedProperties','$http', function(shared
                                 'type': sharedProperties.getTripTypes().tripEnd.value,
                                 'time': currentTime,
                                 'location': {
-                                    'longitude': null,
-                                    'latitude': null,
+                                    'longitude': long,
+                                    'latitude': lati,
                                 },
                                 'odometer': odometer,
                                 'performed_by': username,

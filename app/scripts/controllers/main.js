@@ -15,9 +15,9 @@ angular.module('inloopAppApp')
     	$scope.username = '';
     	$scope.password = '';
 
-/*    	if(completeModel.getCompleteModel() != undefined){
+   	if(completeModel.getCompleteModel() != undefined){
   			var modelNew = completeModel.getCompleteModel();
-  		}*/
+  		}
 
     	/*loginService.getRoleType().then(function(response){
     		if(response.status == 200){

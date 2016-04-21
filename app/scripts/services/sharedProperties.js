@@ -154,6 +154,10 @@ inloopAppApp.service('sharedProperties',function($location,$filter){
                             "key": "RETURNING",
                             "value": "RETURNING"
                         },
+            completed : {
+                            "key": "COMPLETED",
+                            "value": "COMPLETED",
+                        },                        
         };
 
         this.contractTaskCardType = {
