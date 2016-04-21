@@ -93,7 +93,8 @@ google.maps.event.trigger(map, "resize");
 
   directionsDisplay = new google.maps.DirectionsRenderer({
     polylineOptions: {
-      strokeColor: "#394165"
+      strokeColor: "#394165",
+      strokeWeight: 4
     },
     suppressMarkers: true,
   });
@@ -127,6 +128,22 @@ google.maps.event.trigger(map, "resize");
       markerArray[0].setPosition(start);
       markerArray[1].setMap(map);
       markerArray[1].setPosition(end);
+
+      var stepDisplay = new google.maps.InfoWindow;
+
+      google.maps.event.addListener(markerArray[0], 'click', function() {
+        // Open an info window when the marker is clicked on, containing the text
+        // of the step.
+        stepDisplay.setContent("Delivery Center");
+        stepDisplay.open(map, markerArray[0]);
+      });
+
+      google.maps.event.addListener(markerArray[1], 'click', function() {
+        // Open an info window when the marker is clicked on, containing the text
+        // of the step.
+        stepDisplay.setContent("Your Location");
+        stepDisplay.open(map, markerArray[1]);
+      });
     } else {
       alert("Directions Request from " + start.toUrlValue(6) + " to " + end.toUrlValue(6) + " failed: " + status);
     }
