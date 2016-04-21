@@ -113,7 +113,8 @@ google.maps.event.trigger(map, "resize");
       directionsDisplay.setDirections(response);
       directionsDisplay.setMap(map);
       var myRoute = response.routes[0].legs[0];
-      var iconBase = 'http://localhost:9000';
+      var iconBase = window.location.origin;
+      
       markerArray[0] = new google.maps.Marker({
         position: start,
         map: map,
