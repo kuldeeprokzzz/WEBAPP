@@ -130,6 +130,20 @@ angular.module('inloopAppApp')
       }, 1000);
     }
 
+    $scope.ReturnToCenter = function(){
+      $timeout(function(){
+        contractTaskService.updataContractStateToReturning
+        ($scope.model.contractTask.id,$scope.model.profile.username,$scope.jobId,$scope.tripId)
+        .then(function(response){
+          if(response.status == 201){
+            $location.path('/driver/returning');
+          }else{
+            $scope.errorMessage = "Something went wrong. Try again !";
+          }
+        });
+      }, 1000);
+    }
+
     $scope.$on('$locationChangeStart', function(event, next, current){            
       if($location.path() == $scope.model.lastPath || $location.path() == '/driver/jobs/toDeliver'
           || $location.path() == '/driver/jobs/delivered' || $location.path() == '/driver/jobs/returning'

@@ -76,7 +76,6 @@ var inloopAppApp= angular
       controller : 'driverVehiclePairingController',
       resolve : {
             stateChecker: ['$state', '$q','completeModel', function ($state,$q,completeModel) {
-                console.log($state.current);
                 if($state.current.name  == '' || $state.current.name == 'driver.driverCard'){
                   if(completeModel.getCompleteModel().vehicle != undefined){
                   return $q.resolve();
@@ -242,7 +241,6 @@ var inloopAppApp= angular
         }
         if(config.url.indexOf('api') != -1){
           if(config.url.indexOf('login') == -1){
-            console.log('iamhere');
             config.headers['Authorization'] = 'Token '+model.accessToken;
           }
         }

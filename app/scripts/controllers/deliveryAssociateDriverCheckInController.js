@@ -12,7 +12,7 @@ angular.module('inloopAppApp')
 
       $scope.driver = $scope.model.driverToBeCheckedIn;
 
-      $scope.odometer = '';
+      $scope.odometer = $scope.model.contractTask.latest_state.odometer;
 
   	};
 

@@ -160,7 +160,7 @@ inloopAppApp.service('sharedProperties',function($location,$filter){
                         },                        
         };
 
-        this.contractTaskCardType = {
+        this._contractTaskCardType = {
             created : {
                         "key": "CREATED",
                         "value": "WHITE"
@@ -332,7 +332,7 @@ inloopAppApp.service('sharedProperties',function($location,$filter){
         };
 
         this.getContractTaskCardType = function(){
-            return this.contractTaskCardType;
+            return this._contractTaskCardType;
         };
 
         this.getJobsTypes = function(){

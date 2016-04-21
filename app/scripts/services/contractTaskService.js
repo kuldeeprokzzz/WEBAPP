@@ -3,7 +3,7 @@ inloopAppApp.service('contractTaskService', ['sharedProperties','$http', functio
     this.getTodayContractTaskByVehicleLicencePlate = function(vehicleRegNumber){
     return $http({
             method: 'GET',
-            url: sharedProperties.getUrl()+'/contract_tasks/?vehicle_regNumber='+vehicleRegNumber+'&task_date='+sharedProperties.getTodayDate()+'&wildcard=true',
+            url: sharedProperties.getUrl()+'/contract_tasks/?vehicle_regNumber='+vehicleRegNumber+'&task_date='+sharedProperties.getTodayDate(),
             }).success(function(response){
                 return response;
             }).error(function(response){
