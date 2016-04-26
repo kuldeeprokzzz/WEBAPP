@@ -7,6 +7,8 @@ angular.module('inloopAppApp')
   		$scope.lastName = "Malik";
   		$scope.nameEditClicked = false;
   		$scope.numberEdit = false;
+      $scope.showOTP = false;
+      $scope.showNumberEdit = true;
     }
 
     $scope.clickEdit = function(){
@@ -15,6 +17,12 @@ angular.module('inloopAppApp')
 
     $scope.editNumber = function(){
     	$scope.numberEdit = true;
+      $scope.showNumberEdit = false;
+    }
+
+    $scope.clickVeriyyMobile = function(){
+      $scope.showOTP = true;
+      $scope.showNumberEdit = false;
     }
 
   });

@@ -222,6 +222,10 @@ var inloopAppApp= angular
       url: "/odometer",
       templateUrl: "../views/deliveryAssociateCheckIn.html",
     })
+    .state('shipperProfile', {
+      url: "/shipperAdminSettings",
+      templateUrl: "../views/shipperProfile.html",
+    })
   })
   .config(function ($provide, $httpProvider,localStorageServiceProvider) {
   
