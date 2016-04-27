@@ -31,7 +31,7 @@ var inloopAppApp= angular
       url: "/",
       templateUrl: "../views/login.html",
       controller : 'MainCtrl',
-      resolve : {
+/*      resolve : {
             stateChecker: ['$state', '$q', function ($state,$q) {
                 
 
@@ -41,7 +41,7 @@ var inloopAppApp= angular
                 }
                 $state.go($state.current.name);
             }]
-        }
+        }*/
     })
     /*.state('state1.list', {
       url: "/list",

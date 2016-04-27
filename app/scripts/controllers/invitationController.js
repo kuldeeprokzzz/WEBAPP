@@ -2,13 +2,19 @@ angular.module('inloopAppApp')
   .controller('invitationController', function ($scope,$location,$interval,$stateParams,sharedProperties,completeModel,contractTaskService) {
 
   	$scope.initialize = function(){
+
+
   		$scope.firstName = "Kuldeep";
   		$scope.middleName = "Singh";
   		$scope.lastName = "Malik";
+      $scope.mobileNumber = "8010599690";
   		$scope.nameEditClicked = false;
   		$scope.numberEdit = false;
       $scope.showOTP = false;
       $scope.showNumberEdit = true;
+      $scope.userName = "";
+      $scope.password = "";
+      $scope.rePassword = "";
     }
 
     $scope.clickEdit = function(){

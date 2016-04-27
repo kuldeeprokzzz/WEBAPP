@@ -5,57 +5,10 @@
 
 <div class="content-body">
 
-    <script>var locs = [["51.38254", "-2.362804"], ["51.235249", "-2.297804"], ["51.086126", "-2.210767"], ["51.084519", "-2.262813"], ["51.175994", "-2.159207"], ["51.132978", "-2.213939"], ["51.207289", "-2.181474"], ["51.321724", "-2.205518"], ["51.317219", "-2.210649"], ["50.700816", "-1.925721"], ["50.719979", "-2.074488"], ["50.810063", "-1.919034"], ["50.785094", "-1.849725"], ["50.842648", "-1.777575"], ["50.723047", "-1.902297"], ["50.743044", "-1.880132"], ["51.71355, 0.154967"], ["51.992676, 0.602668"], ["52.355964", "-1.486877"], ["53.523356", "-1.107254"], ["51.87591", "-2.235986"], ["51.670729", "-1.934476"], ["51.542953", "-0.28102"], ["51.52132, 0.098986"], ["52.271354, 0.788806"], ["51.346031", "-0.478255"], ["51.263343", "-1.140235"], ["51.481736", "-1.089953"], ["51.476566", "-0.514911"], ["51.505462", "-0.555614"], ["51.558631", "-1.78224"], ["51.351101", "-1.995069"], ["51.380722", "-2.039105"], ["51.416719", "-2.124294"], ["51.42063", "-2.133049"], ["51.533076", "-1.925663"], ["51.348518", "-1.797868"], ["51.331682", "-1.776469"], ["51.127299", "-1.568594"], ["51.082304", "-1.172732"], ["50.994651", "-1.495699"], ["50.988355", "-1.499401"], ["51.074562", "-1.774168"], ["51.066228", "-1.799655"], ["51.071929", "-1.794634"], ["51.218585", "-1.515494"], ["51.080011", "-1.860008"], ["5151.070508", "-1.810412"], ["51.056581", "-1.795259"], ["51.043955", "-1.789822"], ["51.20323", "-1.906011"], ["51.229055", "-1.951243"], ["51.061094", "-1.998836"], ["51.039063", "-1.999079"], ["51.067313", "-2.070322"], ["51.099235", "-1.787773"], ["51.250454", "-1.764469"], ["51.006591", "-1.650057"], ["50.999451", "-2.080693"], ["50.993131", "-2.246465"], ["51.006542", "-2.197207"], ["51.01744", "-2.186619"], ["51.042629", "-2.272731"], ["51.007395", "-2.332772"], ["55.605281", "-2.899154"], ["53.395123", "-2.537949"], ["53.684928", "-1.511449"]];
+    <div id="mapStyle" ng-show="false">{{mapStyle}}</div>
+    <div ng-show="false">{{modalTripData}}</div>
 
-
-
-function initMap() {
-  var myLatLng = {lat: 51.38254, lng: -2.362804};
-
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: myLatLng
-  });
-
-
-map.set('styles', [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}]);
-
-
-
-
-
-  var marker, i;
-  for (i = 0; i < locs.length; i++) {  
-  marker = new google.maps.Marker({
-    position: new google.maps.LatLng(locs[i][0], locs[i][1]),
-    icon: {
-      path: google.maps.SymbolPath.CIRCLE,
-      scale: 1,
-    },
-    map: map
-  });
-}
-}
-
-      $('#centerModal').on('shown', function () {
-    google.maps.event.trigger(map, "resize");
-    });
-
-      $("#centerModal").on("shown.bs.modal", function () {
-    google.maps.event.trigger(map, "resize");
-});
-
-
-
-
-
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmLSdPHWhBxW4fbHju5j93BQjwtb_xAkw&callback=initMap"
-    async defer></script>
-
-
-
-  <div id="error-placement" class="text-center"><span style="color:white">hi</span>{{errorMessage}}</div>
+  <div id="error-placement" class="text-center"><span style="color:white"></span>{{errorMessage}}</div>
 
    
   <div class="col-md-14 margin-bottom">
@@ -84,7 +37,7 @@ map.set('styles', [{"featureType":"water","elementType":"geometry","stylers":[{"
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody ng-repeat="item in jobInvoiceTripList">
+            <tbody ng-repeat="item in jobInvoiceList">
                 <tr>
                     <td class ="stylingFonts">{{item.job.name}}</td>
                     <td>{{item.job.area}}</td>
@@ -109,7 +62,7 @@ map.set('styles', [{"featureType":"water","elementType":"geometry","stylers":[{"
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title" id="centerModalLabel">Invoice For Job ID# {{invoiceTobeSubmitted.job.name}}</h4>
       </div>
-        <div class="modal-body">
+        <div style="height:500px;" class="modal-body">
             
 
             <div class="clearfix row">
@@ -142,7 +95,7 @@ map.set('styles', [{"featureType":"water","elementType":"geometry","stylers":[{"
             </div>
             <div class ="col-md-4">
                 <div class = "innerWrapper">
-                    <div id="map" style="height:200px;"></div>
+                    <div style="height:200px;"></div>
                     <div class="fontCover">
                     <div class ="text_1" style ="line-height: 11px;">
                       <p class ="fontDesign">{{invoiceTobeSubmitted.job.name}}</p>
@@ -173,8 +126,8 @@ map.set('styles', [{"featureType":"water","elementType":"geometry","stylers":[{"
                      
                     </div>
                     <div class ="text_1" style ="line-height: 11px;">
-                       <div class ="fontDrama" style ="float:right;" >{{invoiceTobeApproved.tripStates[0].odometer != undefined ? invoiceTobeApproved.tripStates[0].odometer : '--'}}</div>
-                       <div class ="fontDrama" style ="float:right;" >{{ invoiceTobeApproved.tripStates[0].time != undefined ? (invoiceTobeApproved.tripStates[0].time  | date: 'h:mma') : '--'}}</div>
+                       <div class ="fontDrama" style ="float:right;" >{{invoiceTobeApproved.tripStates[2].odometer != undefined ? invoiceTobeApproved.tripStates[2].odometer : '--'}}</div>
+                       <div class ="fontDrama" style ="float:right;" >{{ invoiceTobeApproved.tripStates[2].time != undefined ? (invoiceTobeApproved.tripStates[2].time  | date: 'h:mma') : '--'}}</div>
                        
                     </div>
                     </div>
@@ -184,8 +137,8 @@ map.set('styles', [{"featureType":"water","elementType":"geometry","stylers":[{"
                      
                     </div>
                     <div class ="text_1" style ="line-height: 11px;">
-                       <div class ="fontDrama" style ="float:right">{{invoiceTobeApproved.tripStates[1].odometer != undefined ? invoiceTobeApproved.tripStates[1].odometer : '--'}}</div> 
-                       <div class ="fontDrama" style ="float:right">{{invoiceTobeApproved.tripState[1].time != undefined ? (invoiceTobeApproved.tripState[1].time  | date: 'h:mma') : '--' }}</div>
+                       <div class ="fontDrama" style ="float:right">{{invoiceTobeApproved.tripStates[3].odometer != undefined ? invoiceTobeApproved.tripStates[3].odometer : '--'}}</div> 
+                       <div class ="fontDrama" style ="float:right">{{invoiceTobeApproved.tripState[3].time != undefined ? (invoiceTobeApproved.tripState[3].time  | date: 'h:mma') : '--' }}</div>
                     </div>
                     </div>
                     
@@ -207,6 +160,3 @@ map.set('styles', [{"featureType":"water","elementType":"geometry","stylers":[{"
 
    
 </div> <!-- content-body -->
-
-
-

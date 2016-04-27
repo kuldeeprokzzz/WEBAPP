@@ -51,7 +51,6 @@ angular.module('inloopAppApp')
 
 						model.profile = response.data;
 						
-
 						if($scope.username == 'loadM'){
 						model.profile.roleIdtemp = sharedProperties.getRoles().shipperLoadingManager.id;
 						completeModel.saveCompleteModel(model);
@@ -85,7 +84,7 @@ angular.module('inloopAppApp')
 						if(sharedProperties.getRoles().providerDriver.id != response.data.roleid){
 						model.profile.roleIdtemp = sharedProperties.getRoles().providerDriver.id;
 						completeModel.saveCompleteModel(model);
-						$location.path('/deliveryAssociate/drivers/all/');
+						$location.path('/driver/driverCard');
 						}
 					}
 				});

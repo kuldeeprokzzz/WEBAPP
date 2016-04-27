@@ -16,7 +16,7 @@ inloopAppApp.service('completeModel',function(localStorageService,$location){
                 var localModel = localStorageService.get('completeModel');
                 if(localModel != undefined){
                     this._completeModel = localModel;
-                    $location.path(localModel.lastPath);
+                    //$location.path(localModel.lastPath);
                     return this._completeModel;
                 }else{
                     $location.path('/');
