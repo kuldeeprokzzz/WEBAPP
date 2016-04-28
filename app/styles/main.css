@@ -115,27 +115,27 @@ body {
 .redBar{
     width: 100%;
     height: 12px;
-    background-color: #ff0000;
+    background-color: #EB5D56;
 }
 .yellowBar{
     width: 100%;
     height: 12px;
-    background-color: #ffff00;
+    background-color: #F5D227;
 }
 .orangeBar{
     width: 100%;
     height: 12px;
-    background-color: #ff9900;
+    background-color: #F38F18;
 }
 .greenBar{
     width: 100%;
     height: 12px;
-    background-color: #66ff66;
+    background-color: #71C143;
 }
 .blueBar{
     width: 100%;
     height: 12px;
-    background-color: #66ccff;
+    background-color: #51A7F8;
 }
 .text_1{
     padding: 5px;
@@ -275,7 +275,12 @@ li:hover {
   background: white;
   margin-top: 5px;
 }
-
+.driver_imagePhoto {
+  background: url("../images/driver_photo_1.png") no-repeat center center;
+  background-size: cover;
+  width: 100%;
+  height: 186px;
+}
 
 /*input::-webkit-input-placeholder {
 color: #00a89f !important;
@@ -293,4 +298,7 @@ color: #00a89f !important;
 color: #00a89f !important;  
 }*/
 
-
+.lineBar {
+  height:10px;
+  background-color: green;
+}

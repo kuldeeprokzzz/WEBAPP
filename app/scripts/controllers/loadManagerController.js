@@ -12,6 +12,7 @@ angular.module('inloopAppApp')
         }
       }*/
 
+      $scope.cardType = sharedProperties.getCardTypes();
       $scope.jobsTypes = sharedProperties.getJobsTypes();
       $scope.contractTaskTypes = sharedProperties.getContractTaskType();
       $scope.jobType = $stateParams.jobType;
@@ -76,7 +77,7 @@ angular.module('inloopAppApp')
                     contractTask.latest_state.location.latitude,contractTask.latest_state.location.latitude,
                     contractTask.latest_state.odometer,contractTask.id,$model.profile.username,job.id,tripId)
                     .then(function(response){
-                      if(response.status == 200){
+                      if(response.status == 201){
                         $("#centerModal").modal("toggle");
                         $location.path('/loadManager/job/'+sharedProperties.getJobsTypes().unassigned.value+'/Jon Assigned Successfully !');
                       }

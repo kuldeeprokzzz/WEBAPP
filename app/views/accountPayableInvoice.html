@@ -1,6 +1,6 @@
 <div class="content" ng-controller="accountPayableController" ng-init="initialize()">
 <div class="content-header">
-    <h2 class = "content-Info">Billing</h2>
+    <h2 style = "font-weight:bold;"class = "content-Info">Billing</h2>
 </div><!--/content-header -->
 
 <div class="content-body">
@@ -10,34 +10,34 @@
    
   <div class="col-md-14margin-bottom">
             <ul class="nav nav-tabs">
-                <li ng-class="{ 'active': invoiceType == invoiceTypes.submitted.value+','+
+                <li style = "font-weight:bold;"ng-class="{ 'active': invoiceType == invoiceTypes.submitted.value+','+
                 invoiceTypes.approved.value+','+
                 invoiceTypes.paid.value+','+
                 invoiceTypes.archieved.value }"><a ui-sref="accountPayable.invoice({invoiceType:'ALL',message : ''})" data-toggle="tab">All</a></li>
-                <li ng-class="{ 'active': invoiceType == invoiceTypes.submitted.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.submitted.value,message : ''})" data-toggle="tab">Submitted</a></li>
-                <li ng-class="{ 'active': invoiceType == invoiceTypes.approved.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.approved.value,message : ''})">Approved</a></li>
-                <li ng-class="{ 'active': invoiceType == invoiceTypes.paid.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.paid.value,message : ''})">Paid</a></li>
+                <li style = "font-weight:bold;"ng-class="{ 'active': invoiceType == invoiceTypes.submitted.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.submitted.value,message : ''})" data-toggle="tab">For Approval</a></li>
+                <li style = "font-weight:bold;"ng-class="{ 'active': invoiceType == invoiceTypes.approved.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.approved.value,message : ''})">Approved</a></li>
+                <li style = "font-weight:bold;"ng-class="{ 'active': invoiceType == invoiceTypes.paid.value }"><a ui-sref="accountPayable.invoice({invoiceType : invoiceTypes.paid.value,message : ''})">Paid</a></li>
                 <button ng-show="{{approveAllInvoiceList.length != 0}}" ng-click="approveAllInvoice()" type="button" style ="float:right;width: 110px" class="btn btn-primary">Approve All</button>
             </ul>
 
   </div>
 
-    <div class="table-responsive">
+    <div style ="margin-top: 15px;"class="table-responsive">
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Job ID #</th>
                     <th>Location</th>
-                    <th>InvoiceAmount</th>
+                    <th>Invoice Amount</th>
                     <th>Time Completed</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody ng-repeat="item in jobInvoiceTripList">
                 <tr>
-                    <td class ="stylingFonts">{{item.job.name}}</td>
+                    <td style ="font-weight:bold;color:#15A99F"class ="stylingFonts">{{item.job.name}}</td>
                     <td>{{item.job.area}}</td>
-                    <td><i class="fa fa-inr"></i>{{item.invoice.total_amount}}</td>
+                    <td><i style = "font-size: 12px;" class="fa fa-inr"></i> {{item.invoice.total_amount}}</td>
                     <td>{{item.job.latest_state.time | date: 'MM/dd/yyyy h:mma'}}</td>
                     <td ng-click="approveInvoice(item)" ng-show="{{item.invoice.status == invoiceTypes.submitted.value}}" class ="stylingFonts">Approve Invoice</td>
                     <td ng-show="{{item.invoice.status == invoiceTypes.approved.value}}" class ="">Approved</td>

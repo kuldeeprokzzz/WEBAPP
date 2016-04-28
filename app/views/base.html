@@ -47,7 +47,7 @@
             <!-- header-profile -->
             <div class="header-profile">
                 <div class="profile-nav">
-                    <span class="profile-username">{{username}}</span>
+                    <span style ="position: relative;right: 9px;font-weight:bold;" class="profile-username">{{username}}</span>
                         <span ng-show="roleId != rolesTypes.providerDriver.id"style="cursor:pointer" class="dropdown-toggle fa fa-angle-down" data-toggle="dropdown"></span>
                     <ul class="dropdown-menu animated flipInX pull-right" role="menu">
 <!--                         <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
@@ -76,7 +76,7 @@
                     <li>
                         <a  ui-sref="loadManager.job({ jobType: jobsTypes.unassigned.value})">
                             <i class="sidebar-icon fa fa-truck"></i>
-                            <span class="sidebar-text">Jobs</span>
+                            <span style = "font-weight:bold;" class="sidebar-text">Jobs</span>
                         </a> 
                     </li>
                 </ul>
@@ -85,7 +85,7 @@
                     <li>
                         <a ui-sref="accountReceivable.invoice({invoiceType:'ALL',message : ''})">
                             <i class="sidebar-icon fa fa-home"></i>
-                            <span class="sidebar-text">Billing</span>
+                            <span style = "font-weight:bold;" class="sidebar-text">Billing</span>
                         </a>
                     </li>
                 </ul>
@@ -95,7 +95,7 @@
                     <li>
                         <a ui-sref="accountPayable.invoice({invoiceType:'ALL',message : ''})">
                             <i class="sidebar-icon fa fa-home"></i>
-                            <span class="sidebar-text">Billing</span>
+                            <span style = "font-weight:bold;"class="sidebar-text">Billing</span>
                         </a>
                     </li>
                 </ul>

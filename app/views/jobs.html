@@ -1,7 +1,7 @@
 
         <div class="content" ng-init="initialize()">
         <div class="content-header">
-        <h2 class = "content-Info">Jobs</h2>
+        <h2 style = "font-weight:bold;"class = "content-Info">Jobs</h2>
         </div><!--/content-header -->
 
         <div class="content-body">
@@ -12,9 +12,9 @@
 
         <div class="col-md-14 margin-bottom">
         <ul class="nav nav-tabs">
-        <li ng-class="{ 'active': jobType == jobsTypes.unassigned.value }"><a ui-sref="loadManager.job({ jobType: jobsTypes.unassigned.value})" data-toggle="tab">Unassigned</a></li>
-        <li ng-class="{ 'active': jobType == jobsTypes.assigned.value }"             ><a ui-sref="loadManager.job({ jobType: jobsTypes.assigned.value})" data-toggle="tab">Assigned</a></li>
-        <li ng-class="{ 'active': jobType == jobsTypes.completed.value }"><a ui-sref="loadManager.job({ jobType: jobsTypes.completed.value})" data-toggle="tab">Completed</a></li>
+        <li style ="font-weight:bold;" ng-class="{ 'active': jobType == jobsTypes.unassigned.value }"><a ui-sref="loadManager.job({ jobType: jobsTypes.unassigned.value})" data-toggle="tab">Unassigned</a></li>
+        <li style ="font-weight:bold;"ng-class="{ 'active': jobType == jobsTypes.assigned.value }"             ><a ui-sref="loadManager.job({ jobType: jobsTypes.assigned.value})" data-toggle="tab">Assigned</a></li>
+        <li style ="font-weight:bold;"ng-class="{ 'active': jobType == jobsTypes.completed.value }"><a ui-sref="loadManager.job({ jobType: jobsTypes.completed.value})" data-toggle="tab">Completed</a></li>
         <!-- button type="button" style ="float:right;width: 110px" class="btn btn-primary">Add</button> -->
         </ul>
 
@@ -33,13 +33,13 @@
         </thead>
         <tbody style ="    border-top: 1px solid #E0E4E8;" ng-repeat="job in jobs">
         <tr>
-        <td class ="stylingFonts">{{job.name}}</td>
+        <td class ="stylingFonts" style = "font-weight:bold;color:#1DABA2;">{{job.name}}</td>
         <td>{{job.area}}</td>
         <td>{{job.number_of_packages}} packages</td>
         <td>{{job.job_date}}</td>
-        <td class ="stylingFonts" ng-click="submitAssignDriver(job)" ng-show="{{job.status == jobsTypes.unassigned.value}}">Assign a Driver</td>
-        <td class ="stylingFonts"  ng-click="showDetails(job)" ng-show="{{job.status == jobsTypes.assigned.value}}">ASSIGNED</td>
-        <td class ="stylingFonts" ng-click="showCompleteDetails(job)" ng-show="{{job.status == jobsTypes.completed.value}}">COMPLETED</td>
+        <td style = "font-weight:bold;color:#1DABA2;" class ="stylingFonts" ng-click="submitAssignDriver(job)" ng-show="{{job.status == jobsTypes.unassigned.value}}">Assign a Driver</td>
+        <td style = "font-weight:bold;color:#1DABA2;" class ="stylingFonts"  ng-click="showDetails(job)" ng-show="{{job.status == jobsTypes.assigned.value}}">Assigned</td>
+        <td style = "font-weight:bold;color:#1DABA2;" class ="stylingFonts" ng-click="showCompleteDetails(job)" ng-show="{{job.status == jobsTypes.completed.value}}">Completed</td>
 
         </tr>
         </tbody>
@@ -52,45 +52,48 @@
         <button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#centerModal">Show modal</button>
 
         <div class="modal fade" data-sound="note" id="centerModal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
-        <div class="modal-dialog animated flipInX modalMedia" style = "width:61%; margin : 4% auto">
+        <div class="modal-dialog" style = "width:324px; margin : 4% auto">
         <div class="modal-content">
         <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="centerModalLabel">Assign a driver to Job ID# {{jobToBeAssigned.name}}</h4>
+        <h4 style ="font-weight:bold;"class="modal-title" id="centerModalLabel">Assign a Driver to Job ID# {{jobToBeAssigned.name}}</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" style ="
+        overflow-y: auto;">
 
         
-        <div class="clearfix row">
+        <div class="clearfix row">   
         <div ng-repeat="contractTask in contractTasks">
-        <div class ="col-md-4">
-        <div class = "innerWrapper">
-        <div class = "driver_image"></div>
-        <div class = "lineBar"></div>
-        <div class="fontCover">
-        <div class ="text_1">
-          <p class ="fontDesign">{{contractTask.driver_name}}</p>
-          <p class ="fontDrama" style ="position: relative;top: 13px;">{{contractTask.latest_state.odometer}}</p>
+       
+        <div style="width: 288px;margin: 6% auto;"class = "innerWrapper">
+        <div class = "driver_imagePhoto"></div>
+        <div ng-class="{ 'whiteBar': cardType.created.key == contractTask.card_type, 'redBar': cardType.dispatched.key == contractTask.card_type, 'yellowBar': cardType.arrivedDispatched.key == contractTask.card_type, 'orangeBar': cardType.arrivedReturning.key == contractTask.card_type, 'greenBar': cardType.checkedIn.key == contractTask.card_type, 'blueBar': cardType.assignedJob.key == contractTask.card_type, 'redBar': cardType.returning.key == contractTask.card_type, }"></div>
+        <div class="fontCover" style ="margin-top: -9px;height: 57px;">
+        <div class ="text_1" style ="margin-bottom: -11px;">
+          <p class ="fontDesign" style ="position: relative;
+    top: 10px;">{{contractTask.driver_name}}</p>
+          <p class ="fontDrama" style ="position: relative;top: 13px;font-size:13px;">{{contractTask.latest_state.odometer}}</p>
         </div>
         <div class ="text_1">
-           <p class ="fontDrama" style ="float:left">{{contractTask.provider_name}}</p> 
-           <p class ="fontDrama">{{contractTask.latest_state.time | date: 'h:mma'}} </p>
+           <p class ="fontDrama" style ="float:left;font-size:13px;">{{contractTask.provider_name}}</p> 
+           <p class ="fontDrama" style = "font-size:13px;position: relative;left: 35px;
+           ">{{contractTask.latest_state.time | date: 'h:mma'}} </p>
         </div>
         </div>
         <div class ="cardFotter">
-            <button ng-click="assignJobToDriver(contractTask)" type="button" style="    height: 32px;font-size: 14px;
-            width: 118px;" class="btn btn-primary">Assign</button>
+            <button ng-click="assignJobToDriver(contractTask)" type="button" style="height: 32px;font-size: 14px;width: 118px;font-weight:bold;" class="btn btn-primary">Assign</button>
         </div>
         </div>    
         </div>
 
         </div>
+        
         </div>
 
         </div>
-        <div class="modal-footer">
+       <!--  <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+        </div> -->
         </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
@@ -101,7 +104,7 @@
 
 
 
-
+ 
 
 
 
@@ -110,11 +113,11 @@
 <button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#detailsModal">Show modal</button>
 
         <div class="modal fade" data-sound="note" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
-        <div class="modal-dialog animated flipInX" style ="width:287px; margin:4% auto">
+        <div class="modal-dialog" style ="width:287px; margin:4% auto">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="detailsModalLabel">Job ID# {{contractTask.jobName}}</h4>
+                <h4 style ="font-weight:bold;"class="modal-title" id="detailsModalLabel">Job ID# {{contractTask.jobName}}</h4>
           </div>
             <div class="modal-body">
                 
@@ -123,16 +126,19 @@
                 <div class ="col-md-12">
                     <div class = "innerWrapper">
                         <!-- <img  class = "img-wrapper img-resposive" src="images/driver_photo_1.png"> -->
-                        <div class = "driver_image"></div>
+                        
+                        <div class = "driver_imagePhoto"></div>
+                        
                         <div class = "lineBar"></div>
-                        <div class="fontCover">
-                        <div class ="text_1">
+                        <div class="fontCover" style ="height: 52px;">
+                        <div class ="text_1" style ="margin-bottom: -23px;">
                           <p class ="fontDesign">{{contractTask.driver_name}}</p>
-                          <p class ="fontDrama" style ="position: relative;top: 13px;">{{contractTask.latest_state.odometer}}</p>
+                          <p class ="fontDrama" style ="position: relative;top: 5px;font-size:13px">{{contractTask.jobName}}</p>
                         </div>
                         <div class ="text_1">
-                           <p class ="fontDrama" style ="float:left;">{{contractTask.provider_name}}</p> 
-                           <p class ="fontDrama">{{contractTask.latest_state.time | date: 'h:mma'}}</p>
+                           <p class ="fontDrama" style ="float:left;position: relative;top: 1px;font-size:13px;">{{contractTask.provider_name}}</p> 
+                           <p style  =" position: relative;left: -1px;top:-8px;font-size:13px;
+                            "class ="fontDrama">{{contractTask.latest_state.time | date: 'h:mma'}}</p>
                         </div>
                         </div>
                         <!-- <div class ="cardFotter">
@@ -178,36 +184,36 @@
 <button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#modalAll">Show modal</button>
     
     <div class="modal fade" data-sound="note" id="modalAll" tabindex="-1" role="dialog" aria-labelledby="modalAllLabel" aria-hidden="true">
-    <div class="modal-dialog animated flipInX modalMedia" style ="width:61%; margin: 4% auto">
+    <div class="modal-dialog  " style ="width:61%; margin: 4% auto">
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="modalAllLabel">Invoice For Job ID# {{invoiceTobeSubmitted.job.name}}</h4>
+            <h4 style ="font-weight:bold;"class="modal-title" id="modalAllLabel">Invoice For Job ID# {{invoiceTobeSubmitted.job.name}}</h4>
       </div>
-        <div style="height:500px;" class="modal-body">
+        <div style="height: 334px;" class="modal-body">
             
 
             <div class="clearfix row">
 
             <div class ="col-md-4">
                 <div class = "innerWrapper">
-                    <div class = "driver_image"></div>
-                    <div class="fontCover">
+                    <div style ="height:200px;"class = "driver_imagePhoto"></div>
+                    <div class="fontCover" style ="height: 45px;">
                     <div class ="text_1" style ="line-height: 11px;">
                       <p class ="fontDesign">{{invoiceTobeSubmitted.contractTask.driver_name}}</p>
                      
                     </div>
-                    <div class ="text_1" style ="line-height: 11px;">
-                       <p class ="fontDrama" style ="float:left">{{invoiceTobeSubmitted.contractTask.provider_name}}</p> 
+                    <div class ="text_1" style ="line-height: 11px;margin-top: -15px;">
+                       <p class ="fontDrama" style ="float:left;font-size: 13px;">{{invoiceTobeSubmitted.contractTask.provider_name}}</p> 
                        
                     </div>
                     </div>
-                    <div class="fontCover">
+                    <div class="fontCover" style ="height: 45px;">
                     <div class ="text_1" style ="line-height: 11px;">
                       <p class ="fontDesign">{{invoiceTobeSubmitted.contractTask.vehicle_regNumber}}</p>
                      
                     </div>
-                    <div class ="text_1" style ="line-height: 11px;">
+                    <div class ="text_1" style ="line-height: 11px;margin-top: -15px;font-size: 13px;">
                        <p class ="fontDrama" style ="float:left">{{invoiceTobeSubmitted.contractTask.vehicle_make}}</p> 
                        
                     </div>
@@ -218,19 +224,19 @@
             <div class ="col-md-4">
                 <div class = "innerWrapper">
                     <div id="map" style="height:200px;"></div>
-                    <div class="fontCover">
+                    <div class="fontCover" style ="height:45px">
                     <div class ="text_1" style ="line-height: 11px;">
                       <p class ="fontDesign">{{invoiceTobeSubmitted.job.name}}</p>
                      
                     </div>
-                    <div class ="text_1" style ="line-height: 11px;">
-                       <p class ="fontDrama" style ="float:left">{{invoiceTobeSubmitted.job.area}}</p> 
+                    <div class ="text_1" style ="line-height: 11px;margin-top: -15px;">
+                       <p class ="fontDrama" style ="float:left;font-size: 13px;">{{invoiceTobeSubmitted.job.area}}</p> 
                        
                     </div>
                     </div>
-                    <div class="fontCover">
-                    <div class ="text_1" style ="line-height: 11px;height: 56px;">
-                      <p class ="fontDesign">{{invoiceTobeSubmitted.job.number_of_packages}} Packages</p>
+                    <div class="fontCover" style ="height:45px">
+                    <div class ="text_1" style ="line-height: 11px;height: 56px;margin-top: -15px;font-size: 13px;">
+                      <p style ="top: 25px;"class ="fontDesign">{{invoiceTobeSubmitted.job.number_of_packages}} Packages</p>
                      
                     </div>
                     </div>
@@ -239,10 +245,8 @@
             </div>
             <div class ="col-md-4">
                 <div class = "innerWrapper">
-                    <div class ="TopBar" style ="height:200px">
-                        <p style ="position: relative;top: 83px;"><i class="fa fa-inr"></i> {{invoiceTobeSubmitted.invoice.total_amount}}</p>
-                    </div>
-                    <div class="fontCover" style ="height:58px">
+                    
+                    <div class="fontCover" style ="height:45px">
                     <div class ="text_1" style ="line-height: 11px;">
                       <p class ="fontDesign pull-left">Trip Start</p>
                      
@@ -253,7 +257,7 @@
                        
                     </div>
                     </div>
-                    <div class="fontCover" style ="height:58px">
+                    <div class="fontCover" style ="height:45px">
                     <div class ="text_1" style ="line-height: 11px;">
                       <p class ="fontDesign pull-left">Trip End</p>
                      
