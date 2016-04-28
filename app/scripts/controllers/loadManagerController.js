@@ -248,7 +248,7 @@ angular.module('inloopAppApp')
 
                   
                   var map = new google.maps.Map(document.getElementById("map"),mapProp);
-                  map.set('styles',$scope.mapStyle);
+                  map.set('styles',sharedProperties.getMapStyle());
 
                   var myTrip= new Array();
                   console.log('hi');
