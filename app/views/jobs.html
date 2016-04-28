@@ -39,7 +39,7 @@
         <td>{{job.job_date}}</td>
         <td class ="stylingFonts" ng-click="submitAssignDriver(job)" ng-show="{{job.status == jobsTypes.unassigned.value}}">Assign a Driver</td>
         <td class ="stylingFonts"  ng-click="showDetails(job)" ng-show="{{job.status == jobsTypes.assigned.value}}">ASSIGNED</td>
-        <td class ="stylingFonts" ng-click="showDetails(job)" ng-show="{{job.status == jobsTypes.completed.value}}">COMPLETED</td>
+        <td class ="stylingFonts" ng-click="showCompleteDetails(job)" ng-show="{{job.status == jobsTypes.completed.value}}">COMPLETED</td>
 
         </tr>
         </tbody>
@@ -153,6 +153,137 @@
         </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#modalAll">Show modal</button>
+    
+    <div class="modal fade" data-sound="note" id="modalAll" tabindex="-1" role="dialog" aria-labelledby="modalAllLabel" aria-hidden="true">
+    <div class="modal-dialog animated flipInX modalMedia" style ="width:61%; margin: 4% auto">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="modalAllLabel">Invoice For Job ID# {{invoiceTobeSubmitted.job.name}}</h4>
+      </div>
+        <div style="height:500px;" class="modal-body">
+            
+
+            <div class="clearfix row">
+
+            <div class ="col-md-4">
+                <div class = "innerWrapper">
+                    <div class = "driver_image"></div>
+                    <div class="fontCover">
+                    <div class ="text_1" style ="line-height: 11px;">
+                      <p class ="fontDesign">{{invoiceTobeSubmitted.contractTask.driver_name}}</p>
+                     
+                    </div>
+                    <div class ="text_1" style ="line-height: 11px;">
+                       <p class ="fontDrama" style ="float:left">{{invoiceTobeSubmitted.contractTask.provider_name}}</p> 
+                       
+                    </div>
+                    </div>
+                    <div class="fontCover">
+                    <div class ="text_1" style ="line-height: 11px;">
+                      <p class ="fontDesign">{{invoiceTobeSubmitted.contractTask.vehicle_regNumber}}</p>
+                     
+                    </div>
+                    <div class ="text_1" style ="line-height: 11px;">
+                       <p class ="fontDrama" style ="float:left">{{invoiceTobeSubmitted.contractTask.vehicle_make}}</p> 
+                       
+                    </div>
+                    </div>
+                    
+                </div>    
+            </div>
+            <div class ="col-md-4">
+                <div class = "innerWrapper">
+                    <div style="height:200px;"></div>
+                    <div class="fontCover">
+                    <div class ="text_1" style ="line-height: 11px;">
+                      <p class ="fontDesign">{{invoiceTobeSubmitted.job.name}}</p>
+                     
+                    </div>
+                    <div class ="text_1" style ="line-height: 11px;">
+                       <p class ="fontDrama" style ="float:left">{{invoiceTobeSubmitted.job.area}}</p> 
+                       
+                    </div>
+                    </div>
+                    <div class="fontCover">
+                    <div class ="text_1" style ="line-height: 11px;height: 56px;">
+                      <p class ="fontDesign">{{invoiceTobeSubmitted.job.number_of_packages}} Packages</p>
+                     
+                    </div>
+                    </div>
+                    
+                </div>    
+            </div>
+            <div class ="col-md-4">
+                <div class = "innerWrapper">
+                    <div class ="TopBar" style ="height:200px">
+                        <p style ="position: relative;top: 83px;"><i class="fa fa-inr"></i> {{invoiceTobeSubmitted.invoice.total_amount}}</p>
+                    </div>
+                    <div class="fontCover" style ="height:58px">
+                    <div class ="text_1" style ="line-height: 11px;">
+                      <p class ="fontDesign pull-left">Trip Start</p>
+                     
+                    </div>
+                    <div class ="text_1" style ="line-height: 11px;">
+                       <div class ="fontDrama" style ="float:right;" >{{invoiceTobeApproved.tripStates[2].odometer != undefined ? invoiceTobeApproved.tripStates[2].odometer : '--'}}</div>
+                       <div class ="fontDrama" style ="float:right;" >{{ invoiceTobeApproved.tripStates[2].time != undefined ? (invoiceTobeApproved.tripStates[2].time  | date: 'h:mma') : '--'}}</div>
+                       
+                    </div>
+                    </div>
+                    <div class="fontCover" style ="height:58px">
+                    <div class ="text_1" style ="line-height: 11px;">
+                      <p class ="fontDesign pull-left">Trip End</p>
+                     
+                    </div>
+                    <div class ="text_1" style ="line-height: 11px;">
+                       <div class ="fontDrama" style ="float:right">{{invoiceTobeApproved.tripStates[3].odometer != undefined ? invoiceTobeApproved.tripStates[3].odometer : '--'}}</div> 
+                       <div class ="fontDrama" style ="float:right">{{invoiceTobeApproved.tripState[3].time != undefined ? (invoiceTobeApproved.tripState[3].time  | date: 'h:mma') : '--' }}</div>
+                    </div>
+                    </div>
+                    
+                </div>    
+            </div>
+
+
+            </div>
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+
+
+
+
 
 
 
