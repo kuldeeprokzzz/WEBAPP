@@ -17,14 +17,16 @@ inloopAppApp.service('manifestService', ['sharedProperties','$http', function(sh
       var requestBody = {
                           "type": status,
                           "time": sharedProperties.getTodatUTCDateTime(),
-                          "location": {
+                          "locations": {
                           "longitude": long,
                           "latitude": lat,
-                          },
+                          }
                         };
+
+                        console.log(JSON.stringify(requestBody));
       return $http({
         method: 'POST',
-        url: sharedProperties.getUrl()+'/manifests/'+manifestId+'/packages/'+packageId+'/states',
+        url: sharedProperties.getUrl()+'/manifest/'+manifestId+'/packages/'+packageId+'/states',
         data : requestBody,
       }).success(function(response){
         return response;

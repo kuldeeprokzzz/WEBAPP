@@ -1,5 +1,5 @@
 angular.module('inloopAppApp')
-  .controller('driverJobController', function ($scope,$timeout,$location,$interval,$stateParams,sharedProperties,completeModel,contractTaskService,jobService,tripService,manifestService) {
+  .controller('driverJobController', function ($scope,$timeout,$window,$location,$interval,$route,$state,$stateParams,sharedProperties,completeModel,contractTaskService,jobService,tripService,manifestService) {
 
   	$scope.initialize = function(){
   		if(completeModel.getCompleteModel() != undefined){
@@ -106,7 +106,7 @@ angular.module('inloopAppApp')
           ($scope.manifestId,$scope.package.id,status,latitude,longitude)
           .then(function(response){
             if(response.status == 201){
-              $location.path('/driver/jobs/toDeliver');
+              $window.location.reload();
             }else{
               $scope.errorMessage = "Something went wrong. Try again !";
             }

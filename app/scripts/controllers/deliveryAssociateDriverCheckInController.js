@@ -13,7 +13,7 @@ angular.module('inloopAppApp')
       $scope.driver = $scope.model.driverToBeCheckedIn;
 
       $scope.odometer = $scope.model.contractTask.latest_state.odometer;
-
+      $scope.onOdometerKeyPress();
   	};
 
     $scope.addOdometerReading = function(){
@@ -49,6 +49,18 @@ angular.module('inloopAppApp')
 
     $scope.backButton = function(){
       $location.path('/deliveryAssociate/drivers/'+$scope.model.viewType);
+    }
+
+    $scope.onOdometerKeyPress = function(){
+      if($scope.odometer != undefined){
+        if($scope.odometer.length != 0){
+          $scope.disabled = false;
+        }else{
+          $scope.disabled = true;
+        }
+      }else{
+        $scope.disabled = true;
+      }
     }
 
   });

@@ -20,14 +20,14 @@
         <div>
           <p class ="fontDesign" style = "font-size: 16px;">{{driver.vehicle_regNumber}}</p>
           <br>
-          <input ng-model="odometer" style = "border:none;margin-left:-11px; font-size: 13px;color: black;     position: relative;top: -7px;"type="text" class="form-control pull-left" id="input" autofocus="autofocus" placeholder="Enter Odometer reading">
+          <input ng-show="contractTaskType.dispatched.value == driver.status || contractTaskType.returning.value == driver.status" ng-model="odometer" style = "border:none;margin-left:-11px; font-size: 13px;color: black;     position: relative;top: -7px;"type="text" class="form-control pull-left" id="input" autofocus="autofocus" placeholder="Enter Odometer reading" ng-change="onOdometerKeyPress()">
         </div>  
-        <div ng-show="contractTaskType.dispatched.value == driver.status"  style ="text-align:right;    margin-top: -64px;">
+        <div style ="text-align:right;    margin-top: -64px;">
           <p class ="fontDesign" style = "font-size: 16px;font-weight:normal;position: relative;
     left: 3px;">{{driver.vehicle_make}}</p>
           <br>
           <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:-1px">{{driver.vehicle_make}}</p>
-          <button style ="border-shadow:none; position: relative;top: -40px;background:#13A89E;font-weight:bold"ng-click="addOdometerReading()" type="button" class="btn btn-info pull-right">CHECK IN</button>
+          <button ng-disabled="disabled" ng-show="contractTaskType.dispatched.value == driver.status || contractTaskType.returning.value == driver.status" style ="border-shadow:none; position: relative;top: -40px;background:#13A89E;font-weight:bold"ng-click="addOdometerReading()" type="button" class="btn btn-info pull-right">CHECK IN</button>
         </div>
       </div>
   </div>
