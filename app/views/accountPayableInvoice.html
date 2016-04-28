@@ -158,80 +158,110 @@
 
 
 
-<button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#approveAllModal">Show modal</button>
-        
-<div class="modal modal-center fade" data-sound="note" id="approveAllModal" tabindex="-1" role="dialog" aria-labelledby="approveAllModalLabel" aria-hidden="true">
-            <div class="modal-dialog animated flipInX">
-                <div class="modal-content" style = "width: 768px;width: 768px;margin-left: -69px;margin-top: -70px;">
-                    <div class="modal-header">
-                        <button ng-click="approveAllInvoiceModal()" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="approveAllModalLabel">Approve All Invoices</h4>
-                  </div>
-                    <div class="modal-body" style = "height: 283px;">
-                        
+<button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#centerModal">Show modal</button>
+    
+    <div class="modal fade" data-sound="note" id="centerModal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
+    <div class="modal-dialog  " style ="width:61%; margin: 4% auto">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 style ="font-weight:bold;"class="modal-title" id="centerModalLabel">Invoice For Job ID# {{invoiceTobeSubmitted.job.name}}</h4>
+      </div>
+        <div style="height: 334px;" class="modal-body">
+            
 
-                        <div class="clearfix row">
+            <div class="clearfix row">
 
-                        <div ng-repeat="item in approveAllInvoiceList" class ="col-md-8 outerWrapper pull-left">
-                            <div class = "innerWrapper">
-                                
-                                <div class="fontCover">
-                                <div class ="text_1" style ="line-height: 11px;">
-                                  <p class ="fontDesign">{{item.job.name}}</p>
-                                  <p class ="fontDrama"style = "    position: relative;margin-top: 10px;">{{item.invoice.total_amount}}</p>
-                                </div>
-                                <div class ="text_1" style ="line-height: 11px;">
-                                   <p class ="fontDrama" style ="float:left">{{item.job.area}}</p> 
-                                   <p class ="fontDrama" style = "    position: relative;margin-top: 0px;">{{item.job.number_of_packages}} packages</p>
-                                </div>
-                                </div>
-                                
-                                
-                            </div>    
-                        </div>
-                        
-                        <div class ="col-md-4 outerWrapper pull-left">
-                            <div class = "innerWrapper">
-                                <div class ="TopBar">
-                                    <p style ="position: relative;top: 51px;"><i class="fa fa-inr"></i> {{createdTotalAmount}}</p>
-                                </div>
-                                <div class="fontCover" style = "line-height: 11px;">
-                                <div class ="text_1">
-                                  <p class ="fontDesign">{{createdCount}} total jobs</p>
-                                  
-                                </div>
-                                <div class ="text_1">
-                                   <p class ="fontDrama" style ="float:left"></p> 
-                                   
-                                </div>
-                                </div>
-                                <div class="fontCover" style = "line-height: 11px;">
-                                <div class ="text_1">
-                                  <p class ="fontDesign">{{createdTotalPackages}} Total Packages Delivered</p>
-                                  
-                                </div>
-                                <div class ="text_1">
-                                   <p class ="fontDrama" style ="float:left"></p> 
-                                  
-                                </div>
-                                </div>
-                                 
-                                
-                            </div>    
-                        </div>
-
-
-                        </div>
-
-
+            <div class ="col-md-4">
+                <div class = "innerWrapper">
+                    <div style ="height:200px;"class = "driver_imagePhoto"></div>
+                    <div class="fontCover" style ="height: 45px;">
+                    <div class ="text_1" style ="line-height: 11px;">
+                      <p class ="fontDesign">{{invoiceTobeSubmitted.contractTask.driver_name}}</p>
+                     
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button ng-click="approveAllInvoiceModal()" type="button" class="btn btn-primary">Submit</button>
+                    <div class ="text_1" style ="line-height: 11px;margin-top: -15px;">
+                       <p class ="fontDrama" style ="float:left;font-size: 13px;">{{invoiceTobeSubmitted.contractTask.provider_name}}</p> 
+                       
                     </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+                    </div>
+                    <div class="fontCover" style ="height: 45px;">
+                    <div class ="text_1" style ="line-height: 11px;">
+                      <p class ="fontDesign">{{invoiceTobeSubmitted.contractTask.vehicle_regNumber}}</p>
+                     
+                    </div>
+                    <div class ="text_1" style ="line-height: 11px;margin-top: -15px;font-size: 13px;">
+                       <p class ="fontDrama" style ="float:left">{{invoiceTobeSubmitted.contractTask.vehicle_make}}</p> 
+                       
+                    </div>
+                    </div>
+                    
+                </div>    
+            </div>
+            <div class ="col-md-4">
+                <div class = "innerWrapper">
+                    <div id="map" style="height:200px;"></div>
+                    <div class="fontCover" style ="height:45px">
+                    <div class ="text_1" style ="line-height: 11px;">
+                      <p class ="fontDesign">{{invoiceTobeSubmitted.job.name}}</p>
+                     
+                    </div>
+                    <div class ="text_1" style ="line-height: 11px;margin-top: -15px;">
+                       <p class ="fontDrama" style ="float:left;font-size: 13px;">{{invoiceTobeSubmitted.job.area}}</p> 
+                       
+                    </div>
+                    </div>
+                    <div class="fontCover" style ="height:45px">
+                    <div class ="text_1" style ="line-height: 11px;height: 56px;margin-top: -15px;font-size: 13px;">
+                      <p style ="top: 25px;"class ="fontDesign">{{invoiceTobeSubmitted.job.number_of_packages}} Packages</p>
+                     
+                    </div>
+                    </div>
+                    
+                </div>    
+            </div>
+            <div class ="col-md-4">
+                <div class = "innerWrapper">
+                    <div class ="TopBar" style ="height:200px">
+                        <p style ="position: relative;top: 83px;"><i class="fa fa-inr"></i> {{invoiceTobeSubmitted.invoice.total_amount}}</p>
+                    </div>
+                    <div class="fontCover" style ="height:45px">
+                    <div class ="text_1" style ="line-height: 11px;">
+                      <p class ="fontDesign pull-left">Trip Start</p>
+                     
+                    </div>
+                    <div class ="text_1" style ="line-height: 11px;">
+                       <div class ="fontDrama" style ="float:right;" >{{invoiceTobeApproved.tripStates[2].odometer != undefined ? invoiceTobeApproved.tripStates[2].odometer : '--'}}</div>
+                       <div class ="fontDrama" style ="float:right;" >{{ invoiceTobeApproved.tripStates[2].time != undefined ? (invoiceTobeApproved.tripStates[2].time  | date: 'h:mma') : '--'}}</div>
+                       
+                    </div>
+                    </div>
+                    <div class="fontCover" style ="height:45px">
+                    <div class ="text_1" style ="line-height: 11px;">
+                      <p class ="fontDesign pull-left">Trip End</p>
+                     
+                    </div>
+                    <div class ="text_1" style ="line-height: 11px;">
+                       <div class ="fontDrama" style ="float:right">{{invoiceTobeApproved.tripStates[3].odometer != undefined ? invoiceTobeApproved.tripStates[3].odometer : '--'}}</div> 
+                       <div class ="fontDrama" style ="float:right">{{invoiceTobeApproved.tripState[3].time != undefined ? (invoiceTobeApproved.tripState[3].time  | date: 'h:mma') : '--' }}</div>
+                    </div>
+                    </div>
+                    
+                </div>    
+            </div>
+
+
+            </div>
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button ng-click="submitModalInvoice()" type="button" style ="float:right;width: 110px" class="btn btn-primary">Submit</button>
+        </div>
+    </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
 
 </div> <!-- content-body -->

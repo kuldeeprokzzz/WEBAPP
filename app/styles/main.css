@@ -302,3 +302,15 @@ color: #00a89f !important;
   height:10px;
   background-color: green;
 }
+
+#map div div a div {
+  display: none;
+}
+
+#map div div div div span{
+  display: none;
+}
+
+#map div div a {
+  display: none;
+}

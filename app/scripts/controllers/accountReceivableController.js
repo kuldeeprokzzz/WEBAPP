@@ -34,7 +34,7 @@ angular.module('inloopAppApp')
       $scope.errorMessage = $stateParams.message;
     }
 
-    console.log($scope.invoiceType);
+    //console.log($scope.invoiceType);
     $scope.payerId = $scope.model.profile.organizationid;
 
     
@@ -64,7 +64,7 @@ angular.module('inloopAppApp')
                 if($scope.jobInvoiceList.length == 0){
                   $scope.errorMessage = "No Jobs Found";
                 }
-                console.log(JSON.stringify($scope.jobInvoiceList));
+                //console.log(JSON.stringify($scope.jobInvoiceList));
               }
             });
           });
@@ -207,9 +207,9 @@ angular.module('inloopAppApp')
                   map.set('styles',$scope.mapStyle);
 
                   var myTrip= new Array();
-                  console.log('hi');
+                  //console.log('hi');
                   for (i = 0; i < locs.length; i++) {  
-                    console.log(locs[i][1]);
+                    //console.log(locs[i][1]);
                   myTrip.push(new google.maps.LatLng(locs[i][0],locs[i][1]));
                   }
                   var flightPath=new google.maps.Polyline({
@@ -223,13 +223,13 @@ angular.module('inloopAppApp')
                   var markerArray = [];
                   var iconBase = window.location.origin;
 
-                  markerArray[1] = new google.maps.Marker({
+                  markerArray[0] = new google.maps.Marker({
                   position: start,
                   map: map,
                   icon: iconBase + '/images/circle.png',
                   });  
                   
-                markerArray[0] = new google.maps.Marker({
+                markerArray[1] = new google.maps.Marker({
                   position: end,
                   map: map,
                   icon: iconBase + '/images/star.png'
@@ -239,7 +239,7 @@ angular.module('inloopAppApp')
                 markerArray[0].setPosition(start);
                 markerArray[1].setMap(map);
                 markerArray[1].setPosition(end);
-
+                map.fitBounds(bounds);
     }
 
     $scope.submitModalInvoice = function(){
