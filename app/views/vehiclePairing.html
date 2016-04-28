@@ -1,7 +1,7 @@
 <div class="content" style ="margin-left:0px;" ng-init="initialize()">
 <div class="content-header" style = "overflow: visible;">
       <div class ="leftDiv">   
-       <h2 class = "content-Info" style ="margin-left: 15px;">Confirm Vehicle</h2>
+       <h2 class = "content-Info" style ="margin-left: 15px;">Check In</h2>
       </div>
       <div class ="rightDiv">   
         <h2 class = "content-Info">
@@ -27,11 +27,17 @@
 <div class ="col-md-12" style ="margin : 0 auto">
   <div class = "innerWrapper">
       <!-- <img  class = "img-wrapper img-resposive" src="images/driver_photo_1.png"> -->
-      <img src="images/car.png" class ="img-responsive" style = "height: 324px">
+      <div class ="car_image"></div>
       <div ng-include="'../views/cards/vehicleCard.html'"></div>
-      <div class="fontCover" style ="text-align:center; padding :7px"> 
-          <span class ="text_1" >         
-             <button ng-click="driveDifferentVehicle()" type="button" class="btn btn-danger">Wrong Vehicle</button>
+      <div class="fontCover MediaFont" style ="text-align:center; padding :7px"> 
+          <span class ="text_1" style ="padding:0px;"> 
+            <div class ="col-sm-6 leftHandMedia" style ="text-align:left;">        
+             <button style ="width: 127px;" ng-click="driveDifferentVehicle()" type="button" class="btn btn-danger">Wrong Vehicle</button>
+            </div> 
+             
+            <div class ="col-sm-6 rightHandMedia" style ="text-align:right;">
+                <button ng-click="submitDriveThisVehicle()" type="submit" class="btn btn-primary">Drive this Vehicle</button>       
+            </div>
 
           </span>
       </div>

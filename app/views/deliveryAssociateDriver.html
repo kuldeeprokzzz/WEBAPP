@@ -20,7 +20,7 @@
      </ul> 
   </div>
 
-  <div class="col-sm-1">
+  <!-- <div class="col-sm-1">
       <form class="navbar-form" role="search">
           <div class="input-group" style ="margin-left: -12px;">
               <input ng-model="searchString" type="text" class="form-control" placeholder="Search" name="q" ng-change="searchDrivers()">
@@ -29,11 +29,11 @@
               </div>
           </div>
       </form>
-  </div>
+  </div> -->
 
   
   <div class ="wrapperBx" style ="margin: 5% auto;">
-  <div ng-repeat="driver in drivers"class ="col-md-12" style ="margin : 0 auto">
+  <div ng-repeat="driver in drivers"class ="col-md-12 mediaListQeue" style ="margin : 2% auto">
     <div ng-include="'../views/cards/deliveryAssociateDriverCard.html'"></div>   
   </div>
   </div>

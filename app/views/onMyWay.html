@@ -1,7 +1,7 @@
 <div class="content" style ="margin-left:0px;" ng-init="initialize()">
     <div class="content-header" style = "overflow: visible;">
       <div class ="leftDiv">   
-       <h2 class = "content-Info" style ="margin-left: 15px;">Proceed to the center</h2>
+       <h2 class = "content-Info" style ="margin-left: 15px;">Check In</h2>
       </div>
       <div class ="rightDiv">   
         <h2 class = "content-Info">
@@ -25,26 +25,22 @@
       <div id="error-placement"></div>
  
       
-      <div class ="col-sm-6">
+      <div class ="col-sm-6 mediaClassMap">
       <div class ="col-md-12" style ="margin : 0 auto">
         <div class = "innerWrapper">
             <div ng-include="'../views/cards/driverCard.html'"></div>
-            <div class="fontCover" style ="height:58px"> 
-                <div class ="text_1" >
-                  <div class= "col-sm-6">
-                  <p class ="fontDesign" style = "font-size: 16px;font-weight: 600;margin-top: 11px;margin-left: -14px;">{{licencePlateNumber}}</p><br>
-                  </div>
-                  <div class = "col-sm-6" style  ="text-align:right;margin-top: 21px;">
-                  <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:-8px">{{vehicleName}}</p>
-                  </div>
-                </div>
+            <div class="fontCover" style ="height: 58px;"> 
+            <div class ="text_1" >
+              <p class ="fontDesign" style = "font-size: 16px;">{{licencePlateNumber}}</p><br>
+              <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:-10px">{{vehicleName}}</p>
             </div>
+        </div>
         </div>    
       </div>
       </div>
 
 
-        <div class = "col-sm-6" >
+        <div class = "col-sm-6 mediaClassMap">
         <div class ="col-md-12" style ="margin : 0 auto">
         <div class="fontCover" style = "border:1px solid lightgrey; height: 441px;"> 
                 <div>

@@ -4,18 +4,47 @@
 </div><!--/content-header -->
 
 <div class="content-body">
+<button style ="margin-left: 17px;" ng-click="backButton()" type="button" class="btn btn-primary">Back</button>
 
-<button ng-click="backButton()">Back</button>
 
 <div id="error-placement"></div>
 <div class ="wrapperBx" style ="margin: 5% auto;">
-<div class ="col-md-12" style ="margin : 0 auto">
+<div class ="col-md-12 mediaListQeue" style ="margin : 0 auto">
   
 <div ng-include="'../views/cards/deliveryAssociateDriverCard.html'"></div>  
 
 
  <div ng-show="contractTaskType.dispatched.value == driver.status || contractTaskType.arrived.value == driver.status || contractTaskType.returning.value == driver.status"class = "innerWrapper">
-     <div class="fontCover"> 
+    <div class="fontCover" style = "height:70px;border-bottom:none" > 
+      <div class ="text_1" >
+        <div>
+          <p class ="fontDesign" style = "font-size: 16px;">{{driver.vehicle_regNumber}}</p>
+          <br>
+          <input ng-model="odometer" style = "border:none;margin-left:-11px; font-size: 13px;color: black;     position: relative;top: -7px;"type="text" class="form-control pull-left" id="input" autofocus="autofocus" placeholder="Enter Odometer reading">
+        </div>  
+        <div ng-show="contractTaskType.dispatched.value == driver.status"  style ="text-align:right;    margin-top: -64px;">
+          <p class ="fontDesign" style = "font-size: 16px;font-weight:normal;position: relative;
+    left: 3px;">{{driver.vehicle_make}}</p>
+          <br>
+          <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:-1px">{{driver.vehicle_make}}</p>
+          <button style ="border-shadow:none; position: relative;top: -40px;background:#13A89E;font-weight:bold"ng-click="addOdometerReading()" type="button" class="btn btn-info pull-right">CHECK IN</button>
+        </div>
+      </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <!-- <div class="fontCover"> 
       <div class ="text_1" >
         <div class ="col-sm-6">
           <p class ="fontDesign" style = "font-size: 16px;">{{driver.vehicle_regNumber}}</p>
@@ -31,7 +60,7 @@
          
         </div>  
       </div>
-  </div>
+  </div> -->
   </div>
 </div>
 </div>
