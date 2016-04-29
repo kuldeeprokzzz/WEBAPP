@@ -22,7 +22,7 @@ inloopAppApp.service('invoiceService', ['sharedProperties','$http', function(sha
       return $http({
         method: 'GET',
         //url: sharedProperties.getUrl()+'/invoices/?payeeid='+payeeId+'&status='+status,
-               url: sharedProperties.getUrl()+'/invoices/',  // Delete later
+        url: sharedProperties.getUrl()+'/invoices/',  // Delete later
       }).success(function(response){
         return response;
       }).error(function(response){

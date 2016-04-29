@@ -52,7 +52,7 @@ angular.module('inloopAppApp')
             var invoice = value;
 
             jobService.getJobDetailByJobId(invoice.jobs[0]).then(function(response){
-                if(response.status == 200){
+              if(response.status == 200){
                   var item = {
                     invoice : invoice,
                     job : response.data

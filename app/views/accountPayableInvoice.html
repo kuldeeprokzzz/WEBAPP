@@ -33,7 +33,7 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody style ="border-top: 1px solid #E0E4E8;"ng-repeat="item in jobInvoiceTripList">
+            <tbody style ="border-top: 1px solid #E0E4E8;"ng-repeat="item in jobInvoiceList">
                 <tr>
                     <td style ="font-weight:bold;color:#15A99F"class ="stylingFonts">{{item.job.name}}</td>
                     <td>{{item.job.area}}</td>
@@ -50,37 +50,38 @@
 
     <button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#centerModal">Show modal</button>
     
-    <div class="modal modal-center fade" data-sound="note" id="centerModal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
-    <div class="modal-dialog animated flipInX">
-    <div class="modal-content" style = "width: 768px;width: 768px;margin-left: -69px;margin-top: -70px;">
+    <div class="modal fade" data-sound="note" id="centerModal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
+    <div class ="col-sm-4"></div>    
+    <div class="modal-dialog modal-lg" style ="width:62% margin: 4% auto">
+    <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="centerModalLabel">Invoice For Job ID# {{invoiceTobeApproved.job.name}}</h4>
+            <h4 style ="font-weight:bold;"class="modal-title" id="centerModalLabel">Invoice For Job ID# {{invoiceTobeApproved.job.name}}</h4>
       </div>
-        <div class="modal-body" style = "height: 283px;">
+        <div class="modal-body" style ="padding-bottom: 0px;">
             
 
             <div class="clearfix row">
 
-            <div class ="col-md-4 outerWrapper pull-left">
+            <div class ="col-md-4" style ="margin-bottom:20px">
                 <div class = "innerWrapper">
-                    <img  class = "img-wrapper" src="images/driver_photo_1.png" style ="height: 135px;">
-                    <div class="fontCover">
+                    <img src="{{invoiceTobeApproved.contractTask.driver_image}}" style ="height:200px;"class = "driver_imagePhoto" />
+                    <div class="fontCover" style ="height: 45px;">
                     <div class ="text_1" style ="line-height: 11px;">
                       <p class ="fontDesign">{{invoiceTobeApproved.contractTask.driver_name}}</p>
                      
                     </div>
-                    <div class ="text_1" style ="line-height: 11px;">
-                       <p class ="fontDrama" style ="float:left">{{invoiceTobeApproved.contractTask.provider_name}}</p> 
+                    <div class ="text_1" style ="line-height: 11px;margin-top: -15px;">
+                       <p class ="fontDrama" style ="float:left;font-size: 13px;">{{invoiceTobeApproved.contractTask.provider_name}}</p> 
                        
                     </div>
                     </div>
-                    <div class="fontCover">
+                    <div class="fontCover" style ="height: 45px;">
                     <div class ="text_1" style ="line-height: 11px;">
                       <p class ="fontDesign">{{invoiceTobeApproved.contractTask.vehicle_regNumber}}</p>
                      
                     </div>
-                    <div class ="text_1" style ="line-height: 11px;">
+                    <div class ="text_1" style ="line-height: 11px;margin-top: -15px;font-size: 13px;">
                        <p class ="fontDrama" style ="float:left">{{invoiceTobeApproved.contractTask.vehicle_make}}</p> 
                        
                     </div>
@@ -88,142 +89,32 @@
                     
                 </div>    
             </div>
-            <div class ="col-md-4 outerWrapper pull-left">
-                <div class = "innerWrapper">
-                    <div  id="map" class = "img-wrapper" style ="height: 135px;"></div>
-                    <div class="fontCover">
-                    <div class ="text_1" style ="line-height: 11px;">
-                      <p class ="fontDesign">{{invoiceTobeApproved.job.name}}</p>
-                     
-                    </div>
-                    <div class ="text_1" style ="line-height: 11px;">
-                       <p class ="fontDrama" style ="float:left">{{invoiceTobeApproved.job.area}}</p> 
-                       
-                    </div>
-                    </div>
-                    <div class="fontCover">
-                    <div class ="text_1" style ="line-height: 11px;height: 56px;">
-                      <p class ="fontDesign">{{invoiceTobeApproved.job.number_of_packages}} Packages</p>
-                     
-                    </div>
-                    </div>
-                    
-                </div>    
-            </div>
-            <div class ="col-md-4 outerWrapper pull-left">
-                <div class = "innerWrapper">
-                    <div class ="TopBar">
-                        <p style ="position: relative;top: 51px;"><i class="fa fa-inr"></i> {{invoiceTobeApproved.invoice.total_amount}}</p>
-                    </div>
-                    <div class="fontCover">
-                    <div class ="text_1" style ="line-height: 11px;">
-                      <p class ="fontDesign pull-left">Trip Start</p>
-                     
-                    </div>
-                    <div class ="text_1" style ="line-height: 11px;">
-                        <div class ="fontDrama" style ="float:right">{{invoiceTobeApproved.tripStates[0].odometer  != undefined ? invoiceTobeApproved.tripStates[0].odometer : '--' }}</div>
-                       <div class ="fontDrama" style ="float:right;" >{{invoiceTobeApproved.tripStates[0].time != undefined ? (invoiceTobeApproved.tripStates[0].time  | date: 'h:mma') : '--'}}</div>                       
-                    </div>
-                    </div>
-                    <div class="fontCover">
-                    <div class ="text_1" style ="line-height: 11px;">
-                      <p class ="fontDesign pull-left">End Trip</p>
-                     
-                    </div>
-                    <div class ="text_1" style ="line-height: 11px;">
-                        <div class ="fontDrama" style ="float:right">{{invoiceTobeApproved.tripStates[1].odometer != undefined ? invoiceTobeApproved.tripStates[1].odometer : '--' }}</div>
-                       <div class ="fontDrama" style ="float:right">{{invoiceTobeApproved.tripStates[1].time != undefined ? (invoiceTobeApproved.tripStates[1].time | date: 'h:mma') : '--'}}</div>
-                    </div>
-                    </div>
-                    
-                </div>    
-            </div>
-
-
-            </div>
-
-
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button ng-click="approveModalInvoice()" type="button" style ="float:right;width: 110px" class="btn btn-primary">Approve</button>
-        </div>
-    </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-   
-</div> <!-- content-body -->
-
-
-
-
-<button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#centerModal">Show modal</button>
-    
-    <div class="modal fade" data-sound="note" id="centerModal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
-    <div class="modal-dialog  " style ="width:61%; margin: 4% auto">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 style ="font-weight:bold;"class="modal-title" id="centerModalLabel">Invoice For Job ID# {{invoiceTobeSubmitted.job.name}}</h4>
-      </div>
-        <div style="height: 334px;" class="modal-body">
-            
-
-            <div class="clearfix row">
-
-            <div class ="col-md-4">
-                <div class = "innerWrapper">
-                    <div style ="height:200px;"class = "driver_imagePhoto"></div>
-                    <div class="fontCover" style ="height: 45px;">
-                    <div class ="text_1" style ="line-height: 11px;">
-                      <p class ="fontDesign">{{invoiceTobeSubmitted.contractTask.driver_name}}</p>
-                     
-                    </div>
-                    <div class ="text_1" style ="line-height: 11px;margin-top: -15px;">
-                       <p class ="fontDrama" style ="float:left;font-size: 13px;">{{invoiceTobeSubmitted.contractTask.provider_name}}</p> 
-                       
-                    </div>
-                    </div>
-                    <div class="fontCover" style ="height: 45px;">
-                    <div class ="text_1" style ="line-height: 11px;">
-                      <p class ="fontDesign">{{invoiceTobeSubmitted.contractTask.vehicle_regNumber}}</p>
-                     
-                    </div>
-                    <div class ="text_1" style ="line-height: 11px;margin-top: -15px;font-size: 13px;">
-                       <p class ="fontDrama" style ="float:left">{{invoiceTobeSubmitted.contractTask.vehicle_make}}</p> 
-                       
-                    </div>
-                    </div>
-                    
-                </div>    
-            </div>
-            <div class ="col-md-4">
+            <div class ="col-md-4" style ="margin-bottom:20px">
                 <div class = "innerWrapper">
                     <div id="map" style="height:200px;"></div>
                     <div class="fontCover" style ="height:45px">
                     <div class ="text_1" style ="line-height: 11px;">
-                      <p class ="fontDesign">{{invoiceTobeSubmitted.job.name}}</p>
+                      <p class ="fontDesign">{{invoiceTobeApproved.job.name}}</p>
                      
                     </div>
                     <div class ="text_1" style ="line-height: 11px;margin-top: -15px;">
-                       <p class ="fontDrama" style ="float:left;font-size: 13px;">{{invoiceTobeSubmitted.job.area}}</p> 
+                       <p class ="fontDrama" style ="float:left;font-size: 13px;">{{invoiceTobeApproved.job.area}}</p> 
                        
                     </div>
                     </div>
                     <div class="fontCover" style ="height:45px">
                     <div class ="text_1" style ="line-height: 11px;height: 56px;margin-top: -15px;font-size: 13px;">
-                      <p style ="top: 25px;"class ="fontDesign">{{invoiceTobeSubmitted.job.number_of_packages}} Packages</p>
+                      <p style ="top: 25px;"class ="fontDesign">{{invoiceTobeApproved.job.number_of_packages}} Packages</p>
                      
                     </div>
                     </div>
                     
                 </div>    
             </div>
-            <div class ="col-md-4">
+            <div class ="col-md-4" style ="margin-bottom:20px">
                 <div class = "innerWrapper">
                     <div class ="TopBar" style ="height:200px">
-                        <p style ="position: relative;top: 83px;"><i class="fa fa-inr"></i> {{invoiceTobeSubmitted.invoice.total_amount}}</p>
+                        <p style ="position: relative;top: 74px;font-size: 37px;"><i class="fa fa-inr"></i> {{invoiceTobeApproved.invoice.total_amount}}</p>
                     </div>
                     <div class="fontCover" style ="height:45px">
                     <div class ="text_1" style ="line-height: 11px;">
@@ -257,7 +148,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button ng-click="submitModalInvoice()" type="button" style ="float:right;width: 110px" class="btn btn-primary">Submit</button>
+        <button ng-click="approveModalInvoice()" type="button" style ="float:right;width: 110px" class="btn btn-primary">Approve</button>
         </div>
     </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
