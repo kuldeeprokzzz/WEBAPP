@@ -58,6 +58,9 @@ angular.module('inloopAppApp')
                     job : response.data
                   };
 
+                  if(invoice.status == invoiceTypes.created.value){
+                    $scope.submitAllInvoiceList.push(item);
+                  }
                   $scope.jobInvoiceList.push(item);
               }
               if(key+1 == invoiceListLength){
@@ -249,7 +252,9 @@ angular.module('inloopAppApp')
         .then(function(response){
           if(response.status == 201){
             $("#centerModal").modal("toggle");
-            $location.path('/accountReceivable/invoice/'+'ALL'+'/Invoice Submitted Successfully !');
+            $timeout(function(){
+              $location.path('/accountReceivable/invoice/'+'ALL'+'/Invoice Submitted Successfully !');
+            }, 500);
           }else{
             $scope.errorMessage = "Unable to Submit Invoice. Try Again !";
           }

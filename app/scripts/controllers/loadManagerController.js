@@ -12,7 +12,7 @@ angular.module('inloopAppApp')
         }
       }*/
 
-      $scope.cardType = sharedProperties.getCardTypes();
+      $scope.cardType = sharedProperties.getContractTaskCardType();
       $scope.jobsTypes = sharedProperties.getJobsTypes();
       $scope.contractTaskTypes = sharedProperties.getContractTaskType();
       $scope.jobType = $stateParams.jobType;
@@ -62,17 +62,17 @@ angular.module('inloopAppApp')
         jobService.updateJobStateWithJobIdPerformedByAndType
         ($scope.jobToBeAssigned.id,$scope.model.profile.username,$scope.jobsTypes.assigned.value)
         .then(function(response){
-          if(response.status == 200){
+          if(response.status == 201){
             tripService.createNewTripForJob(
               contractTask.vehicleid,contractTask.driverid,contractTask.id,
               $scope.jobToBeAssigned.id,contractTask.odometer_deviceid)
             .then(function(response){
-              if(response.status == 200){
+              if(response.status == 201){
                 var tripId = response.data.id;
-                jobServiceupdateJobWithJobIdContractTaskIdAndTripId(
-                  $jobToBeAssigned.id,contractTask.id,tripId)
+                jobService.updateJobWithJobIdContractTaskIdAndTripId(
+                  $scope.jobToBeAssigned.id,contractTask.id,tripId)
                 .then(function(response){
-                  if(response.status == 200){
+                  if(response.status == 201){
                     contractTaskService.updateContractTaskStateToAssignedJob(
                     contractTask.latest_state.location.latitude,contractTask.latest_state.location.latitude,
                     contractTask.latest_state.odometer,contractTask.id,$model.profile.username,job.id,tripId)
@@ -80,17 +80,25 @@ angular.module('inloopAppApp')
                       if(response.status == 201){
                         $("#centerModal").modal("toggle");
                         $location.path('/loadManager/job/'+sharedProperties.getJobsTypes().unassigned.value+'/Jon Assigned Successfully !');
+                      }else{
+                                  $scope.message = "Something went wront. Assign job again !";
+                                  $("#centerModal").modal("toggle");
                       }
                     });
+                  }else{
+                              $scope.message = "Something went wront. Assign job again !";
+                              $("#centerModal").modal("toggle");
                   }
                 });
+              }else{
+                  $scope.message = "Something went wront. Assign job again !";
+                  $("#centerModal").modal("toggle");                
               }
             });         
-          }
-            
+          }else{
           $scope.message = "Something went wront. Assign job again !";
-          $("#centerModal").modal("toggle");
-
+          $("#centerModal").modal("toggle");            
+          }
         });
       };
 

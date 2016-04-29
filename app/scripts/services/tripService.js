@@ -14,7 +14,7 @@ inloopAppApp.service('tripService', ['sharedProperties','$http', function(shared
                               "contract_taskid": contractTaskId,
                               "jobid": jobId,
                               "odometer_deviceid":odometerDeviceId, 
-                              "status": sharedProperties.getTripTypes.created.value, 
+                              "status": sharedProperties.getTripTypes().created.value, 
                               "trip_date": currentTime,
                             };
 

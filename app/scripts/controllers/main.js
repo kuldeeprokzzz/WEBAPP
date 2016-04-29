@@ -82,6 +82,7 @@ angular.module('inloopAppApp')
 						}
 
 						if($scope.username == 'driver'){
+						model.profile.image = 'https://qph.is.quoracdn.net/main-qimg-0bb292fd4d4f97654387c97b0b4fb42c?convert_to_webp=true';
 						model.profile.roleIdtemp = sharedProperties.getRoles().providerDriver.id;
 						completeModel.saveCompleteModel(model);
 						$location.path('/driver/driverCard');

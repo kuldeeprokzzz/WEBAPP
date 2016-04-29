@@ -12,13 +12,13 @@ angular.module('inloopAppApp')
         }
       }*/
       $scope.model = model;
-      $scope.name  = model.profile.first_name + model.profile.middle_name + model.profile.last_name;
+      $scope.name  = model.profile.first_name +" "+ model.profile.middle_name + model.profile.last_name;
       $scope.rolesTypes = sharedProperties.getRoles();
       $scope.vehicleName = model.vehicle.make + " " + model.vehicle.model;
       $scope.organisationName = model.profile.organization_name;
       $scope.licencePlateNumber = model.vehicle.regNumber;
       $scope.deliveryCenter = model.deliveryCentre;
-      
+      $scope.image = model.profile.image;
 
   var deliveryCentreLatLong = {lat: $scope.deliveryCenter.latitude, lng: $scope.deliveryCenter.longitude};
 
@@ -41,9 +41,10 @@ var centerControlDiv = document.createElement('div');
         controlUI.style.boxShadow = '0 4px 8px rgba(0,0,0,.3)';
         controlUI.style.cursor = 'pointer';
         controlUI.style.marginBottom = '48px';
+        controlUI.style.marginLeft = '-80%';
         controlUI.style.textAlign = 'center';
-        controlUI.style.width = '400px';
-        controlUI.title = 'Click to proceed to the Delivery Center';
+        controlUI.style.width = '260%';
+        //controlUI.title = 'Click to proceed to the Delivery Center';
         centerControlDiv.appendChild(controlUI);
 
         // Set CSS for the control interior.
@@ -54,21 +55,22 @@ var centerControlDiv = document.createElement('div');
         controlText.style.lineHeight = '38px';
         controlText.style.paddingLeft = '5px';
         controlText.style.paddingRight = '5px';
-        controlText.innerHTML = 'Proceed to the Center';
+        controlText.innerHTML = 'On My May';
         controlUI.appendChild(controlText);
 
         // Setup the click event listeners: simply set the map to Chicago.
         controlUI.addEventListener('click', function() {
 
-          contractTaskService.updataContractStateToDispatched(model.contractTask,model.profile.username)
+          contractTaskService.updataContractStateToDispatchedWithoutLocationAndOdometer(model.contractTask.id,model.profile.username)
           .then(function(response){
             if(response.status == 201){
+              model.contractTask = response.data;
+              completeModel.saveCompleteModel(model);
               $location.path('/driver/onMyWayDone');
             }else{
               $scope.errorMessage = "Something Went wrong. Try again !";
             }
           });
-          $location.path('/driver/onMyWayDone');
         });
 
         centerControlDiv.index = 1;
@@ -78,7 +80,7 @@ google.maps.event.trigger(map, "resize");
 
 
  if(!navigator.geolocation){
-    alert('geolocation not present');
+    alert('Location services not supported');
   }else{
 
   var markerArray = [];
@@ -100,9 +102,9 @@ google.maps.event.trigger(map, "resize");
   });
   directionsDisplay.setMap(map);
 
-  var start = new google.maps.LatLng(37.334818, -121.884886);
+  var start = new google.maps.LatLng(latitude, longitude);
   //var end = new google.maps.LatLng(38.334818, -181.884886);
-  var end = new google.maps.LatLng(37.441883, -122.143019);
+  var end = new google.maps.LatLng($scope.model.deliveryCentre.latitude,$scope.model.deliveryCentre.longitude);
   var request = {
     origin: start,
     destination: end,
@@ -114,35 +116,45 @@ google.maps.event.trigger(map, "resize");
       directionsDisplay.setMap(map);
       var myRoute = response.routes[0].legs[0];
       var iconBase = window.location.origin;
+
+      var imageCircle = {
+        url : iconBase + '/images/circle.png',
+        scaledSize: new google.maps.Size(20.20, 20.20),
+      };
+
+      var imageStar = {
+        url : iconBase + '/images/star.png',
+        scaledSize: new google.maps.Size(30.8, 30.8),
+      }
       
-      markerArray[1] = new google.maps.Marker({
-        position: start,
-        map: map,
-        icon: iconBase + '/images/circle.png',
-      });
       markerArray[0] = new google.maps.Marker({
-        position: end,
+        position: myRoute.start_location,
         map: map,
-        icon: iconBase + '/images/star.png'
+        icon: imageCircle,
+      });
+      markerArray[1] = new google.maps.Marker({
+        position: myRoute.end_location,
+        map: map,
+        icon: imageStar,
       });
       markerArray[0].setMap(map);
-      markerArray[0].setPosition(start);
+      markerArray[0].setPosition(myRoute.start_location);
       markerArray[1].setMap(map);
-      markerArray[1].setPosition(end);
+      markerArray[1].setPosition(myRoute.end_location);
 
       var stepDisplay = new google.maps.InfoWindow;
 
       google.maps.event.addListener(markerArray[0], 'click', function() {
         // Open an info window when the marker is clicked on, containing the text
         // of the step.
-        stepDisplay.setContent("Delivery Center");
+        stepDisplay.setContent("Your Location");
         stepDisplay.open(map, markerArray[0]);
       });
 
       google.maps.event.addListener(markerArray[1], 'click', function() {
         // Open an info window when the marker is clicked on, containing the text
         // of the step.
-        stepDisplay.setContent("Your Location");
+        stepDisplay.setContent("Delivery Center");
         stepDisplay.open(map, markerArray[1]);
       });
     } else {
@@ -153,7 +165,7 @@ google.maps.event.trigger(map, "resize");
 
 
     }, function(){
-      alert('unable to get youn location, please check GPS and Browser setting and reload again !');
+      alert('Unable to get your location, please check GPS and Browser settings and then reload');
     });
     
   }

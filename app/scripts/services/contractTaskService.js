@@ -3,7 +3,9 @@ inloopAppApp.service('contractTaskService', ['sharedProperties','$http', functio
     this.getTodayContractTaskByVehicleLicencePlate = function(vehicleRegNumber){
     return $http({
             method: 'GET',
-            url: sharedProperties.getUrl()+'/contract_tasks/?vehicle_regNumber='+vehicleRegNumber+'&task_date='+sharedProperties.getTodayDate(),
+            url: sharedProperties.getUrl()+'/contract_tasks/?vehicle_regNumber='+vehicleRegNumber+'&task_date=today',
+            // +sharedProperties.getTodayDate()
+            // Replace "today" in date parameter with sharedProperties.getTodayDate() on production
             }).success(function(response){
                 return response;
             }).error(function(response){
@@ -24,11 +26,39 @@ inloopAppApp.service('contractTaskService', ['sharedProperties','$http', functio
             });
     }
 
+    this.updataContractStateToDispatchedWithoutLocationAndOdometer = function(contractTaskId,username){
+    
+    var requestBody = {
+                  "type": sharedProperties.getContractTaskType().dispatched.type,
+                  "time": sharedProperties.getTodatUTCDateTime(),
+                  "performed_by": username,
+                };
+
+
+
+    return $http({
+            method: 'POST',
+            url: sharedProperties.getUrl()+'/contract_tasks/'+contractTaskId+'/states/',
+            headers: { token : sharedProperties.getAuthToken()},
+            data: requestBody,
+            }).success(function(response){
+                return response;
+            }).error(function(response){
+                return response;
+            });
+    }
+
+
     this.updataContractStateToDispatched = function(contractTaskId,username){
     
     var requestBody = {
                   "type": sharedProperties.getContractTaskType().dispatched.type,
                   "time": sharedProperties.getTodatUTCDateTime(),
+                  "location": {
+                    "longitude":77.59369,
+                    "latitude": 12.97194
+                  }, 
+                  "odometer": undefined,
                   "performed_by": username,
                 };
 

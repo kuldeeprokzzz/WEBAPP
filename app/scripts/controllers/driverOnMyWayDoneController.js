@@ -32,7 +32,8 @@ var centerControlDiv = document.createElement('div');
        // controlUI.style.cursor = 'pointer';
         controlUI.style.marginBottom = '22px';
         controlUI.style.textAlign = 'center';
-        controlUI.style.width = '400px';
+        controlUI.style.marginLeft = '-80%';
+        controlUI.style.width = '260%';
        // controlUI.title = 'Click to proceed to the Delivery Center';
         centerControlDiv.appendChild(controlUI);
 
@@ -44,7 +45,7 @@ var centerControlDiv = document.createElement('div');
         controlText.style.lineHeight = '38px';
         controlText.style.paddingLeft = '5px';
         controlText.style.paddingRight = '5px';
-        controlText.innerHTML = 'Proceeding to the Center';
+        controlText.innerHTML = 'On My Way';
         controlUI.appendChild(controlText);
 
         // Setup the click event listeners: simply set the map to Chicago.
@@ -78,9 +79,9 @@ google.maps.event.trigger(map, "resize");
   });
   directionsDisplay.setMap(map);
 
-  var start = new google.maps.LatLng(13.050070, 77.579983);
+var start = new google.maps.LatLng(latitude, longitude);
   //var end = new google.maps.LatLng(38.334818, -181.884886);
-  var end = new google.maps.LatLng(12.954063, 77.700146);
+  var end = new google.maps.LatLng($scope.model.deliveryCentre.latitude,$scope.model.deliveryCentre.longitude);
   var request = {
     origin: start,
     destination: end,
@@ -92,20 +93,32 @@ google.maps.event.trigger(map, "resize");
       directionsDisplay.setMap(map);
       var myRoute = response.routes[0].legs[0];
       var iconBase = window.location.origin;
+
+
+      var imageCircle = {
+        url : iconBase + '/images/circle.png',
+        scaledSize: new google.maps.Size(20.20, 20.20),
+      };
+
+      var imageStar = {
+        url : iconBase + '/images/star.png',
+        scaledSize: new google.maps.Size(30.8, 30.8),
+      }
+      
       markerArray[0] = new google.maps.Marker({
-        position: start,
+        position: myRoute.start_location,
         map: map,
-        icon: iconBase + '/images/circle.png',
+        icon: imageCircle,
       });
       markerArray[1] = new google.maps.Marker({
-        position: end,
+        position: myRoute.end_location,
         map: map,
-        icon: iconBase + '/images/star.png'
+        icon: imageStar,
       });
       markerArray[0].setMap(map);
-      markerArray[0].setPosition(start);
+      markerArray[0].setPosition(myRoute.start_location);
       markerArray[1].setMap(map);
-      markerArray[1].setPosition(end);
+      markerArray[1].setPosition(myRoute.end_location);
 
       var stepDisplay = new google.maps.InfoWindow;
 

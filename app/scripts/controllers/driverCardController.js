@@ -14,9 +14,10 @@ angular.module('inloopAppApp')
       $scope.model = model;
       $scope.name  = model.profile.roleIdtemp;
       $scope.rolesTypes = sharedProperties.getRoles();
-      $scope.name = model.profile.first_name + model.profile.middle_name + model.profile.last_name;
+      $scope.name = model.profile.first_name + " " + model.profile.last_name;
       $scope.organisationName = model.profile.organization_name;
       $scope.licencePlateNumber = "";
+      $scope.image = model.profile.image;
       
 
   	};
@@ -33,17 +34,13 @@ angular.module('inloopAppApp')
                 completeModel.saveCompleteModel($scope.model);
                 $location.path('driver/vehiclePairing');
               }else{
-                $scope.errorMessage = "No vehicle found";
+                $scope.errorMessage = "No Vehicle found";
               }
             }else{
-              $scope.errorMessage = "Something went wrong. Try again !";
+              $scope.errorMessage = "Something went wrong. Please try again.";
             }
           });
         }
-        if($scope.licencePlateNumber.length > 4){
-          $scope.licencePlateNumber = "";
-        }
-
       }
     }
   });
