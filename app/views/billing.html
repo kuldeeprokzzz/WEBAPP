@@ -55,18 +55,19 @@
 <button ng-show="false" type="button" class="btn btn-default" data-toggle="modal" data-target="#centerModal">Show modal</button>
     
     <div class="modal fade" data-sound="note" id="centerModal" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
-    <div class="modal-dialog  " style ="width:61%; margin: 4% auto">
+    <div class ="col-sm-4"></div>    
+    <div class="modal-dialog modal-lg" style ="width:62% margin: 4% auto">
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 style ="font-weight:bold;"class="modal-title" id="centerModalLabel">Invoice For Job ID# {{invoiceTobeSubmitted.job.name}}</h4>
       </div>
-        <div style="height: 334px;" class="modal-body">
+        <div class="modal-body" style ="padding-bottom: 0px;">
             
 
             <div class="clearfix row">
 
-            <div class ="col-md-4">
+            <div class ="col-md-4" style ="margin-bottom:20px">
                 <div class = "innerWrapper">
                     <div style ="height:200px;"class = "driver_imagePhoto"></div>
                     <div class="fontCover" style ="height: 45px;">
@@ -92,7 +93,7 @@
                     
                 </div>    
             </div>
-            <div class ="col-md-4">
+            <div class ="col-md-4" style ="margin-bottom:20px">
                 <div class = "innerWrapper">
                     <div id="map" style="height:200px;"></div>
                     <div class="fontCover" style ="height:45px">
@@ -114,10 +115,10 @@
                     
                 </div>    
             </div>
-            <div class ="col-md-4">
+            <div class ="col-md-4" style ="margin-bottom:20px">
                 <div class = "innerWrapper">
                     <div class ="TopBar" style ="height:200px">
-                        <p style ="position: relative;top: 83px;"><i class="fa fa-inr"></i> {{invoiceTobeSubmitted.invoice.total_amount}}</p>
+                        <p style ="position: relative;top: 74px;font-size: 37px;"><i class="fa fa-inr"></i> {{invoiceTobeSubmitted.invoice.total_amount}}</p>
                     </div>
                     <div class="fontCover" style ="height:45px">
                     <div class ="text_1" style ="line-height: 11px;">
