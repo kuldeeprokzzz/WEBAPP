@@ -8,10 +8,10 @@
     <div class="dropdown"> 
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><div style ="width: 36px;text-align: center;font-size: 20px;color: #495271;"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div></a>
          <ul class="dropdown-menu" style ="margin-left: -139px;margin-top: -50px;"> 
-             <li  ng-click="ReturnToCenter()"><a style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Return to Centre</a></li> 
-             <li><a style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Out of time</a></li> 
-             <li><a style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Truck breakdown</a></li>
-             <li ng-click="endOfDay()"><a style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">End of day</a></li>  
+             <li  ng-click="ReturnToCenter()"><a style ="font-size:18px;margin-top: 10px;margin-bottom: 10px;">Return to Centre</a></li> 
+             <li><a style ="font-size:18px;margin-top: 10px;margin-bottom: 10px;">Out of time</a></li> 
+             <li><a style ="font-size:18px;margin-top: 10px;margin-bottom: 10px;">Truck breakdown</a></li>
+             <li ng-click="endOfDay()"><a style ="font-size:18px;margin-top: 10px;margin-bottom: 10px;">End of day</a></li>  
          </ul> 
      </div>
  </h2>
@@ -27,11 +27,11 @@
 <div id="error-placement"></div>
 
         <ul class="nav nav-tabs">
-            <li ng-class="{'active': jobType == 'toDeliver'}" ui-sref="driver.jobs({jobType : 'toDeliver'})">
+            <li style ="font-weight:bold;"ng-class="{'active': jobType == 'toDeliver'}" ui-sref="driver.jobs({jobType : 'toDeliver'})">
             <a>To deliver</a></li>
-            <li ng-class="{'active': jobType == 'delivered' }" ui-sref="driver.jobs({jobType : 'delivered'})">
+            <li style ="font-weight:bold;"ng-class="{'active': jobType == 'delivered' }" ui-sref="driver.jobs({jobType : 'delivered'})">
             <a>Delivered</a></li>
-            <li ng-class="{ 'active': jobType == 'returning' }" ui-sref="driver.jobs({jobType : 'returning'})"><a>Returns</a></li>
+            <li style ="font-weight:bold;"ng-class="{ 'active': jobType == 'returning' }" ui-sref="driver.jobs({jobType : 'returning'})"><a>Returns</a></li>
             
         </ul>
 
@@ -50,12 +50,12 @@
                       <div class="dropdown">
                         <div ng-click="openJobModal(package)" style ="text-decoration: none;font-weight: 600;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ID # {{package.packageNumber}}</div>
                          <ul style ="margin-top: -15px;" class="dropdown-menu"> 
-                            <li ng-click="clickPackageType(packagesType.delivered)"><a style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Delivered</a></li>
-                            <li ng-click="clickPackageType(packagesType.damaged)"><a style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Damaged</a></li> 
-                            <li ng-click="clickPackageType(packagesType.incorrectAddress)"><a href="#"style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Incorrect address</a></li> 
-                            <li ng-click="clickPackageType(packagesType.notAvailable)"><a style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Customer not available</a></li>  
-                            <li ng-click="clickPackageType(packagesType.returned)"><a style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Package return</a></li>
-                            <li ng-click="clickPackageType(packagesType.rescheduled)"><a style ="font-size:15px;margin-top: 5px;margin-bottom: 5px;">Rescheduled</a></li>  
+                            <li ng-click="clickPackageType(packagesType.delivered)"><a style ="font-size:18px;margin-top: 10px;margin-bottom: 10px;">Delivered</a></li>
+                            <li ng-click="clickPackageType(packagesType.damaged)"><a style ="font-size:18px;margin-top: 10px;margin-bottom: 10px;">Damaged</a></li> 
+                            <li ng-click="clickPackageType(packagesType.incorrectAddress)"><a href="#"style ="font-size:18px;margin-top: 10px;margin-bottom: 10px;">Incorrect address</a></li> 
+                            <li ng-click="clickPackageType(packagesType.notAvailable)"><a style ="font-size:18px;margin-top: 10px;margin-bottom: 10px;">Customer not available</a></li>  
+                            <li ng-click="clickPackageType(packagesType.returned)"><a style ="font-size:18px;margin-top: 10px;margin-bottom: 10px;">Package return</a></li>
+                            <li ng-click="clickPackageType(packagesType.rescheduled)"><a style ="font-size:18px;margin-top: 10px;margin-bottom: 10px;">Rescheduled</a></li>  
                          </ul> 
                       </div>
                 </td>

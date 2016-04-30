@@ -1,7 +1,7 @@
 <div ng-click="selectDriver(driver)" class = "innerWrapper">
   <div class ="driver_image"></div>
   <div ng-class="{ 'whiteBar': cardType.created.key == driver.card_type, 'redBar': cardType.dispatched.key == driver.card_type, 'yellowBar': cardType.arrivedDispatched.key == driver.card_type, 'orangeBar': cardType.arrivedReturning.key == driver.card_type, 'greenBar': cardType.checkedIn.key == driver.card_type, 'blueBar': cardType.assignedJob.key == driver.card_type, 'redBar': cardType.returning.key == driver.card_type, }"></div>
-  <div class="fontCover" style = "height:58px;" > 
+  <div class="fontCover" style = "height:58px;border-bottom: 0px;" > 
       <div class ="text_1" >
         <div>
           <p class ="fontDesign" style = "font-size: 16px;">{{driver.driver_name}}</p>
