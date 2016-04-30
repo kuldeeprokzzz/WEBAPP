@@ -1,5 +1,5 @@
 angular.module('inloopAppApp')
-  .controller('loadManagerController', function ($scope, $stateParams,sharedProperties,completeModel,contractTaskService,jobService,tripService) {
+  .controller('loadManagerController', function ($scope, $stateParams,$location,$timeout,sharedProperties,completeModel,contractTaskService,jobService,tripService) {
 
   	$scope.initialize = function(){
   		if(completeModel.getCompleteModel() != undefined){
@@ -75,11 +75,13 @@ angular.module('inloopAppApp')
                   if(response.status == 201){
                     contractTaskService.updateContractTaskStateToAssignedJob(
                     contractTask.latest_state.location.latitude,contractTask.latest_state.location.latitude,
-                    contractTask.latest_state.odometer,contractTask.id,$model.profile.username,job.id,tripId)
+                    contractTask.latest_state.odometer,contractTask.id,$scope.model.profile.username,$scope.jobToBeAssigned.id,tripId)
                     .then(function(response){
                       if(response.status == 201){
                         $("#centerModal").modal("toggle");
-                        $location.path('/loadManager/job/'+sharedProperties.getJobsTypes().unassigned.value+'/Jon Assigned Successfully !');
+                        $timeout(function(){
+                          $location.path('/loadManager/job/'+sharedProperties.getJobsTypes().unassigned.value+'/Jon Assigned Successfully !');
+                        }, 500);
                       }else{
                                   $scope.message = "Something went wront. Assign job again !";
                                   $("#centerModal").modal("toggle");

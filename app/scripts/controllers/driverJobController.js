@@ -6,26 +6,6 @@ angular.module('inloopAppApp')
   			var model = completeModel.getCompleteModel();
   		}
 
-      model.contractTask = {
-'id': 2, 'contractid': 12,
-'task_date': '2016-03-30',
-'shipperid': 1, 'shipper_name':
-'Amazon Transposrt Services.',
-'providerid': 0, 'provider_name':
-'GTrans Logistics Pvt. Ltd.',
-'vehicleid': 1, 'vehicle_regNumber':
-'KA19P8488', 'vehicle_make': 'TATA ACE', 'driverid': 0, 'driver_name':
-'Aarav Banerjee', 'driver_image':
-'http://54.169.251.56/media/drivers/aarav.png',
-'delivery_centreid': 5, 'delivery_centre_name':
-'Jakkur Delivery Centre', 'status': 'ASSIGNED_JOB',
-'card_type': 'ASSIGNED_JOB',
-'latest_state': {'id': 2, 'type': 'CHECKED_IN',
-'time': '2016-03-28T07:54:57+0530','location': {
-'longitude': 77.593691, 'latitude': 12.971941},
-'odometer': 34239,'contract_taskid': 2,'performed_by':
-'kvkumar', 'jobid':123,'tripid':2}};
-
       $scope.model = model;
       $scope.deliveryCenter = model.deliveryCentre;
       $scope.contractTaskType = sharedProperties.getContractTaskType();      
@@ -43,18 +23,19 @@ angular.module('inloopAppApp')
       .then(function(response){
         if(response.status == 200){
             $scope.jobName = response.data.name;
-            //tripService.getTripDetailsbyId($scope.tripId)
-            //.then(function(response){
-              response.data = {
-    'id': 1,
-    'vehicleid': 1,
-    'driverid': 1,
-    'contract_taskid': 2,
-    'jobid': 119,
-    'odometer_deviceid': 1,
-    'manifestid': 1
-  };
+            /*tripService.getTripDetailsbyId($scope.tripId)
+            .then(function(response){*/
               if(response.status == 200){
+
+                response.data =  {
+    "id": 1,
+    "vehicleid": 6,
+    "driverid": 0,
+    "contract_taskid": 15,
+    "jobid": $scope.jobId,
+    "odometer_deviceid": 1,
+    "manifestid": 3
+  };
                 $scope.newCount = 0;
                 $scope.manifestId = response.data.manifestid;
                 manifestService.getManifestPackagesbyManifestId(response.data.manifestid)
@@ -62,14 +43,14 @@ angular.module('inloopAppApp')
                   if(response.status == 200){
                     $scope.packages = [];
                     angular.forEach(response.data, function(value, key) {
-                      if($scope.jobType == 'toDeliver' && value.status == $scope.packagesType.new){
+                      if($scope.jobType == 'toDeliver' && value.latest_state.type == $scope.packagesType.new){
                         $scope.packages.push(value);
                         $scope.newCount = $scope.newCount + 1;
                       }
-                      if($scope.jobType == 'delivered' && value.status == $scope.packagesType.delivered){
+                      if($scope.jobType == 'delivered' && value.latest_state.type == $scope.packagesType.delivered){
                         $scope.packages.push(value);
                       }
-                      if($scope.jobType == 'returning' && value.status != $scope.packagesType.new && value.status != $scope.packagesType.delivered){
+                      if($scope.jobType == 'returning' && value.latest_state.type != $scope.packagesType.new && value.status != $scope.packagesType.delivered){
                         $scope.packages.push(value);
                       }
                     });
@@ -127,7 +108,7 @@ angular.module('inloopAppApp')
             $scope.errorMessage = "Something went wrong. Try again !";
           }
         });
-      }, 1000);
+      }, 500);
     }
 
     $scope.ReturnToCenter = function(){

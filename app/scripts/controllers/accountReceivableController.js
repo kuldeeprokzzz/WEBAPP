@@ -58,7 +58,7 @@ angular.module('inloopAppApp')
                     job : response.data
                   };
 
-                  if(invoice.status == invoiceTypes.created.value){
+                  if(invoice.status == $scope.invoiceTypes.created.value){
                     $scope.submitAllInvoiceList.push(item);
                   }
                   $scope.jobInvoiceList.push(item);

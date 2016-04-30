@@ -26,7 +26,7 @@
           <p class ="fontDesign" style = "font-size: 16px;font-weight:normal;position: relative;
     left: 3px;">{{driver.vehicle_make}}</p>
           <br>
-          <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:-1px">{{driver.vehicle_make}}</p>
+          <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:-1px">{{driver.vehicle_color}} {{driver.vehicle_make}} {{driver.vehicle_model}}</p>
           <button ng-disabled="disabled" ng-show="contractTaskType.dispatched.value == driver.status || contractTaskType.returning.value == driver.status" style ="border-shadow:none; position: relative;top: -40px;background:#13A89E;font-weight:bold"ng-click="addOdometerReading()" type="button" class="btn btn-info pull-right">CHECK IN</button>
         </div>
       </div>

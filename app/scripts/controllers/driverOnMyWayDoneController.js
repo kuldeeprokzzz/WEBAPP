@@ -150,7 +150,7 @@ var start = new google.maps.LatLng(latitude, longitude);
 
 
 
-  $interval(function(){
+  $scope.intervalCall = $interval(function(){
     contractTaskService.getContractTaskById($scope.model.contractTask.id)
     .then(function(response){
       if(response.status == 200){
@@ -167,7 +167,7 @@ var start = new google.maps.LatLng(latitude, longitude);
         }
       }
     });
-  }, 6000);
+  }, 30000);
 
   	};
 
@@ -177,6 +177,7 @@ var start = new google.maps.LatLng(latitude, longitude);
 
         $scope.$on('$locationChangeStart', function(event, next, current){            
           if($location.path() == $scope.model.lastPath || $location.path() == '/driver/arrived' || $location.path() == '/driver/checkedIn' || $location.path() == '/driver/jobs/toDeliver'){
+          clearInterval($scope.intervalCall);
           }else{
             event.preventDefault();
           }            

@@ -36,7 +36,7 @@
         <td class ="stylingFonts" style = "font-weight:bold;color:#1DABA2;">{{job.name}}</td>
         <td>{{job.area}}</td>
         <td>{{job.number_of_packages}} packages</td>
-        <td>{{job.job_date}}</td>
+        <td>{{job.latest_state.time | date: 'hh:mm a MM/dd/yyyy'}}</td>
         <td style = "font-weight:bold;color:#1DABA2;" class ="stylingFonts" ng-click="submitAssignDriver(job)" ng-show="{{job.status == jobsTypes.unassigned.value}}">Assign a Driver</td>
         <td style = "font-weight:bold;color:#1DABA2;" class ="stylingFonts"  ng-click="showDetails(job)" ng-show="{{job.status == jobsTypes.assigned.value}}">Assigned</td>
         <td style = "font-weight:bold;color:#1DABA2;" class ="stylingFonts" ng-click="showCompleteDetails(job)" ng-show="{{job.status == jobsTypes.completed.value}}">Completed</td>
@@ -66,8 +66,8 @@
         <div ng-repeat="contractTask in contractTasks">
        
         <div style="width: 288px;margin: 6% auto;"class = "innerWrapper">
-        <div class = "driver_imagePhoto"></div>
-        <div ng-class="{ 'whiteBar': cardType.created.key == contractTask.card_type, 'redBar': cardType.dispatched.key == contractTask.card_type, 'yellowBar': cardType.arrivedDispatched.key == contractTask.card_type, 'orangeBar': cardType.arrivedReturning.key == contractTask.card_type, 'greenBar': cardType.checkedIn.key == contractTask.card_type, 'blueBar': cardType.assignedJob.key == contractTask.card_type, 'redBar': cardType.returning.key == contractTask.card_type, }"></div>
+        <img src="{{contractTask.driver_image}}" class = "driver_imagePhoto"/>
+        <div ng-class="{ 'whiteBar': cardType.created.key == contractTask.ccontractTask.driver_imageard_type, 'redBar': cardType.dispatched.key == contractTask.card_type, 'yellowBar': cardType.arrivedDispatched.key == contractTask.card_type, 'orangeBar': cardType.arrivedReturning.key == contractTask.card_type, 'greenBar': cardType.checkedIn.key == contractTask.card_type, 'blueBar': cardType.assignedJob.key == contractTask.card_type, 'redBar': cardType.returning.key == contractTask.card_type, }"></div>
         <div class="fontCover" style ="margin-top: -9px;height: 57px;">
         <div class ="text_1" style ="margin-bottom: -11px;">
           <p class ="fontDesign" style ="position: relative;
@@ -127,7 +127,7 @@
                     <div class = "innerWrapper">
                         <!-- <img  class = "img-wrapper img-resposive" src="images/driver_photo_1.png"> -->
                         
-                        <div class = "driver_imagePhoto"></div>
+                        <img src="{{contractTask.driver_image}}" class = "driver_imagePhoto"/>
                         
                         <div class = "lineBar"></div>
                         <div class="fontCover" style ="height: 52px;">
@@ -198,7 +198,7 @@
 
             <div class ="col-md-4" style ="margin-bottom: 20px;">
                 <div class = "innerWrapper">
-                    <div style ="height:200px;"class = "driver_imagePhoto"></div>
+                    <img src="{{invoiceTobeSubmitted.contractTask.driver_image}}" class = "driver_imagePhoto"/>
                     <div class="fontCover" style ="height: 45px;">
                     <div class ="text_1" style ="line-height: 11px;">
                       <p class ="fontDesign">{{invoiceTobeSubmitted.contractTask.driver_name}}</p>

@@ -1,5 +1,5 @@
 <div ng-click="selectDriver(driver)" class = "innerWrapper">
-  <div class ="driver_image"></div>
+  <img src="{{driver.driver_image}}" class ="driver_image" />
   <div ng-class="{ 'whiteBar': cardType.created.key == driver.card_type, 'redBar': cardType.dispatched.key == driver.card_type, 'yellowBar': cardType.arrivedDispatched.key == driver.card_type, 'orangeBar': cardType.arrivedReturning.key == driver.card_type, 'greenBar': cardType.checkedIn.key == driver.card_type, 'blueBar': cardType.assignedJob.key == driver.card_type, 'redBar': cardType.returning.key == driver.card_type, }"></div>
   <div class="fontCover" style = "height:58px;border-bottom: 0px;" > 
       <div class ="text_1" >
@@ -9,19 +9,19 @@
           <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:-13px;">{{driver.provider_name}}</p>
         </div>  
         <div ng-show="contractTaskType.created.value == driver.status" style ="text-align:right;    margin-top: -64px;">
-          <p class ="fontDesign" style = "font-size: 16px;font-weight:normal">hello</p>
+          <p class ="fontDesign" style = "font-size: 16px;font-weight:normal"></p>
           <br>
-          <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:0px">hello</p>
+          <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:0px"></p>
         </div> 
         <div ng-show="contractTaskType.dispatched.value == driver.status"  style ="text-align:right;    margin-top: -64px;">
           <p class ="fontDesign" style = "font-size: 16px;font-weight:normal;position: relative;
-    left: 3px;">IN TRANSIT</p>
+    left: 3px;">In Transit</p>
           <br>
           <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:-13px">{{ driver.latest_state.time | date:'h:mm a'}}</p>
         </div>
         <div ng-show="contractTaskType.arrived.value == driver.status"  style ="text-align:right;    margin-top: -64px;">
           <p class ="fontDesign" style = "font-size: 16px;font-weight:normal;    position: relative;
-    left: 3px;">ARRIVED</p>
+    left: 3px;">Arrived</p>
           <br>
           <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:-13px">{{ driver.latest_state.time | date:'h:mm a'}}</p>
         </div>
@@ -33,7 +33,7 @@
         </div>
         <div ng-show="contractTaskType.assignedJob.value == driver.status"  style ="text-align:right;    margin-top: -64px;">
           <p class ="fontDesign" style = "font-size: 16px;font-weight:normal;    position: relative;
-    left: 3px;">ASSIGNED</p>
+    left: 3px;">Assigned</p>
           <br>
           <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:-13px">{{driver.latest_state.jobid}}</p>
         </div>

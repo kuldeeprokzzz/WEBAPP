@@ -137,7 +137,7 @@ google.maps.event.trigger(map, "resize");
 
 
 
-  $interval(function(){
+  $scope.intervalCall = $interval(function(){
     contractTaskService.getContractTaskById($scope.model.contractTask.id)
     .then(function(response){
       if(response.status == 200){
@@ -176,6 +176,7 @@ google.maps.event.trigger(map, "resize");
 
         $scope.$on('$locationChangeStart', function(event, next, current){            
           if($location.path() == $scope.model.lastPath || $location.path() == '/driver/checkedIn' || $location.path() == '/driver/jobs/toDeliver'){
+          clearInterval($scope.intervalCall);
           }else{
             event.preventDefault();
           }            

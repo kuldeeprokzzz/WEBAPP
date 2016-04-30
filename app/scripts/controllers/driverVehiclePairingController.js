@@ -11,9 +11,10 @@ angular.module('inloopAppApp')
 
         }
       }*/
+
       $scope.model = model;
       $scope.licencePlateNumber  = model.vehicle.regNumber;
-      $scope.vehicleName = model.vehicle.make + " " + model.vehicle.model;
+      $scope.vehicleName = model.vehicle.color+" "+model.vehicle.make + " " + model.vehicle.model;
   	  $scope.vehicleImage = model.vehicle.vehicleImage;
     };
 
@@ -29,14 +30,16 @@ angular.module('inloopAppApp')
         if(response.status == 200){
           if(response.data.length != 0){
             $scope.model.contractTask = response.data[0];
-            provisioningService.getDeliveryCenterDetails($scope.model.profile.organizationid,$scope.model.contractTask.delivery_centreid)
+            provisioningService.getDeliveryCenterDetails($scope.model.contractTask.shipperid,$scope.model.contractTask.delivery_centreid)
               .then(function(response){
                 if(response.status == 200){
                   $scope.model.deliveryCentre = response.data;
-                  contractTaskService.updateDriverToContractTask($scope.model.contractTask.id,$scope.model.profile.id)
+                  contractTaskService.updateDriverToContractTask($scope.model.contractTask.id,$scope.model.profile.id,
+                    $scope.model.profile.first_name+" "+$scope.model.profile.last_name,$scope.model.profile.image)
                   .then(function(response){
                     if(response.status == 200){
-                      completeModel.saveCompleteModel($scope.model);
+                      //$scope.model.contractTask = response.data;
+                      //completeModel.saveCompleteModel($scope.model);
                       $location.path('/driver/onMyWay');              
                     }else{
                       $scope.errorMessage = "Some thing went wrong. Please try again.";

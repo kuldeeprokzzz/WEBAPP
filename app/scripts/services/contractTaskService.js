@@ -14,11 +14,15 @@ inloopAppApp.service('contractTaskService', ['sharedProperties','$http', functio
 
     }
 
-    this.updateDriverToContractTask = function(contractTaskId,driverId){
+    this.updateDriverToContractTask = function(contractTaskId,driverId,driverName,driverImage){
     return $http({
             method: 'PUT',
             url: sharedProperties.getUrl()+'/contract_tasks/'+contractTaskId,
-            data : {driverid : driverId},
+            data : {
+              driverid : driverId,
+              driver_name : driverName,
+              driver_image : driverImage
+            },
             }).success(function(response){
                 return response;
             }).error(function(response){
@@ -26,12 +30,16 @@ inloopAppApp.service('contractTaskService', ['sharedProperties','$http', functio
             });
     }
 
-    this.updataContractStateToDispatchedWithoutLocationAndOdometer = function(contractTaskId,username){
+    this.updataContractStateToDispatchedWithoutOdometer = function(contractTaskId,username,lat,long){
     
     var requestBody = {
-                  "type": sharedProperties.getContractTaskType().dispatched.type,
+                  "type": sharedProperties.getContractTaskType().dispatched.value,
                   "time": sharedProperties.getTodatUTCDateTime(),
                   "performed_by": username,
+                  "location": {
+                    "longitude":lat,
+                    "latitude": long
+                  },
                 };
 
 
@@ -169,14 +177,13 @@ inloopAppApp.service('contractTaskService', ['sharedProperties','$http', functio
                               "type": sharedProperties.getContractTaskType().checkedIn.value,
                               "time": currentTime,
                               "location": {
-                                             "longitude": null,
-                                             "latitute": null,
-                                          },
-                              "odometer": odometer,
-                              "contract_taskid": contractTaskId,
-                              "performed_by": performedBy,
+                                             "longitude": undefined,
+                                             "latitute": undefined
+                                          },  // location to be determined from Dataglen platform
+                              "odometer": parseFloat(odometer),
+                              "performed_by": performedBy
                              };
-
+                             console.log(JSON.stringify(requestBody));
         return $http.post(sharedProperties.getUrl()+'/contract_tasks/'+contractTaskId+'/states',requestBody,{})
         .then(function(response){
             return response;

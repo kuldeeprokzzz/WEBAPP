@@ -11,8 +11,14 @@ angular.module('inloopAppApp')
       $scope.contractTaskType = sharedProperties.getContractTaskType();
 
       $scope.driver = $scope.model.driverToBeCheckedIn;
+      $scope.model.contractTask = $scope.model.driverToBeCheckedIn;
+      
+      if($scope.model.contractTask.status == $scope.contractTaskType.arrived.value){
+        $scope.odometer = $scope.model.contractTask.latest_state.odometer;
+      }else{
+        $scope.odometer = "";
+      }
 
-      $scope.odometer = $scope.model.contractTask.latest_state.odometer;
       $scope.onOdometerKeyPress();
   	};
 

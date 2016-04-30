@@ -12,9 +12,9 @@ angular.module('inloopAppApp')
         }
       }*/
       $scope.model = model;
-      $scope.name  = model.profile.first_name +" "+ model.profile.middle_name + model.profile.last_name;
+      $scope.name  = model.profile.first_name +" " + model.profile.last_name;
       $scope.rolesTypes = sharedProperties.getRoles();
-      $scope.vehicleName = model.vehicle.make + " " + model.vehicle.model;
+      $scope.vehicleName = model.vehicle.color+" "+model.vehicle.make + " " + model.vehicle.model;
       $scope.organisationName = model.profile.organization_name;
       $scope.licencePlateNumber = model.vehicle.regNumber;
       $scope.deliveryCenter = model.deliveryCentre;
@@ -61,11 +61,10 @@ var centerControlDiv = document.createElement('div');
         // Setup the click event listeners: simply set the map to Chicago.
         controlUI.addEventListener('click', function() {
 
-          contractTaskService.updataContractStateToDispatchedWithoutLocationAndOdometer(model.contractTask.id,model.profile.username)
+          contractTaskService.updataContractStateToDispatchedWithoutOdometer
+          (model.contractTask.id,model.profile.username,$scope.latitude,$scope.longitude)
           .then(function(response){
             if(response.status == 201){
-              model.contractTask = response.data;
-              completeModel.saveCompleteModel(model);
               $location.path('/driver/onMyWayDone');
             }else{
               $scope.errorMessage = "Something Went wrong. Try again !";
@@ -88,6 +87,9 @@ google.maps.event.trigger(map, "resize");
   navigator.geolocation.getCurrentPosition(function(position){
   var latitude  = position.coords.latitude;
   var longitude = position.coords.longitude;
+
+  $scope.latitude = latitude;
+  $scope.longitude = longitude;
       
 
   var directionsDisplay;
