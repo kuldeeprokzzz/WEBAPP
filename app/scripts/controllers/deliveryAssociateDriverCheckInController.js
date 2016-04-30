@@ -34,7 +34,7 @@ angular.module('inloopAppApp')
             .then(function(response){
               if(response.status == 201){
                 tripService.updateTripStateToEndTrip($scope.model.contractTask.latest_state.tripid,
-                  $scope.model.profile.username,$cope.odometer)
+                  $scope.model.profile.username,$scope.odometer)
                 .then(function(response){
                   if(response.status == 201){
                     $location.path('/deliveryAssociate/drivers/'+$scope.model.viewType);

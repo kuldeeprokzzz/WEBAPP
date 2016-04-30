@@ -1,6 +1,6 @@
 <div ng-click="selectDriver(driver)" class = "innerWrapper">
   <img src="{{driver.driver_image}}" class ="driver_image" />
-  <div ng-class="{ 'whiteBar': cardType.created.key == driver.card_type, 'redBar': cardType.dispatched.key == driver.card_type, 'yellowBar': cardType.arrivedDispatched.key == driver.card_type, 'orangeBar': cardType.arrivedReturning.key == driver.card_type, 'greenBar': cardType.checkedIn.key == driver.card_type, 'blueBar': cardType.assignedJob.key == driver.card_type, 'redBar': cardType.returning.key == driver.card_type, }"></div>
+  <div ng-class="{ 'whiteBar': cardType.created.key == driver.card_type, 'redBar': cardType.dispatched.key == driver.card_type, 'yellowBar': cardType.arrivedDispatched.key == driver.card_type, 'orangeBar': cardType.arrivedReturning.key == driver.card_type, 'greenBar': cardType.checkedIn.key == driver.card_type, 'blueBar': cardType.assignedJob.key == driver.card_type, 'orangeBar': cardType.returning.key == driver.card_type, }"></div>
   <div class="fontCover" style = "height:58px;border-bottom: 0px;" > 
       <div class ="text_1" >
         <div>
@@ -39,7 +39,7 @@
         </div>
         <div ng-show="contractTaskType.returning.value == driver.status"  style ="text-align:right;    margin-top: -64px;">
           <p class ="fontDesign" style = "font-size: 16px;font-weight:normal;    position: relative;
-    left: 3px;">{{driver.latest_state.jobid}}</p>
+    left: 3px;">In Transit</p>
           <br>
           <p class ="fontDesign" style ="font-weight: normal;font-size: 16px; position:relative; top:-13px">{{ driver.latest_state.time | date:'h:mm a'}}</p>
         </div>

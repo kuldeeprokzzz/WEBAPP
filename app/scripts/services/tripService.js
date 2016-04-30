@@ -71,10 +71,10 @@ inloopAppApp.service('tripService', ['sharedProperties','$http', function(shared
                                 'time': currentTime,
                                 'location': {
                                     'longitude': long,
-                                    'latitude': lati,
+                                    'latitude': lati
                                 },
-                                'odometer': odometer,
-                                'performed_by': username,
+                                'odometer': parseFloat(odometer),
+                                'performed_by': username
                             };
 
           return $http.post(sharedProperties.getUrl()+'/trips/'+tripId+'/states/',requestBody,{})

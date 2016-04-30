@@ -29,12 +29,12 @@ angular.module('inloopAppApp')
 
                 response.data =  {
     "id": 1,
-    "vehicleid": 6,
+    "vehicleid": 2,
     "driverid": 0,
-    "contract_taskid": 15,
+    "contract_taskid": 7,
     "jobid": $scope.jobId,
     "odometer_deviceid": 1,
-    "manifestid": 3
+    "manifestid": 4
   };
                 $scope.newCount = 0;
                 $scope.manifestId = response.data.manifestid;

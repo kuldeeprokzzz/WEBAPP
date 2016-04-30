@@ -144,13 +144,12 @@ inloopAppApp.service('contractTaskService', ['sharedProperties','$http', functio
     this.updataContractStateToReturning = function(contractTaskId,username,jobId,tripId){
         
         var requestBody = {
-                              'type': sharedProperties.getContractTaskType().returning.type, 
+                              'type': sharedProperties.getContractTaskType().returning.value, 
                               'time': sharedProperties.getTodatUTCDateTime(),
                               'location': {
-                                  'longitude': undefined,
-                                  'latitude': undefined,
-                              },
-                              'odometer': undefined,
+                                  'longitude': 98729857,
+                                  'latitude': 9597,
+                              }, // get lat long from datageln platform
                               'performed_by': username,
                               'jobid':jobId,
                               'tripid':tripId,
